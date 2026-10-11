@@ -1,0 +1,9 @@
+{
+  "as_of":"2026-09-22",
+  "base":"USD",
+  "rates":{"USD":1.0,"CAD":1.40,"BRL":5.11,"MXN":17.22,"GBP":0.75,"EUR":0.87,"CHF":0.82,"SEK":9.82,"NOK":9.41,"DKK":6.52,"PLN":3.79,"CZK":21.4,"TRY":48.82,"AUD":1.40,"NZD":1.74,"JPY":157.5,"KRW":1374,"CNY":6.70,"INR":95.8,"PKR":277.4,"SGD":1.28,"IDR":16500,"AED":3.67,"SAR":3.75,"QAR":3.64,"ZAR":16.25,"NGN":1470,"EGP":51.9},
+  "formatting":{"USD":"en-US","CAD":"en-CA","BRL":"pt-BR","MXN":"es-MX","GBP":"en-GB","EUR":"de-DE","CHF":"de-CH","SEK":"sv-SE","NOK":"nb-NO","DKK":"da-DK","PLN":"pl-PL","CZK":"cs-CZ","TRY":"tr-TR","AUD":"en-AU","NZD":"en-NZ","JPY":"ja-JP","KRW":"ko-KR","CNY":"zh-CN","INR":"hi-IN","PKR":"en-PK","SGD":"en-SG","IDR":"id-ID","AED":"ar-AE","SAR":"ar-SA","QAR":"ar-QA","ZAR":"en-ZA","NGN":"en-NG","EGP":"ar-EG"},
+  "rounding":"whole local-currency units",
+  "disclosure":"Approximate conversion using reference rates checked 22 September 2026 — check the live price at checkout.",
+  "sources":["https://themoney.tj/en/central-bank-rates/","https://www.currency-converter.org.uk/widget/CCUK-WCRT-2.php?ws=https://www.currency-converter.org.uk/compare-exchange-rates.html&userhr=5&tz=userset&mc=GBP&fc=000000&mbg=ffffff"]
+}

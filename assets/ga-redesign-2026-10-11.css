@@ -1,0 +1,849 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* Gadget Audit 2026 redesign: bright editorial system, shared across home and articles. */
+:root{
+  color-scheme:light dark;
+  --ga-bg:#fff;--ga-bg-alt:#f4f7f4;--ga-surface:#fff;--ga-surface-2:#f7f9f7;
+  --ga-ink:#10160f;--ga-ink-2:#3e4a3e;--ga-muted:#6b766b;--ga-line:#e4eae4;
+  --ga-accent:#d1fe17;--ga-accent-2:#00a99d;--ga-accent-ink:#10160f;
+  --ga-accent-tint:rgba(209,254,23,.16);--ga-badge-top:#ff4d8d;
+  --ga-display:'Space Grotesk','IBM Plex Sans',system-ui,sans-serif;
+  --ga-body:'Inter','Source Sans 3',system-ui,sans-serif;
+  --ga-shadow:0 1px 2px rgba(16,22,15,.06),0 8px 24px rgba(16,22,15,.08);
+  --ga-shadow-hover:0 2px 4px rgba(16,22,15,.08),0 20px 48px rgba(16,22,15,.14);
+  --ga-gradient:linear-gradient(118deg,var(--ga-accent-2),#46d979 54%,var(--ga-accent));
+  --ga-ease:cubic-bezier(.2,.7,.2,1);
+  --gas-bg:var(--ga-bg);--gas-paper:var(--ga-surface);--gas-ink:var(--ga-ink);--gas-muted:var(--ga-muted);--gas-line:var(--ga-line);--gas-green:var(--ga-accent-2);
+  --bg:var(--ga-bg);--paper:var(--ga-surface);--raised:var(--ga-surface-2);--ink:var(--ga-ink);--text:var(--ga-ink-2);--muted:var(--ga-muted);--line:var(--ga-line);--green:var(--ga-accent-2);--green2:#087f75;--soft:var(--ga-accent-tint);--shadow:var(--ga-shadow);
+}
+:root[data-theme="dark"]{
+  --ga-bg:#0f1113;--ga-bg-alt:#141719;--ga-surface:#1c1e20;--ga-surface-2:#232628;
+  --ga-ink:#f7f7f8;--ga-ink-2:#c9cfd0;--ga-muted:#9aa3a4;--ga-line:rgba(255,255,255,.1);
+  --ga-accent:#d1fe17;--ga-accent-2:#25c9ba;--ga-accent-ink:#1a1a1a;
+  --ga-accent-tint:rgba(209,254,23,.08);--ga-shadow:0 1px 0 rgba(255,255,255,.03),0 12px 30px rgba(0,0,0,.25);--ga-shadow-hover:0 24px 58px rgba(0,0,0,.45);
+  --gas-deep:#0a0c0d;--nav:#0f1113;--gold:#ff4d8d;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme]){--ga-bg:#0f1113;--ga-bg-alt:#141719;--ga-surface:#1c1e20;--ga-surface-2:#232628;--ga-ink:#f7f7f8;--ga-ink-2:#c9cfd0;--ga-muted:#9aa3a4;--ga-line:rgba(255,255,255,.1);--ga-accent-2:#25c9ba;--ga-accent-ink:#1a1a1a;--ga-accent-tint:rgba(209,254,23,.08);--ga-shadow-hover:0 24px 58px rgba(0,0,0,.45)}}
+html{overflow-x:clip;scroll-behavior:smooth}body{overflow-x:clip!important;background:var(--ga-bg)!important;color:var(--ga-ink-2)!important;font-family:var(--ga-body)!important;font-size:17px;line-height:1.65}img,video,iframe,svg{max-width:100%}h1,h2,h3,h4{font-family:var(--ga-display)!important;color:var(--ga-ink);letter-spacing:-.025em}a,button,input,select{font-family:var(--ga-body)}
+:where(a,button,input,select,summary,[tabindex]):focus-visible{outline:3px solid var(--ga-accent-2)!important;outline-offset:3px!important}
+:root[data-theme="dark"] :where(a,button,input,select,summary,[tabindex]):focus-visible{outline-color:var(--ga-accent)!important}
+
+/* Shared two-tier masthead. */
+.ga-site-header{background:color-mix(in srgb,var(--ga-bg) 93%,transparent)!important;border-bottom:1px solid var(--ga-line)!important;box-shadow:none!important;backdrop-filter:blur(20px) saturate(1.2);font-family:var(--ga-body)!important}
+.ga-site-header:after{height:1px!important;background:linear-gradient(90deg,transparent 0,var(--ga-accent-2) 28%,var(--ga-accent) 72%,transparent 100%)!important;opacity:.8}
+.ga-shell-nav{width:min(1280px,calc(100% - 48px))}
+.ga-utility-row{min-height:66px;gap:8px;border-bottom-color:var(--ga-line)}
+.ga-brand{width:48px!important;height:48px!important;flex:0 0 48px!important;margin-right:8px;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;overflow:visible!important}
+.ga-brand img{position:static!important;display:block!important;width:48px!important;height:48px!important;max-width:48px!important;max-height:48px!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;object-fit:contain!important;content:normal!important}
+.ga-brand-wordmark{display:none!important}
+.ga-scope-note{margin-right:auto;max-width:340px;color:var(--ga-muted);font-size:12px;font-weight:600;letter-spacing:0}
+.ga-tool,.ga-menu-button,.ga-search-link,.ga-finder-link{min-width:44px;min-height:44px;border:1px solid var(--ga-line)!important;border-radius:10px!important;background:var(--ga-surface-2)!important;color:var(--ga-ink)!important;box-shadow:none!important;font-weight:600}
+.ga-finder-link{border-color:transparent!important;background:var(--ga-gradient)!important;color:var(--ga-accent-ink)!important}
+.ga-tool:hover,.ga-search-link:hover,.ga-finder-link:hover,.ga-menu-button:hover{transform:translateY(-2px);box-shadow:var(--ga-shadow)!important}
+.ga-top-socials a{min-width:44px;min-height:44px;color:var(--ga-muted)}
+.ga-primary-nav{min-height:52px;justify-content:flex-start;gap:2px}
+.ga-primary-nav>a,.ga-nav-toggle{min-height:52px;padding-inline:14px;border-radius:0;color:var(--ga-ink-2);font-size:13px;font-weight:600}
+.ga-primary-nav>a:after,.ga-nav-toggle:after{left:14px;right:14px;bottom:0;height:3px;background:var(--ga-gradient)}
+.ga-primary-nav>a:hover,.ga-primary-nav>a:focus-visible,.ga-nav-toggle:hover,.ga-nav-toggle:focus-visible,.ga-menu-group.is-open>.ga-nav-toggle{background:transparent;color:var(--ga-ink)}
+.ga-menu-panel,.ga-region-panel{border:1px solid var(--ga-line)!important;border-radius:20px!important;background:var(--ga-surface)!important;box-shadow:var(--ga-shadow-hover)!important}
+.ga-menu-panel>.ga-menu-label{background:none!important;color:var(--ga-accent-2)!important;-webkit-text-fill-color:currentColor;font-family:var(--ga-body);font-weight:700;letter-spacing:.12em}
+:root[data-theme="dark"] .ga-menu-panel>.ga-menu-label{color:var(--ga-accent)!important}
+.ga-menu-panel>.ga-subgroup{border:0!important;border-radius:12px!important;background:var(--ga-surface-2)!important}
+.ga-sub-toggle,.ga-menu-panel a,.ga-country-button,.ga-region-toggle{color:var(--ga-ink)!important}
+.ga-menu-panel a:hover,.ga-menu-panel a:focus-visible,.ga-sub-toggle:hover,.ga-sub-toggle:focus-visible{background:var(--ga-accent-tint)!important;color:var(--ga-ink)!important}
+.ga-item-note{color:var(--ga-muted)}
+.ga-theme-symbol{font-family:var(--ga-display);font-size:18px}
+
+/* Homepage composition. */
+.shell{width:min(1280px,calc(100% - 48px))!important}
+.disclosure,.story-ticker{background:var(--ga-bg-alt)!important;border-color:var(--ga-line)!important;color:var(--ga-ink-2)!important}
+.disclosure{font-size:13px}.disclosure b{border-radius:999px;background:var(--ga-accent-2);color:#fff}.disclosure a{color:var(--ga-ink)!important}
+.story-ticker-inner{min-height:44px}.story-ticker-inner>strong{color:var(--ga-accent-2)!important;letter-spacing:.12em}.story-ticker-set a,.story-ticker-set span{color:var(--ga-ink-2)!important}.story-ticker-set i{color:var(--ga-accent-2)!important}
+.proofbar{background:var(--ga-surface)!important;border-color:var(--ga-line)!important}.proofgrid a{border-color:var(--ga-line)!important}.proofgrid b{color:var(--ga-ink)!important}.proofgrid span{color:var(--ga-muted)!important}
+.hero{padding:88px 0 56px!important;background:var(--ga-bg)!important;color:var(--ga-ink)!important;border:0!important}
+.hero-intro{grid-template-columns:minmax(0,1.08fr) minmax(340px,.72fr)!important;align-items:end!important;gap:clamp(36px,7vw,96px)!important;margin-bottom:48px!important}
+.hero-intro .kicker{display:inline-flex!important;align-items:center;width:max-content;min-height:32px;margin:0 0 18px!important;padding:6px 12px!important;border:1px solid color-mix(in srgb,var(--ga-accent-2) 45%,var(--ga-line))!important;border-radius:999px!important;background:var(--ga-accent-tint)!important;color:var(--ga-accent-2)!important;-webkit-text-fill-color:currentColor!important;font-family:var(--ga-body)!important;font-size:12px!important;font-weight:700!important;letter-spacing:.12em!important}
+.hero-intro .kicker:before{display:none!important}:root[data-theme="dark"] .hero-intro .kicker{color:var(--ga-accent)!important}
+.hero-intro h1{max-width:11ch!important;margin:0!important;background:none!important;color:var(--ga-ink)!important;-webkit-text-fill-color:currentColor!important;font:700 clamp(3rem,6vw,5rem)/1.02 var(--ga-display)!important;letter-spacing:-.055em!important;animation:none!important;text-wrap:balance}
+.hero-summary{padding-bottom:4px!important}.hero-summary p{max-width:56ch;margin:0;color:var(--ga-ink-2)!important;font-size:18px;line-height:1.62}
+.hero-summary .lead-actions{display:flex!important;grid-template-columns:none!important;gap:10px!important;margin-top:28px!important}
+.btn,.newsletter-box a,.ask>button,.finder .quiz-form>button{min-height:50px;padding:0 24px!important;border:0!important;border-radius:10px!important;background:var(--ga-gradient)!important;color:var(--ga-accent-ink)!important;font-size:15px;font-weight:600!important;transition:transform .2s var(--ga-ease),box-shadow .2s var(--ga-ease),filter .2s var(--ga-ease)!important}
+.btn.alt{border:1px solid var(--ga-line)!important;background:color-mix(in srgb,var(--ga-ink) 6%,var(--ga-surface))!important;color:var(--ga-ink)!important}
+.btn:hover,.newsletter-box a:hover,.ask>button:hover,.finder .quiz-form>button:hover{transform:translateY(-2px)!important;box-shadow:var(--ga-shadow-hover)!important}.btn:active,.newsletter-box a:active{transform:translateY(0) scale(.99)!important}
+.feature-stage{max-width:1280px!important;padding:0 24px 62px!important}.feature-stage:before,.feature-stage:after{display:none!important}.feature-viewport{overflow-x:auto!important;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-inline:contain}.feature-viewport::-webkit-scrollbar{display:none}
+.feature-track{display:flex!important;width:max-content!important;gap:24px!important;padding:2px 0 28px!important;transform:none!important}
+.feature-card,.feature-card.is-active{display:grid!important;grid-template-rows:auto 1fr;flex:0 0 min(390px,calc((100vw - 96px)/3))!important;width:min(390px,calc((100vw - 96px)/3))!important;aspect-ratio:auto!important;overflow:visible!important;border:0!important;border-radius:20px!important;background:var(--ga-surface)!important;color:var(--ga-ink)!important;box-shadow:var(--ga-shadow)!important;scroll-snap-align:start;transition:transform .25s var(--ga-ease),box-shadow .25s var(--ga-ease)!important}
+.feature-card[aria-hidden="true"]{visibility:visible!important}.feature-card.signature{padding:0!important}.feature-card.signature:before,.feature-card:after{display:none!important}
+.feature-card>img,.feature-card.signature>img{position:static!important;z-index:auto!important;inset:auto!important;display:block;width:100%!important;height:auto!important;aspect-ratio:16/9;overflow:hidden;border:0!important;border-radius:12px 12px 0 0!important;background:var(--ga-surface-2)!important;object-fit:cover!important;filter:none!important;transition:transform .25s var(--ga-ease)!important}
+.feature-copy{position:relative!important;z-index:auto!important;inset:auto!important;display:flex;min-width:0;min-height:250px;padding:24px!important;flex-direction:column}
+.feature-tag{align-self:flex-start;min-height:27px!important;padding:0 10px!important;border-radius:999px!important;background:var(--ga-accent)!important;color:var(--ga-accent-ink)!important;font-family:var(--ga-body)!important;font-size:11px!important;font-weight:700!important;letter-spacing:.1em!important}
+.feature-copy h2{max-width:none!important;margin:14px 0 9px!important;color:var(--ga-ink)!important;font:600 24px/1.08 var(--ga-display)!important;letter-spacing:-.03em!important}.feature-copy p{max-width:none!important;margin:0!important;color:var(--ga-muted)!important;font-size:14px!important;line-height:1.5!important}
+.feature-cta{position:static!important;align-self:flex-start;margin-top:auto!important;min-height:44px!important;padding:10px 0 0!important;border:0!important;border-radius:0!important;background:none!important;color:var(--ga-ink)!important;backdrop-filter:none!important;font-weight:600!important}.feature-cta b{color:var(--ga-accent-2)}
+.feature-card:hover,.feature-card:focus-visible{transform:translateY(-4px);box-shadow:var(--ga-shadow-hover)!important}.feature-card:hover>img{transform:scale(1.02)}
+.carousel-nav{top:auto!important;bottom:0!important;width:46px;height:46px;border:1px solid var(--ga-line)!important;background:var(--ga-surface)!important;color:var(--ga-ink)!important;backdrop-filter:none!important;transform:none!important}.carousel-nav.prev{left:calc(50% - 54px)!important}.carousel-nav.next{right:calc(50% - 54px)!important}.carousel-nav:hover{border-color:var(--ga-accent-2)!important;background:var(--ga-accent-tint)!important}
+.hero-foot{align-items:start}.hero-facts{max-width:none;margin-top:36px!important;border:0!important;background:none!important}.hero-facts span{min-height:88px!important;padding:14px 22px!important;border:1px solid var(--ga-line)!important;background:var(--ga-bg-alt)!important;color:var(--ga-muted)!important}.hero-facts b{position:relative;color:var(--ga-ink)!important;font:700 28px/1 var(--ga-display)!important}.hero-facts b:after{content:'';display:block;width:42px;height:3px;margin-top:9px;border-radius:9px;background:var(--ga-gradient)}.hero-foot>p{margin-top:52px;color:var(--ga-muted)!important}
+.section,.signal-section{padding-block:96px!important}.section-head,.signal-head{margin-bottom:32px!important;padding-bottom:20px!important;border-color:var(--ga-line)!important}.section-eyebrow,.label,.signal-index,.finder-kicker,.finder-console-head>div>span,.finder-search-head>span{background:none!important;color:var(--ga-accent-2)!important;-webkit-text-fill-color:currentColor!important;font-family:var(--ga-body)!important;font-size:12px!important;font-weight:700!important;letter-spacing:.12em!important}:root[data-theme="dark"] :is(.section-eyebrow,.label,.signal-index){color:var(--ga-accent)!important}
+.section-head h2,.signal-head h2{font:700 clamp(2rem,3.5vw,2.75rem)/1.05 var(--ga-display)!important;letter-spacing:-.045em!important;color:var(--ga-ink)!important}.section-head p,.signal-head p{color:var(--ga-muted)!important}.section-head a{color:var(--ga-accent-2)!important}
+.latest-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important}.card{border:1px solid var(--ga-line)!important;border-radius:20px!important;background:var(--ga-surface)!important;box-shadow:var(--ga-shadow)!important;transition:transform .25s var(--ga-ease),box-shadow .25s var(--ga-ease),border-color .25s var(--ga-ease)!important}.card-media{border-radius:12px 12px 0 0!important;background:var(--ga-surface-2)!important}.card-media img{padding:0!important;border:0!important;border-radius:12px 12px 0 0!important;object-fit:cover!important;transition:transform .25s var(--ga-ease)!important}.card:hover,.card:focus-visible{border-color:color-mix(in srgb,var(--ga-accent-2) 55%,var(--ga-line))!important;transform:translateY(-4px)!important;box-shadow:var(--ga-shadow-hover)!important}.card:hover img{transform:scale(1.04)!important}.card-body{padding:22px}.card h3{margin:10px 0 8px;color:var(--ga-ink)!important;font:600 21px/1.18 var(--ga-display)!important;letter-spacing:-.02em!important}.card p{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;color:var(--ga-muted)!important;font-size:14px!important}.image-credit{border-color:var(--ga-line)!important;background:var(--ga-surface-2)!important;color:var(--ga-muted)!important}.badge{background:var(--ga-accent-tint)!important;color:var(--ga-accent-2)!important}.badge.warn{background:var(--ga-badge-top)!important;color:#fff!important}
+.decision{gap:24px!important}.score-card,.deal-card,.newsletter-box{border:1px solid var(--ga-line)!important;border-radius:24px!important;background:var(--ga-surface)!important;box-shadow:var(--ga-shadow)!important}.deal-card{border-top:4px solid var(--ga-accent-2)!important}.categories{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:16px!important;border:0!important;background:none!important;overflow:visible!important}.category{position:relative;isolation:isolate;padding:24px!important;border:1px solid var(--ga-line)!important;border-radius:20px!important;background:var(--ga-surface)!important;overflow:hidden;transition:transform .25s var(--ga-ease),box-shadow .25s var(--ga-ease)!important}.category:before{content:'';position:absolute;z-index:-1;inset:0;padding:1px;border-radius:inherit;background:var(--ga-gradient);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .25s}.category:hover:before,.category:focus-within:before{opacity:1}.category:hover{transform:translateY(-4px);box-shadow:var(--ga-shadow-hover)!important}.category h3{font:600 20px/1.15 var(--ga-display)!important;color:var(--ga-ink)!important}.category p{color:var(--ga-muted)!important}.category a{color:var(--ga-accent-2)!important}
+.trust{background:var(--ga-bg-alt)!important;border-color:var(--ga-line)!important}.trust-grid{gap:16px!important;border:0!important}.trust-grid article{position:relative;min-width:0;padding:28px!important;border:1px solid var(--ga-line)!important;border-radius:20px!important;background:var(--ga-surface)!important}.trust-grid b{color:color-mix(in srgb,var(--ga-accent-2) 20%,var(--ga-bg-alt))!important;font:700 58px/.85 var(--ga-display)!important}.trust-grid h3{font:600 19px/1.18 var(--ga-display)!important;color:var(--ga-ink)!important}.trust-grid p{color:var(--ga-muted)!important}.team-strip{padding:32px!important;border:1px solid var(--ga-line)!important;border-radius:24px!important;background:var(--ga-surface)!important;color:var(--ga-ink)!important}.team-strip img{width:136px;height:136px;padding:0!important;border:0!important;background:none!important;object-fit:contain!important}.team-strip h2{color:var(--ga-ink)!important}.team-strip p{color:var(--ga-muted)!important}.team-strip a{color:var(--ga-accent-2)!important}
+.newsletter{padding:32px 0!important;background:var(--ga-bg-alt)}.newsletter-box{border-top:1px solid var(--ga-line)!important}.newsletter-box h2{color:var(--ga-ink)!important}.newsletter-box p{color:var(--ga-muted)!important}
+.signal-section{background:var(--ga-bg-alt)!important}.signal-card{border:1px solid var(--ga-line)!important;border-radius:20px!important;background:var(--ga-surface)!important;box-shadow:var(--ga-shadow)!important}.signal-card .signal-copy{background:var(--ga-surface)!important}.signal-card .signal-copy h3{color:var(--ga-ink)!important}.signal-card .signal-copy p{color:var(--ga-muted)!important}.signal-card .signal-link{border:1px solid var(--ga-line);border-radius:10px!important;background:var(--ga-accent-tint)!important;color:var(--ga-ink)!important}
+.finder{padding-block:96px!important;background:#0f1113!important}.finder-console{border-radius:24px!important;overflow:hidden}.finder-mast h2{font-size:clamp(2.5rem,5vw,4.6rem)!important}.finder .finder-intro,.finder .finder-panel{border-radius:0!important}.finder :where(input,select,button){border-radius:10px!important}
+
+/* Article system: one readable editorial axis, premium media and controls. */
+body[data-route^="article/"] main,.gu-article{background:var(--ga-bg);color:var(--ga-ink-2)}
+.article-header,.gu-article-header{padding-top:72px!important}.article-header h1,.gu-article h1,.page-head h1{max-width:18ch!important;font:700 clamp(2.75rem,6vw,5rem)/1.05 var(--ga-display)!important;letter-spacing:-.045em!important;text-wrap:balance}.dek,.gu-dek,.standfirst{max-width:68ch!important;color:var(--ga-ink-2)!important;font:400 20px/1.55 var(--ga-body)!important}.byline,.gu-byline{color:var(--ga-muted)!important}.freshness{color:var(--ga-accent-2)!important}
+.article-body>p,.gu-article-body>p,.article-body li,.gu-article-body li{max-width:68ch;color:var(--ga-ink-2)!important;font-family:var(--ga-body)!important;font-size:17px!important;line-height:1.65!important}.article-body>p:first-of-type::first-letter,.gu-article-body>p:first-of-type::first-letter{float:none!important;padding:0!important;color:inherit!important;font:inherit!important}
+.article-body h2,.gu-article-body h2,.product h2,.gu-product h2{font:700 clamp(1.75rem,3.5vw,2.75rem)/1.08 var(--ga-display)!important;letter-spacing:-.035em!important;color:var(--ga-ink)!important}.article-body h3,.gu-article-body h3{font:600 1.35rem/1.2 var(--ga-display)!important;color:var(--ga-ink)!important}
+.article-audio{padding:18px!important;border:1px solid var(--ga-line)!important;border-radius:20px!important;background:var(--ga-surface)!important;box-shadow:var(--ga-shadow)!important}.audio-play{background:var(--ga-gradient)!important;color:var(--ga-accent-ink)!important}.speed-btn,.ga-audio-tools button{min-width:44px!important;min-height:44px!important;border-color:var(--ga-line)!important;border-radius:10px!important;background:var(--ga-surface-2)!important;color:var(--ga-ink)!important}.speed-btn.active{background:var(--ga-accent)!important;color:var(--ga-accent-ink)!important}.wave-bar.played{background:var(--ga-accent-2)!important}
+.sidebar,.gu-toc{top:132px!important;border:1px solid var(--ga-line)!important;border-radius:20px!important;background:var(--ga-surface)!important;box-shadow:var(--ga-shadow)!important}.sidebar a,.gu-toc a{color:var(--ga-ink-2)!important}.sidebar a:hover,.gu-toc a:hover{color:var(--ga-accent-2)!important}
+.product,.gu-product,.picks-box,.ga-methodology,.pros-cons,.spec-section,.comparison-section,.faq-section,.deal-box,.related-link{border-color:var(--ga-line)!important;border-radius:20px!important;background:var(--ga-surface)!important;box-shadow:var(--ga-shadow)!important}.product-media img,.gu-product-media img,.article-hero img,.gu-hero img{padding:0!important;border:0!important;border-radius:12px!important;background:transparent!important;object-fit:cover!important}.chip{border-color:var(--ga-line)!important;border-radius:999px!important;background:var(--ga-surface-2)!important;color:var(--ga-ink-2)!important}.verdict{color:var(--ga-accent-2)!important}.product-buy,.ga-amazon-search,.buy-button,.deal-box a{min-height:50px!important;border-radius:10px!important;background:var(--ga-gradient)!important;color:var(--ga-accent-ink)!important;font-weight:600!important}
+blockquote,.pull-quote{border-left:4px solid var(--ga-accent-2)!important;color:var(--ga-ink)!important;font:600 24px/1.4 var(--ga-display)!important}.video-frame,.youtube-frame{overflow:hidden;border-radius:12px!important;background:var(--ga-surface-2)!important}.video-frame iframe,.youtube-frame iframe{aspect-ratio:16/9}
+.ga-table-wrap{border:1px solid var(--ga-line);border-radius:12px;background:var(--ga-surface)}.ga-table-wrap table{border-collapse:separate;border-spacing:0}.ga-table-wrap th{position:sticky;top:0;z-index:2;background:var(--ga-surface-2)!important;color:var(--ga-ink)!important}.ga-table-wrap tbody tr:nth-child(even){background:var(--ga-bg-alt)}.ga-table-wrap th:first-child,.ga-table-wrap td:first-child{position:sticky;left:0;z-index:1;background:inherit}.ga-table-wrap th:first-child{z-index:3}
+.ga-site-footer{padding-block:64px 28px!important;background:var(--ga-bg-alt)!important;color:var(--ga-ink)!important;border-top:1px solid var(--ga-line)!important;border-image:none!important}.ga-footer-grid{grid-template-columns:1.2fr repeat(2,1fr)!important}.ga-footer-brand p,.ga-footer-col a,.ga-footer-bottom{color:var(--ga-muted)!important}.ga-footer-col h2{color:var(--ga-ink)!important}.ga-footer-brand img{width:170px!important;height:170px!important;padding:0!important;border:0!important;background:none!important;object-fit:contain!important}.ga-socials a{border-color:var(--ga-line)!important;background:var(--ga-surface)!important;color:var(--ga-ink)!important}
+
+@media(min-width:1200px){body[data-route^="article/"] .article-layout{grid-template-columns:210px minmax(0,760px) 180px!important;gap:40px!important}}
+@media(max-width:1199px) and (min-width:861px){.latest-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.ga-scope-note{display:none}.ga-top-socials{display:none}.ga-primary-nav>a,.ga-nav-toggle{padding-inline:9px;font-size:12px}.categories{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:900px){
+  .ga-site-header{backdrop-filter:blur(18px) saturate(1.2)}.ga-shell-nav{width:100%}.ga-utility-row{min-height:64px;padding:8px 12px;gap:6px}.ga-menu-button{margin-right:0!important}.ga-brand{width:40px!important;height:40px!important;flex-basis:40px!important;margin-right:auto}.ga-brand img{width:40px!important;height:40px!important;max-width:40px!important;max-height:40px!important}.ga-search-label,.ga-finder-label,.ga-tool-label,.ga-selected-country,.ga-country-code{display:none!important}.ga-search-link,.ga-finder-link,.ga-tool,.ga-menu-button{width:44px!important;padding:0!important}.ga-region-wrap>.ga-tool{padding:0!important}.ga-top-socials{display:none}.ga-nav-panel{top:64px!important;width:100vw!important;height:calc(100dvh - 64px)!important;padding:16px 18px 40px!important;border:0!important;border-radius:0!important;background:var(--ga-bg)!important;box-shadow:none!important;transition:transform .28s var(--ga-ease),visibility .28s!important}.ga-primary-nav>a,.ga-nav-toggle{min-height:54px!important;font-size:16px!important;font-weight:600!important}.ga-menu-panel{margin:0!important;padding:8px 4px 12px 12px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}.ga-menu-panel>.ga-menu-label{padding-left:12px!important}.ga-menu-panel>.ga-subgroup{padding:0!important;background:transparent!important}.ga-sub-toggle{min-height:50px!important;border:0!important;background:var(--ga-surface-2)!important}.ga-subpanel{margin-left:16px!important;border-left:1px solid var(--ga-line)!important}.ga-subpanel a{min-height:48px!important}.ga-mobile-region{padding-top:20px}
+}
+@media(max-width:860px){
+  .shell{width:min(100% - 32px,720px)!important}.hero{padding:64px 0 40px!important}.hero-intro{grid-template-columns:1fr!important;gap:24px!important;margin-bottom:36px!important}.hero-intro h1{font-size:clamp(2.75rem,13vw,4rem)!important}.hero-summary p{font-size:17px}.hero-summary .lead-actions{display:grid!important;grid-template-columns:1fr!important}.hero-summary .lead-actions .btn{width:100%!important}.feature-stage{padding-inline:16px!important}.feature-card,.feature-card.is-active{flex-basis:78vw!important;width:78vw!important}.feature-copy{min-height:230px;padding:20px!important}.feature-copy h2{font-size:22px!important}.feature-copy p{display:block!important}.hero-facts{grid-template-columns:1fr!important}.hero-foot>p{display:none}.section,.signal-section{padding-block:64px!important}.latest-grid,.signal-grid,.decision,.categories,.trust-grid{grid-template-columns:1fr!important}.category,.trust-grid article{border:1px solid var(--ga-line)!important}.team-strip{grid-template-columns:92px 1fr!important}.team-strip img{width:92px;height:92px}.team-strip>a{grid-column:1/-1}.newsletter-box{grid-template-columns:1fr!important}.newsletter-box a{width:100%}.finder{padding-block:64px!important}.finder-mast h2{font-size:clamp(2.4rem,12vw,3.6rem)!important}.ga-footer-grid{grid-template-columns:1fr 1fr!important}.ga-footer-brand{grid-column:1/-1!important}.article-header,.gu-article-header{padding-top:48px!important}.article-header h1,.gu-article h1,.page-head h1{font-size:clamp(2.5rem,11vw,3.75rem)!important}.article-audio{grid-template-columns:auto minmax(0,1fr)!important}.article-audio .audio-side{grid-column:1/-1;justify-items:stretch!important}.sidebar,.gu-toc{position:static!important}.ga-table-wrap.ga-table-scroll{overflow-x:auto!important}.ga-table-wrap.ga-table-scroll table{min-width:680px!important}
+}
+@media(max-width:480px){.shell{width:calc(100% - 32px)!important}.ga-utility-row{padding-inline:10px;gap:4px}.ga-brand{width:36px!important;height:36px!important;flex-basis:36px!important;margin-right:auto!important}.ga-brand img{width:36px!important;height:36px!important;max-width:36px!important;max-height:36px!important}.ga-region-wrap{display:none}.hero-intro h1{font-size:clamp(2.55rem,13vw,3.35rem)!important;line-height:1.02!important}.feature-card,.feature-card.is-active{flex-basis:82vw!important;width:82vw!important}.feature-copy{min-height:240px}.team-strip{grid-template-columns:1fr!important}.ga-footer-grid{grid-template-columns:1fr!important}.article-audio{grid-template-columns:1fr!important}.audio-play{width:52px!important;height:52px!important}.ga-volume{grid-column:1/-1!important}}
+/* Resolve legacy view-timeline states: content remains readable before and after motion. */
+@supports(animation-timeline:view()){
+  .signal-section .signal-head:not(.ga-premium-reveal),.signal-grid>.signal-card:not(.ga-premium-reveal),.latest-grid>*:not(.ga-premium-reveal),.section-head:not(.ga-premium-reveal),.category:not(.ga-premium-reveal),.deal-card:not(.ga-premium-reveal),.score-card:not(.ga-premium-reveal){animation:none!important;opacity:1!important;transform:none!important}
+}
+/* (2026-10-11) Removed the legacy .motion-ready [data-reveal] override pair that
+   pinned reveal items at 0.965 opacity !important and fought the motion
+   builder's visible-reveal system. Reveals are owned by JS now
+   (.ga-premium-reveal/.ga-visible); CSS must never force content invisible. */
+
+/* A decisive editorial hero rather than the former pale dotted field. */
+.hero{position:relative;isolation:isolate;background:linear-gradient(128deg,color-mix(in srgb,var(--ga-accent-2) 9%,var(--ga-bg)) 0 46%,var(--ga-bg-alt) 46% 100%)!important}
+.hero:before,.hero:after{display:none!important}
+.hero-intro{position:relative}
+.hero-intro:after{content:'01';position:absolute;z-index:-1;left:-8px;top:-42px;color:color-mix(in srgb,var(--ga-accent-2) 10%,transparent);font:700 clamp(9rem,19vw,17rem)/1 var(--ga-display);letter-spacing:-.08em;pointer-events:none}
+.hero-summary{padding:32px!important;border-radius:24px;background:#101412;box-shadow:0 24px 70px rgba(16,22,15,.18)}
+.hero-summary p{color:#d7ded8!important}.hero-summary .btn.alt{border-color:rgba(255,255,255,.16)!important;background:rgba(255,255,255,.08)!important;color:#fff!important}
+:root[data-theme="dark"] .hero{background:linear-gradient(128deg,#0f1113 0 46%,#141719 46% 100%)!important}:root[data-theme="dark"] .hero-summary{background:var(--ga-surface);box-shadow:var(--ga-shadow-hover)}
+
+/* The official square lockup has generous internal canvas; give it enough room without cropping. */
+.ga-brand{width:64px!important;height:56px!important;flex-basis:64px!important}.ga-brand img{width:64px!important;height:56px!important;max-width:64px!important;max-height:56px!important}
+
+@media(max-width:900px){.ga-brand{width:58px!important;height:48px!important;flex-basis:58px!important}.ga-brand img{width:58px!important;height:48px!important;max-width:58px!important;max-height:48px!important}}
+@media(max-width:860px){.hero{background:linear-gradient(155deg,color-mix(in srgb,var(--ga-accent-2) 10%,var(--ga-bg)) 0 42%,var(--ga-bg) 42% 100%)!important}.hero-intro:after{top:-18px;left:-4px;font-size:9rem}.hero-summary{padding:24px!important}.hero-intro h1{max-width:100%!important;overflow-wrap:anywhere!important}.hero-intro h1 .hero-line{display:inline!important;white-space:normal!important}.hero-intro h1 br{display:block!important}}
+@media(max-width:480px){.ga-brand{width:54px!important;height:46px!important;flex-basis:54px!important}.ga-brand img{width:54px!important;height:46px!important;max-width:54px!important;max-height:46px!important}.hero-intro h1{font-size:clamp(2.35rem,11.5vw,3.15rem)!important;letter-spacing:-.045em!important}}
+
+/* Reading rhythm: keep the current library complete but lead with an editorial front page. */
+#latest .latest-grid>.card.ga-card-hidden{display:none!important}
+.ga-load-more{display:flex;justify-content:center;margin:28px auto 0}.ga-load-more button{min-width:220px;min-height:50px;padding:0 24px;border:1px solid var(--ga-line);border-radius:10px;background:var(--ga-surface-2);color:var(--ga-ink);font:600 15px/1 var(--ga-body);cursor:pointer;transition:transform .2s var(--ga-ease),box-shadow .2s var(--ga-ease)}.ga-load-more button:hover{transform:translateY(-2px);box-shadow:var(--ga-shadow)}
+#latest .latest-grid>.card:nth-child(1){grid-column:span 2;display:grid;grid-template-columns:1.1fr .9fr}
+#latest .latest-grid>.card:nth-child(1) .card-media{grid-row:1/span 3;border-radius:12px 0 0 12px!important}
+#latest .latest-grid>.card:nth-child(1) .card-media img{border-radius:12px 0 0 12px!important}
+#latest .latest-grid>.card:nth-child(1) .image-credit{grid-column:1;grid-row:4}
+#latest .latest-grid>.card:nth-child(1) .card-body{grid-column:2;grid-row:1/span 4;justify-content:center;padding:32px}
+#latest .latest-grid>.card:nth-child(1) h3{font-size:clamp(1.7rem,2.5vw,2.35rem)!important}
+
+@media(max-width:860px){
+  .disclosure{padding:7px 0!important}.disclosure .shell{display:grid!important;grid-template-columns:1fr 1fr!important;gap:6px!important;font-size:11px!important;line-height:1.25!important}.disclosure .shell>b{grid-column:1/-1}.disclosure .shell>span{grid-column:1/-1;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.disclosure .shell>button{width:100%!important;min-height:44px!important;margin:0!important;padding:5px!important}
+  .aff-note{padding:5px 10px!important;font-size:11px!important;line-height:1.25!important}.aff-note b{padding:3px 6px!important}.aff-note span{display:inline!important}
+  .story-ticker{height:88px!important;overflow:hidden!important}.story-ticker-inner{position:relative!important;display:grid!important;height:88px!important;grid-template-columns:130px minmax(0,1fr)!important;gap:8px!important;align-items:center!important;overflow:hidden!important;white-space:normal!important}.story-ticker-inner>strong{display:flex!important;min-height:44px!important;align-items:center!important;font-size:10px!important}.story-ticker-window,.story-ticker-track{display:block!important;min-width:0!important;width:100%!important;height:auto!important;overflow:visible!important}.story-ticker-set:first-child{display:grid!important;width:100%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0 8px!important}.story-ticker-set:first-child i{display:none!important}.story-ticker-set:first-child a{position:static!important;display:flex!important;min-width:0!important;min-height:44px!important;align-items:center!important;overflow:visible!important;color:var(--ga-ink-2)!important;font-size:10px!important;line-height:1.2!important;white-space:normal!important;opacity:1!important;transform:none!important;animation:none!important}.story-ticker-set[aria-hidden="true"]{display:none!important}
+  .proofbar{display:none!important}
+  #latest .latest-grid>.card:nth-child(1){grid-column:auto;display:flex}
+  #latest .latest-grid>.card:nth-child(1) .card-media,#latest .latest-grid>.card:nth-child(1) .card-media img{border-radius:12px 12px 0 0!important}
+  #latest .latest-grid>.card:nth-child(1) .image-credit,#latest .latest-grid>.card:nth-child(1) .card-body{grid-column:auto;grid-row:auto}
+  #latest .latest-grid>.card:nth-child(1) .card-body{padding:22px}
+  #latest .latest-grid>.card:nth-child(1) h3{font-size:21px!important}
+}
+@media(max-width:480px){
+  .ga-utility-row{min-height:58px!important;padding-block:5px!important}.ga-nav-panel{top:58px!important;height:calc(100dvh - 58px)!important}
+  .ga-cookie-notice{gap:4px!important;padding:5px 10px!important;font-size:.68rem!important;line-height:1.18!important}.ga-cookie-copy h2{font-size:.76rem!important}.ga-cookie-copy p{display:block;overflow:visible;font-size:.65rem!important;line-height:1.16!important}.ga-cookie-actions{gap:6px!important}
+  .disclosure{padding:5px 0!important}.disclosure .shell{display:block!important;min-height:0!important;font-size:10px!important;line-height:1.35!important;text-align:center!important}.disclosure .shell>b{display:inline-flex!important;margin:0 4px 0 0!important;padding:2px 6px!important}.disclosure .shell>span,.disclosure .shell>a{display:inline!important;white-space:normal!important}.disclosure .shell>a{margin-left:4px!important}
+  .hero{padding-top:40px!important}.hero-intro{gap:18px!important;margin-bottom:30px!important}.hero-intro .kicker{margin-bottom:12px!important}.hero-summary{padding:20px!important}.hero-summary p{font-size:15px!important;line-height:1.5!important}.hero-summary .lead-actions{gap:8px!important;margin-top:18px!important}.hero-summary .lead-actions .btn{min-height:48px!important}
+}
+/* Mobile trust stack: keep the disclosure and ticker in one compact line while the
+   consent choice floats clear of the hero instead of consuming page-flow height. */
+@media(max-width:860px){
+  .disclosure{height:32px!important;padding:0!important;overflow:hidden!important}
+  .disclosure .shell{display:flex!important;min-height:32px!important;align-items:center!important;gap:5px!important;font-size:10px!important;line-height:1!important;text-align:left!important;white-space:nowrap!important}
+  .disclosure .shell>b{display:inline!important;flex:0 0 auto!important;margin:0!important;padding:0!important;border-radius:0!important;background:transparent!important;color:var(--ga-ink)!important}
+  .disclosure .shell>span{display:block!important;min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+  .disclosure .shell>a{display:inline!important;flex:0 0 auto!important;margin:0!important;white-space:nowrap!important}
+
+  .story-ticker{height:44px!important;overflow:hidden!important}
+  .story-ticker-inner{position:relative!important;display:grid!important;height:44px!important;min-height:44px!important;grid-template-columns:104px minmax(0,1fr)!important;gap:8px!important;align-items:center!important;overflow:hidden!important;white-space:nowrap!important}
+  .story-ticker-inner>strong{display:flex!important;min-height:44px!important;align-items:center!important;font-size:9px!important;letter-spacing:.08em!important}
+  .story-ticker-window,.story-ticker-track{display:block!important;min-width:0!important;width:100%!important;height:44px!important;overflow:hidden!important}
+  .story-ticker-set:first-child{position:relative!important;display:block!important;width:100%!important;height:44px!important}
+  .story-ticker-set:first-child i,.story-ticker-set[aria-hidden="true"]{display:none!important}
+  .story-ticker-set:first-child a{position:static!important;display:flex!important;min-width:0!important;min-height:44px!important;align-items:center!important;overflow:hidden!important;padding:0!important;color:var(--ga-ink-2)!important;font-size:11px!important;line-height:1!important;text-overflow:ellipsis!important;white-space:nowrap!important;opacity:1!important;transform:none!important;animation:ga-mobile-story-in .28s ease both!important}
+  .story-ticker-set:first-child a[hidden]{display:none!important}
+
+  .ga-cookie-notice{position:fixed!important;z-index:120!important;right:10px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;left:10px!important;width:auto!important;max-width:560px!important;margin-inline:auto!important;grid-template-columns:1fr!important;gap:6px!important;padding:9px 10px!important;border:1px solid var(--ga-line)!important;border-radius:12px!important;background:var(--ga-surface)!important;box-shadow:0 14px 36px rgba(0,0,0,.2)!important;font-size:11px!important;line-height:1.25!important}
+  .ga-cookie-notice:before{height:2px!important;border-radius:12px 12px 0 0!important}
+  .ga-cookie-copy h2{margin:0 0 2px!important;font-size:12px!important;line-height:1.15!important}
+  .ga-cookie-copy p{display:block!important;max-width:none!important;margin:0!important;overflow:visible!important;font-size:10px!important;line-height:1.25!important}
+  .ga-cookie-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important;justify-content:stretch!important}
+  body .ga-cookie-actions button{width:100%!important;height:44px!important;min-height:44px!important;padding:0 7px!important;font-size:10px!important;line-height:1.1!important;white-space:normal!important}
+}
+@keyframes ga-mobile-story-in{from{opacity:0}to{opacity:1}}
+@media(max-width:860px){.feature-stage{padding-bottom:0!important}.feature-viewport{overflow:visible!important;scroll-snap-type:none!important}.feature-track{display:grid!important;width:100%!important;gap:16px!important;padding:2px 0 0!important}.feature-card,.feature-card.is-active{width:100%!important;max-width:none!important;flex-basis:auto!important;scroll-snap-align:none!important}.carousel-nav{display:none!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.feature-viewport{scroll-snap-type:none}.story-ticker-set{transform:none!important}.story-ticker-set:first-child a{opacity:1!important;transform:none!important;animation:none!important}}
+
+/* ==========================================================================
+   GADGET AUDIT VISUAL IDENTITY v2 — 2026-10-11
+   Bold teal→lime gradient system + motion layer. Every new gradient rule
+   carries a dark-theme variant; all animation is transform/opacity or
+   background-position only, and everything is neutralized under
+   prefers-reduced-motion (see the block at the end).
+   ========================================================================== */
+
+/* ---------- 1. Gradient-text system (eyebrows, labels, kickers) ---------- */
+:root{--ga-gradient-text:linear-gradient(100deg,var(--ga-accent-2) 0%,#46d979 52%,#8fc400 100%)}
+:root[data-theme="dark"]{--ga-gradient-text:var(--ga-gradient)}
+@media(prefers-color-scheme:dark){:root:not([data-theme]){--ga-gradient-text:var(--ga-gradient)}}
+@supports((-webkit-background-clip:text) or (background-clip:text)){
+  .section-eyebrow,.label,.signal-index,.finder-kicker,.finder-console-head>div>span,.finder-search-head>span{
+    background:var(--ga-gradient-text)!important;-webkit-background-clip:text!important;background-clip:text!important;
+    color:transparent!important;-webkit-text-fill-color:transparent!important}
+}
+
+/* ---------- 2. Hero: rich gradient field + drifting sheen + shimmer headline ---------- */
+.hero{background:
+  radial-gradient(44rem 28rem at 6% -3rem,color-mix(in srgb,var(--ga-accent-2) 26%,transparent),transparent 62%),
+  radial-gradient(38rem 26rem at 97% 0,color-mix(in srgb,var(--ga-accent) 22%,transparent),transparent 60%),
+  linear-gradient(128deg,color-mix(in srgb,var(--ga-accent-2) 10%,var(--ga-bg)) 0 46%,var(--ga-bg-alt) 46% 100%)!important}
+:root[data-theme="dark"] .hero{background:
+  radial-gradient(44rem 28rem at 6% -3rem,rgba(37,201,186,.22),transparent 62%),
+  radial-gradient(38rem 26rem at 97% 0,rgba(209,254,23,.13),transparent 60%),
+  linear-gradient(128deg,#0d1512 0 46%,#0f1113 46% 100%)!important}
+.hero:before{display:block!important;content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(112deg,transparent 32%,color-mix(in srgb,var(--ga-accent) 13%,transparent) 47%,color-mix(in srgb,var(--ga-accent-2) 15%,transparent) 53%,transparent 68%);
+  background-size:230% 230%;animation:ga-drift 18s ease-in-out infinite alternate}
+@keyframes ga-drift{from{background-position:0% 20%}to{background-position:100% 80%}}
+/* Gradient pill kicker: unmistakable brand stamp above the headline. */
+:root[data-theme="light"] .hero-intro .kicker,:root[data-theme="dark"] .hero-intro .kicker{background:var(--ga-gradient)!important;color:#0c1711!important;-webkit-text-fill-color:#0c1711!important;border-color:transparent!important;box-shadow:0 8px 22px rgba(0,169,157,.30)}
+:root[data-theme="light"] .hero-intro .kicker:before,:root[data-theme="dark"] .hero-intro .kicker:before{display:none!important}
+/* Shimmer headline: gradient text lives on the .hero-line spans, because
+   background-clip:text on the h1 cannot paint through child boxes in Blink.
+   The ga-hero-in entrance choreography is preserved alongside the shimmer. */
+@supports((-webkit-background-clip:text) or (background-clip:text)){
+  .hero-intro h1 .hero-line{background-image:linear-gradient(100deg,var(--ga-ink) 6%,var(--ga-accent-2) 38%,var(--ga-accent) 50%,var(--ga-accent-2) 62%,var(--ga-ink) 94%)!important;
+    background-size:260% 100%!important;-webkit-background-clip:text!important;background-clip:text!important;
+    color:transparent!important;-webkit-text-fill-color:transparent!important;
+    animation:ga-hero-in .7s var(--ease-enter,var(--ga-ease)) both,ga-hint 9s ease-in-out infinite!important}
+  :root[data-theme="dark"] .hero-intro h1 .hero-line{background-image:linear-gradient(100deg,#f7f7f8 6%,#25c9ba 38%,#d1fe17 50%,#25c9ba 62%,#f7f7f8 94%)!important}
+}
+@keyframes ga-hint{0%,12%{background-position:100% 0}55%,100%{background-position:0% 0}}
+/* Giant background numeral picks up the gradient too. */
+.hero-intro:after{background:var(--ga-gradient);-webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent!important;opacity:.28}
+
+/* ---------- 3. Header: real gradient bar + nav underline sweeps ---------- */
+.ga-site-header{position:relative}
+.ga-site-header:after{content:''!important;position:absolute;left:0;right:0;bottom:-1px;height:3px!important;opacity:1!important;
+  background:linear-gradient(90deg,transparent 0,var(--ga-accent-2) 28%,var(--ga-accent) 72%,transparent 100%)!important}
+.ga-primary-nav>a,.ga-nav-toggle{position:relative}
+.ga-primary-nav>a:after,.ga-nav-toggle:after{content:'';position:absolute;left:14px;right:14px;bottom:0;height:3px;border-radius:3px;
+  background:var(--ga-gradient);transform:scaleX(0);transform-origin:left center;transition:transform .32s var(--ga-ease)}
+.ga-primary-nav>a:hover:after,.ga-primary-nav>a:focus-visible:after,
+.ga-nav-toggle:hover:after,.ga-nav-toggle:focus-visible:after,
+.ga-menu-group.is-open>.ga-nav-toggle:after,.ga-menu-group.is-hovered>.ga-nav-toggle:after,
+.ga-primary-nav>a[aria-current="page"]:after{transform:scaleX(1)}
+
+/* ---------- 4. Buttons: gradient shift + sheen sweep + press ---------- */
+.btn:not(.alt),.finder .quiz-form>button,.ask>button,.newsletter-box a,
+.product-buy,.ga-amazon-search,.buy-button,.deal-box a,.audio-play{
+  background-image:linear-gradient(105deg,transparent 0 38%,rgba(255,255,255,.32) 48%,transparent 58%),var(--ga-gradient)!important;
+  background-size:250% 100%,180% 180%!important;background-position:120% 0,0 0!important;
+  transition:transform .2s var(--ga-ease),box-shadow .2s var(--ga-ease),background-position .65s var(--ga-ease),filter .2s var(--ga-ease)!important}
+.btn:not(.alt):hover,.finder .quiz-form>button:hover,.ask>button:hover,.newsletter-box a:hover,
+.product-buy:hover,.ga-amazon-search:hover,.buy-button:hover,.deal-box a:hover,.audio-play:hover,
+.btn:not(.alt):focus-visible,.finder .quiz-form>button:focus-visible,.ask>button:focus-visible,.newsletter-box a:focus-visible,
+.product-buy:focus-visible,.ga-amazon-search:focus-visible,.buy-button:focus-visible,.deal-box a:focus-visible,.audio-play:focus-visible{
+  background-position:-35% 0,95% 50%!important;transform:translateY(-2px)!important;box-shadow:var(--ga-shadow-hover)!important}
+.btn:not(.alt):active,.finder .quiz-form>button:active,.ask>button:active,.newsletter-box a:active,
+.product-buy:active,.ga-amazon-search:active,.buy-button:active,.deal-box a:active,.audio-play:active{
+  transform:translateY(0) scale(.98)!important}
+
+/* ---------- 5. Scroll-reveal wiring (site-shell.js already adds the classes) ---------- */
+.ga-premium-reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ga-ease),transform .7s var(--ga-ease);transition-delay:var(--gu-stagger,0ms)}
+.ga-premium-reveal.ga-visible{opacity:1;transform:none}
+/* Page transition: soft fade on internal navigation (JS adds .ga-page-leaving). */
+body{transition:opacity .24s ease}
+body.ga-page-leaving{opacity:0!important}
+
+/* ---------- 6. Section dividers + card/panel gradient accents ---------- */
+.section-head,.signal-head{position:relative}
+.section-head:after,.signal-head:after{content:'';position:absolute;left:0;bottom:-1px;width:96px;height:4px;border-radius:4px;background:var(--ga-gradient)}
+.article-header,.gu-article-header{position:relative}
+.article-header:after,.gu-article-header:after{content:'';display:block;width:96px;height:4px;margin-top:28px;border-radius:4px;background:var(--ga-gradient)}
+.deal-card{border-top:0!important;position:relative;overflow:hidden}
+.deal-card:before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--ga-gradient)}
+.newsletter-box{position:relative;overflow:hidden;border-top:0!important;
+  background:linear-gradient(120deg,color-mix(in srgb,var(--ga-accent-2) 11%,var(--ga-surface)),color-mix(in srgb,var(--ga-accent) 10%,var(--ga-surface)))!important}
+.newsletter-box:before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--ga-gradient)}
+.newsletter-box>*{position:relative;z-index:1}
+.picks-box,.deal-box{position:relative;overflow:hidden}
+.picks-box:before,.deal-box:before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--ga-gradient)}
+blockquote,.pull-quote{border-left:4px solid transparent!important;border-image:linear-gradient(180deg,var(--ga-accent-2),var(--ga-accent)) 1!important}
+.article-body h2,.gu-article-body h2{position:relative;padding-left:20px}
+.article-body h2:before,.gu-article-body h2:before{content:'';position:absolute;left:0;top:.16em;bottom:.16em;width:5px;border-radius:5px;background:var(--ga-gradient)}
+.product h2,.gu-product h2{padding-left:0}
+.product h2:before,.gu-product h2:before{display:none!important}
+.badge{background:var(--ga-gradient)!important;color:#10160f!important}
+.card-media{overflow:hidden!important}
+@supports((-webkit-background-clip:text) or (background-clip:text)){
+  .trust-grid b{background:var(--ga-gradient);-webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent!important}
+}
+
+/* ---------- 7. Gadget Finder: glow field, gradient headline, console halo ---------- */
+.finder{position:relative;overflow:hidden}
+.finder:before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(52rem 26rem at 50% -6rem,color-mix(in srgb,var(--ga-accent-2) 20%,transparent),transparent 62%),
+  radial-gradient(36rem 22rem at 94% 108%,color-mix(in srgb,var(--ga-accent) 12%,transparent),transparent 60%)}
+.finder .shell{position:relative}
+@supports((-webkit-background-clip:text) or (background-clip:text)){
+  .finder-mast h2{background:linear-gradient(100deg,#fff 15%,var(--ga-accent) 55%,var(--ga-accent-2) 85%);
+    -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important}
+}
+.finder-console{box-shadow:0 0 0 1px rgba(183,249,149,.14),0 24px 70px rgba(0,0,0,.35)!important}
+
+/* ---------- 8. Footer: gradient crown bar + real brand-color social hovers ---------- */
+footer.ga-site-footer{position:relative;border-top:0!important}
+footer.ga-site-footer:before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--ga-gradient)}
+.ga-socials svg{width:22px;height:22px;fill:currentColor}
+.ga-socials a{transition:transform .22s var(--ga-ease),background-color .22s var(--ga-ease),border-color .22s var(--ga-ease),box-shadow .22s var(--ga-ease),color .22s var(--ga-ease)}
+.ga-socials a:hover,.ga-socials a:focus-visible{transform:translateY(-3px)}
+.ga-socials a.ga-social-facebook:hover,.ga-socials a.ga-social-facebook:focus-visible{background:#1877F2!important;border-color:#1877F2!important;color:#fff!important;box-shadow:0 8px 22px rgba(24,119,242,.38)!important}
+.ga-socials a.ga-social-instagram:hover,.ga-socials a.ga-social-instagram:focus-visible{background:linear-gradient(135deg,#405DE6 0%,#833AB4 34%,#C13584 48%,#E1306C 60%,#FD1D1D 72%,#F56040 83%,#FCAF45 100%)!important;border-color:#E1306C!important;color:#fff!important;box-shadow:0 8px 22px rgba(225,48,108,.38)!important}
+.ga-socials a.ga-social-youtube:hover,.ga-socials a.ga-social-youtube:focus-visible{background:#FF0000!important;border-color:#FF0000!important;color:#fff!important;box-shadow:0 8px 22px rgba(255,0,0,.38)!important}.ga-socials a.ga-social-x:hover,.ga-socials a.ga-social-x:focus-visible{background:#000!important;border-color:#000!important;color:#fff!important;box-shadow:0 8px 22px rgba(0,0,0,.38)!important}.ga-socials a.ga-social-pinterest:hover,.ga-socials a.ga-social-pinterest:focus-visible{background:#E60023!important;border-color:#E60023!important;color:#fff!important;box-shadow:0 8px 22px rgba(230,0,35,.38)!important}.ga-socials a.ga-social-tiktok:hover,.ga-socials a.ga-social-tiktok:focus-visible{background:#FE2C55!important;border-color:#FE2C55!important;color:#fff!important;box-shadow:0 8px 22px rgba(254,44,85,.38)!important}.ga-socials a.ga-social-threads:hover,.ga-socials a.ga-social-threads:focus-visible{background:#000!important;border-color:#000!important;color:#fff!important;box-shadow:0 8px 22px rgba(0,0,0,.38)!important}
+
+/* ---------- 9. Signal cards: lift on hover ---------- */
+.signal-card{transition:transform .25s var(--ga-ease),box-shadow .25s var(--ga-ease),border-color .25s var(--ga-ease)}
+.signal-card:hover,.signal-card:focus-within{transform:translateY(-4px);box-shadow:var(--ga-shadow-hover)!important;border-color:color-mix(in srgb,var(--ga-accent-2) 55%,var(--ga-line))!important}
+
+/* ---------- 10. Reduced motion: everything new goes static ---------- */
+@media(prefers-reduced-motion:reduce){
+  .ga-premium-reveal{opacity:1!important;transform:none!important}
+  .hero:before{animation:none!important}
+  .hero-intro h1 .hero-line{animation:none!important;background-position:100% 0!important}
+  body{transition:none}
+}
+
+/* ========== 11. Gadget Finder conversational quiz (2026-10-11) ========== */
+/* The finder console is pinned dark (#0f1113) in both site themes, so these
+   use fixed dark-friendly surfaces with the teal-to-lime gradient accents. */
+.gf{margin-top:26px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}
+.gf-top{display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.gf-step{color:#b7f995;font:700 .72rem/1.2 var(--ga-body);letter-spacing:.1em;text-transform:uppercase}
+.gf-progress{flex:1 1 120px;min-width:80px;height:4px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
+.gf-progress i{display:block;height:100%;width:8%;border-radius:99px;background:var(--ga-gradient);transition:width .4s var(--ga-ease)}
+.gf-restart{background:none;border:1px solid rgba(255,255,255,.18);color:#c9cfd0;border-radius:99px;padding:7px 14px;font-size:.74rem;font-weight:600;cursor:pointer;transition:border-color .2s,color .2s}
+.gf-restart:hover,.gf-restart:focus-visible{border-color:var(--ga-accent);color:#fff}
+.gf-chat{display:flex;flex-direction:column;gap:10px;max-height:360px;overflow-y:auto;padding:12px 4px 4px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
+.gf-msg{max-width:92%;padding:10px 14px;border-radius:14px;font-size:.92rem;line-height:1.5;color:#f5f5f1}
+.gf-msg-bot{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);align-self:flex-start;border-top-left-radius:4px}
+.gf-msg-user{background:var(--ga-gradient);color:#10160f;font-weight:600;align-self:flex-end;border-top-right-radius:4px}
+.gf-summary{color:#b7f995}
+.gf-note{font-size:.8rem;color:#9aa3a4}
+.gf-chips{display:flex;flex-wrap:wrap;gap:8px;padding:12px 0 4px}
+.gf-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);color:#e9ece9;border-radius:99px;padding:9px 14px;font-size:.85rem;font-weight:600;cursor:pointer;transition:border-color .2s,background .2s,transform .15s var(--ga-ease)}
+.gf-chip:hover{border-color:var(--ga-accent);transform:translateY(-1px)}
+.gf-chip:focus-visible{outline:3px solid var(--ga-accent)!important;outline-offset:2px}
+.gf-chip .gf-sub{opacity:.6;font-weight:400;font-size:.76rem}
+.gf-chip .gf-count{opacity:.55;font-weight:400;font-size:.76rem}
+.gf-chip.is-on{background:var(--ga-gradient);color:#10160f;border-color:transparent}
+.gf-chip.is-on .gf-sub,.gf-chip.is-on .gf-count{opacity:.75}
+.gf-chip.gf-done{background:var(--ga-gradient);color:#10160f;border-color:transparent;font-weight:700}
+.gf-chip.gf-done:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.gf-results{display:flex;flex-direction:column;gap:14px;margin-top:6px;width:100%}
+.gf-card{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;transition:border-color .2s var(--ga-ease)}
+.gf-card:hover{border-color:color-mix(in srgb,var(--ga-accent-2) 55%,rgba(255,255,255,.1))}
+.gf-card-media{display:block;min-height:100%;background:rgba(255,255,255,.03)}
+.gf-card-media img{width:100%;height:100%;object-fit:cover;display:block}
+.gf-card-body{padding:12px 14px 14px 0;min-width:0}
+.gf-card-tag{color:var(--ga-accent-2);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.gf-card h4{margin:6px 0;color:#fff;font-size:1.02rem;line-height:1.3}
+.gf-card h4 a{color:#fff;text-decoration:none}
+.gf-card h4 a:hover,.gf-card h4 a:focus-visible{text-decoration:underline}
+.gf-verdict{margin:4px 0;color:#c9cfd0;font-size:.86rem;line-height:1.5}
+.gf-price{margin:8px 0 0;color:var(--ga-accent);font-weight:700;font-size:.95rem}
+.gf-why{margin:10px 0 4px;color:#9aa3a4;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.gf-reasons{margin:0;padding-left:18px;color:#b7c0b7;font-size:.82rem;line-height:1.55}
+.gf-reasons li{margin-bottom:2px}
+.gf-card-link{display:inline-block;margin-top:10px;color:#fff;font-weight:700;font-size:.86rem;text-decoration:none}
+.gf-card-link:hover,.gf-card-link:focus-visible{text-decoration:underline}
+@media(max-width:560px){
+  .gf-card{grid-template-columns:1fr}
+  .gf-card-media img{max-height:170px}
+  .gf-card-body{padding:0 14px 14px}
+  .gf-msg{max-width:96%;font-size:.88rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .gf *,.gf *::before,.gf *::after{animation:none!important;transition:none!important}
+}
+
+/* ==========================================================================
+   GADGET AUDIT POLISH PASS — 2026-10-11 (CSS only)
+   --------------------------------------------------------------------------
+   Premium finish without touching markup:
+   1. One teal→lime token identity (legacy mint / dark-green / blue-gray
+      tokens re-anchored to the master set; off-palette chips cleaned up).
+   2. Calm, consistent motion: two easing curves, soft theme fade, anchored
+      scroll offset for the sticky header.
+   3. Premium injected header: portrait-shield sizing + teal glow, iOS blur
+      prefix, open/active states, tinted mobile drawer.
+   4. Elevated product cards: media treatment, copy rhythm, verdict callouts,
+      legible prices, gradient CTAs with sheen + inner light.
+   5. Editorial typography: font smoothing, balanced heads, pretty paragraphs,
+      lead-paragraph treatment, phone-sized body text.
+   All new rules use logical properties so the RTL layer keeps working.
+   No new keyframes — the reduced-motion blanket rule above already covers
+   every transition/animation added here.
+   ========================================================================== */
+
+/* ---------- 1. Tokens: motion curves + palette unification ---------- */
+:root{
+  --ga-ease-emph:cubic-bezier(.22,.9,.28,1);   /* entrances & reveals: quick start, soft landing */
+  --ga-ease-smooth:cubic-bezier(.65,0,.35,1);  /* symmetric: theme fades, sheen sweeps */
+  --ga-ease-press:cubic-bezier(.34,.9,.3,1);   /* micro-interactions: chips, buttons, icons */
+  /* One gradient identity — re-anchor legacy brand tokens to the master set. */
+  --ga-teal:var(--ga-accent-2);
+  --ga-lime:var(--ga-accent);
+  --ga-mint:#46d979;
+  --ga-teal-deep:var(--green2);
+  --ga-brand-gradient:var(--ga-gradient);
+  /* gu-article system: fold its near-duplicate tones into the master tokens. */
+  --gu-bg:var(--ga-bg-alt);
+  --gu-ink:var(--ga-ink);
+  --gu-text:var(--ga-ink-2);
+  --gu-muted:var(--ga-muted);
+  --gu-line:var(--ga-line);
+  --gu-accent:var(--ga-accent-2);
+  --gu-accent-strong:var(--green2);
+  --gu-accent-soft:color-mix(in srgb,var(--ga-accent-2) 10%,var(--ga-surface));
+  /* Product-media matte: teal-tinted instead of the old blue-gray #e8edf2. */
+  --ga-product-matte:#edf3ee;
+  --ga-product-matte-line:#ccd8d1;
+}
+:root[data-theme="dark"]{
+  --ga-product-matte:#182220;
+  --ga-product-matte-line:#2b3833;
+  --gu-line:var(--ga-line);
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme]){--ga-product-matte:#182220;--ga-product-matte-line:#2b3833;--gu-line:var(--ga-line)}}
+::selection{background:color-mix(in srgb,var(--ga-accent-2) 32%,transparent)}
+
+/* ---------- 2. Off-palette cleanups (earlier layers, hardcoded hexes) ---------- */
+/* "FREE" chip: muddy #0b6735 → gradient chip. */
+.ga-free{background:var(--ga-gradient)!important;color:var(--ga-accent-ink)!important}
+/* Newsletter block: green-black wash + gradient CTA instead of #58db8c. */
+.ga-newsletter{background:linear-gradient(120deg,#0e1a16,#090f0d)!important}
+.ga-newsletter a{background:var(--ga-gradient)!important;color:var(--ga-accent-ink)!important}
+/* Unified (ua-*) header: fold its legacy mint/teal accents into the master gradient. */
+.ua-search:focus-within{border-color:var(--ga-accent-2)!important}
+.ua-action:hover,.ua-action:focus-visible{border-color:var(--ga-accent-2)!important}
+.ua-action.ua-finder{background:var(--ga-gradient)!important;color:var(--ga-accent-ink)!important}
+.ua-link:after,.ua-root>a:after{background:var(--ga-gradient)!important}
+.ua-theme:hover,.ua-theme:focus-visible,.ua-menu:hover,.ua-menu:focus-visible{border-color:var(--ga-accent-2)!important}
+.ua-dropdown a:hover,.ua-dropdown a:focus-visible{color:var(--ga-accent)!important}
+.ua-brand img{filter:drop-shadow(0 6px 14px rgba(0,169,157,.28))}
+
+/* ---------- 3. Theme transition: light ↔ dark fades instead of snapping ---------- */
+body{transition:opacity .24s ease,background-color .45s var(--ga-ease-smooth),color .45s var(--ga-ease-smooth)}
+.ga-site-header,.ga-site-footer{transition:background-color .45s var(--ga-ease-smooth),border-color .45s var(--ga-ease-smooth),color .45s var(--ga-ease-smooth)}
+
+/* ---------- 4. Typography: smoothing, rhythm, editorial voice ---------- */
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.article-body>p,.gu-article-body>p{text-wrap:pretty}
+.card h3,.feature-copy h2,.section-head h2,.signal-head h2{text-wrap:balance}
+/* Lead paragraph: the article opens with confidence. */
+.article-body>p:first-of-type,.gu-article-body>p:first-of-type{font-size:19px!important;line-height:1.6!important;color:var(--ga-ink)!important}
+/* Tabular numerals wherever money or scores appear. */
+.price,.gu-pick-price{font-variant-numeric:tabular-nums}
+
+/* ---------- 5. Header: premium frosted bar, portrait shield, active states ---------- */
+/* iOS Safari needs the prefix for the frosted-glass header. */
+.ga-site-header{-webkit-backdrop-filter:blur(20px) saturate(1.2)}
+@media(max-width:900px){.ga-site-header{-webkit-backdrop-filter:blur(18px) saturate(1.2)}}
+/* The shield is portrait 740×915: give it a portrait box + a soft teal glow. */
+.ga-brand{width:52px!important;height:64px!important;flex-basis:52px!important}
+.ga-brand img{width:52px!important;height:64px!important;max-width:52px!important;max-height:64px!important;filter:drop-shadow(0 6px 14px rgba(0,169,157,.28));transition:transform .3s var(--ga-ease-press),filter .3s var(--ga-ease-press)}
+:root[data-theme="dark"] .ga-brand img{filter:drop-shadow(0 6px 16px rgba(37,201,186,.38))}
+.ga-brand:hover img,.ga-brand:focus-visible img{transform:translateY(-2px)}
+/* Hamburger open state: tinted, not just an X. */
+.ga-menu-button[aria-expanded="true"]{background:var(--ga-accent-tint)!important;border-color:color-mix(in srgb,var(--ga-accent-2) 55%,var(--ga-line))!important}
+/* Active nav item: keep the gradient sweep, add a soft tinted pill. */
+.ga-primary-nav>a[aria-current="page"]{background:var(--ga-accent-tint)!important;color:var(--ga-ink)!important;border-radius:10px}
+@media(max-width:900px){
+  /* Mobile drawer: faint brand-tint wash from the top + active-item tint. */
+  .ga-nav-panel{background:linear-gradient(180deg,color-mix(in srgb,var(--ga-accent-2) 8%,var(--ga-bg)),var(--ga-bg) 150px)!important}
+  .ga-primary-nav>a[aria-current="page"]{background:var(--ga-accent-tint)!important;border-radius:12px}
+}
+
+/* ---------- 6. Product cards: elevation, media, rhythm, verdict, price, CTA ---------- */
+.product,.gu-product{border-radius:24px!important;transition:box-shadow .35s var(--ga-ease),border-color .35s var(--ga-ease)}
+.product:hover,.gu-product:hover{border-color:color-mix(in srgb,var(--ga-accent-2) 45%,var(--ga-line))!important;box-shadow:var(--ga-shadow-hover)!important}
+/* Media: clipped corners, slow zoom on hover, teal matte behind cut-outs. */
+.product-media,.gu-product-media{overflow:hidden!important;border-radius:16px!important}
+.product-media img,.gu-product-media img{transition:transform .6s var(--ga-ease)!important}
+.product:hover .product-media img,.gu-product:hover .gu-product-media img{transform:scale(1.02)}
+/* Copy rhythm: one gap token instead of scattered margins. */
+.product-copy,.gu-product-copy{display:flex!important;flex-direction:column!important;gap:16px!important;min-width:0}
+.product-copy>*,.gu-product-copy>*{margin-block:0!important;min-width:0}
+/* Verdict: a real callout — tinted panel, gradient edge bar, ink text. */
+.verdict,.product-verdict-box{position:relative!important;padding:16px 18px!important;padding-inline-start:24px!important;border-radius:14px!important;background:var(--ga-accent-tint)!important;color:var(--ga-ink)!important;font-weight:600!important}
+.verdict:before,.product-verdict-box:before{content:'';position:absolute;inset-inline-start:0;top:12px;bottom:12px;width:5px;border-radius:5px;background:var(--ga-gradient)}
+/* gu verdict line: gradient edge (logical, so RTL flips correctly). */
+.gu-one-line{border-left:0!important;border-inline-start:4px solid transparent!important;border-image:linear-gradient(180deg,var(--ga-accent-2),var(--ga-accent)) 1!important;border-radius:12px!important;background:var(--ga-accent-tint)!important}
+.gu-product-verdict{font-size:1.03rem!important;line-height:1.5!important}
+/* Pros/cons: lift the panel off the page. */
+.gu-proscons,.pros-cons{box-shadow:var(--ga-shadow)!important}
+/* Price: big, tabular, ink — legible in both themes. */
+.deal-price{font-size:clamp(1.3rem,2.4vw,1.7rem)!important;font-weight:700!important;color:var(--ga-ink)!important;letter-spacing:-.02em}
+.deal-price .deal-list{font-size:.78em!important;color:var(--ga-muted)!important;font-weight:500!important}
+/* CTAs: gradient + sheen already in place — add the inner top light. */
+.product-buy,.ga-amazon-search,.buy-button,.deal-box a{box-shadow:inset 0 1px 0 rgba(255,255,255,.32),var(--ga-shadow)!important;text-decoration:none!important;letter-spacing:.015em}
+/* Comparison tables: tinted header row, row hover. */
+.comparison-table{border-radius:14px!important;overflow:hidden}
+.comparison-table th{background:color-mix(in srgb,var(--ga-accent-2) 10%,var(--ga-surface-2))!important}
+.comparison-table tbody tr:hover td{background:var(--ga-accent-tint)!important}
+/* Narration player anchors below the sticky header. */
+#article-narration{scroll-margin-top:132px}
+
+/* ---------- 7. Motion: softer landings + anchored scrolling ---------- */
+.ga-premium-reveal{transition:opacity .75s var(--ga-ease-emph),transform .75s var(--ga-ease-emph)}
+/* (2026-10-11) Removed the legacy .motion-ready [data-reveal] transition override.
+   Reveal motion is owned by the motion builder's JS system. */
+/* Anchor targets land clear of the sticky header. */
+html{scroll-padding-top:132px}
+@media(max-width:900px){html{scroll-padding-top:76px}}
+
+/* ---------- 8. Responsive refinements ---------- */
+/* 768px tablet: shield between desktop and phone sizes. */
+@media(max-width:900px){
+  .ga-brand{width:46px!important;height:57px!important;flex-basis:46px!important}
+  .ga-brand img{width:46px!important;height:57px!important;max-width:46px!important;max-height:57px!important}
+}
+/* 360px phone: shield keeps its portrait ratio; body text steps down a notch.
+   (After the tablet block so the phone size wins below 480px.) */
+@media(max-width:480px){
+  .ga-brand{width:40px!important;height:50px!important;flex-basis:40px!important}
+  .ga-brand img{width:40px!important;height:50px!important;max-width:40px!important;max-height:50px!important}
+  body{font-size:16px!important;line-height:1.62}
+  .article-body>p,.gu-article-body>p,.article-body li,.gu-article-body li{font-size:16px!important;line-height:1.62!important}
+  .article-body>p:first-of-type,.gu-article-body>p:first-of-type{font-size:17px!important}
+  .product-copy,.gu-product-copy{gap:13px!important}
+  .verdict,.product-verdict-box{padding:14px 15px!important;padding-inline-start:20px!important}
+}
+/* 1920px TV-width: containers stay capped and centered; hero glow scales. */
+@media(min-width:1600px){
+  .hero{background:
+    radial-gradient(60rem 38rem at 6% -3rem,color-mix(in srgb,var(--ga-accent-2) 26%,transparent),transparent 62%),
+    radial-gradient(52rem 34rem at 97% 0,color-mix(in srgb,var(--ga-accent) 22%,transparent),transparent 60%),
+    linear-gradient(128deg,color-mix(in srgb,var(--ga-accent-2) 10%,var(--ga-bg)) 0 46%,var(--ga-bg-alt) 46% 100%)!important}
+  :root[data-theme="dark"] .hero{background:
+    radial-gradient(60rem 38rem at 6% -3rem,rgba(37,201,186,.22),transparent 62%),
+    radial-gradient(52rem 34rem at 97% 0,rgba(209,254,23,.13),transparent 60%),
+    linear-gradient(128deg,#0d1512 0 46%,#0f1113 46% 100%)!important}
+}
+
+/* ---------- 9. Reduced motion: explicit static fallbacks for the new layer ---------- */
+@media(prefers-reduced-motion:reduce){
+  .ga-premium-reveal{transition:none!important}
+  body,.ga-site-header,.ga-site-footer{transition:none}
+  .product-media img,.gu-product-media img,.ga-brand img{transition:none!important}
+}
+
+
+/* 2026-10-11 focused UI polish. */
+.ga-site-header{
+  position:sticky!important;
+  top:0!important;
+  isolation:isolate;
+  backface-visibility:hidden;
+  background:var(--ga-bg)!important;
+  box-shadow:0 10px 28px rgba(8,20,14,.11)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+:root[data-theme="dark"] .ga-site-header{box-shadow:0 12px 30px rgba(0,0,0,.42)!important}
+.ga-site-header>.ga-shell-nav{position:relative;z-index:1}
+:where(main section[id],main article[id],main div[id]:not(.ga-search-results),main h2[id],main h3[id]){scroll-margin-top:140px!important}
+
+@media(min-width:861px){.ga-footer-grid{grid-template-columns:minmax(250px,1.35fr) repeat(3,minmax(140px,1fr))!important;gap:28px!important;align-items:start}}
+#nl-badge-frame{right:14px!important;bottom:78px!important;max-width:calc(100vw - 28px)!important}
+
+.feature-copy{min-height:220px!important;gap:10px!important;padding:22px 24px!important}
+.feature-copy h2{margin:2px 0 0!important}
+.feature-copy p{margin:0!important}
+.feature-cta{margin-top:auto!important;padding-top:8px!important}
+#latest{padding-bottom:42px!important}
+#latest+.section{padding-top:54px!important}
+.hero-intro:after{left:auto!important;right:-8px!important;top:-106px!important;font-size:clamp(7rem,12vw,11rem)!important;opacity:.075!important}
+:root[data-theme="dark"] .hero-intro:after{opacity:.055!important}
+
+@media(max-width:900px){
+  :where(main section[id],main article[id],main div[id]:not(.ga-search-results),main h2[id],main h3[id]){scroll-margin-top:88px!important}
+}
+@media(max-width:860px){
+  .feature-copy{min-height:0!important;gap:9px!important;padding:20px!important}
+  .feature-cta{margin-top:8px!important}
+  #latest{padding-bottom:34px!important}
+  #latest+.section{padding-top:42px!important}
+  .hero-intro:after{right:-4px!important;top:-70px!important;font-size:6.5rem!important;opacity:.06!important}
+}
+@media(max-width:640px){#nl-badge-frame{right:12px!important;bottom:76px!important}}
+
+/* ==========================================================================
+   GADGET AUDIT DESIGN SYSTEM v3 — 2026-10-11 (design-system builder)
+   --------------------------------------------------------------------------
+   Original premium editorial identity for home + articles.
+   - One bold teal→lime gradient voice: hero moments, section dividers,
+     CTAs, active states. Never hairlines-only, never a template.
+   - Motion: expo-out cubic-bezier(.16,1,.3,1); transform/opacity for
+     reveals and micro-interactions; no infinite decorative loops.
+   - prefers-reduced-motion collapses everything new to static.
+   - Light + dark fully styled. This sheet loads LAST everywhere
+     (homepage <link>; articles via site-shell.js injection after
+     upgrade.css), so no !important is needed for the new layer.
+   - Reveals are JS-owned (.ga-premium-reveal/.ga-visible via
+     site-shell.js); nothing here forces content invisible.
+   ========================================================================== */
+
+/* ---------- 0. Expo-out motion token ---------- */
+:root{--ga-expo:cubic-bezier(.16,1,.3,1)}
+.ga-premium-reveal{transition:opacity .7s var(--ga-expo),transform .7s var(--ga-expo);transition-delay:var(--gu-stagger,0ms)}
+
+/* ---------- 1. Static gradients: infinite decorative loops removed ----------
+   The hero sheen and headline shimmer keep their rich gradient fields but no
+   longer loop forever; entrances and hover states carry the motion instead. */
+.hero:before{animation:none}
+@supports((-webkit-background-clip:text) or (background-clip:text)){
+  .hero-intro h1 .hero-line{animation:none;background-position:58% 0}
+}
+
+/* ==========================================================================
+   2. HEADER — the living masthead
+   Works with .scrolled toggled on the header element itself
+   (#gaSiteHeader — wired by site-shell.js, or .ua-header), plus body/html
+   fallbacks. Solidify background, deepen shadow, shrink the masthead.
+   ========================================================================== */
+.ua-header{isolation:isolate;transition:background-color .32s var(--ga-expo),box-shadow .32s var(--ga-expo),border-color .32s var(--ga-expo)}
+.ua-header:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:linear-gradient(90deg,transparent 0,var(--ga-accent-2) 26%,var(--ga-accent) 74%,transparent 100%);opacity:.85;pointer-events:none}
+.ua-primary{transition:min-height .32s var(--ga-expo)}
+.ua-brand{transition:height .32s var(--ga-expo)}
+.ua-brand img{transition:width .32s var(--ga-expo),height .32s var(--ga-expo),transform .3s var(--ga-expo),filter .3s var(--ga-expo)}
+.ua-brand:hover img,.ua-brand:focus-visible img{transform:translateY(-2px)}
+
+/* Scrolled: frosted solid, confident shadow, compact masthead. */
+#gaSiteHeader.scrolled,.ua-header.scrolled,body.scrolled .ua-header,html.scrolled .ua-header{background:rgba(11,11,11,.97);box-shadow:0 18px 40px rgba(0,0,0,.4);border-bottom-color:rgba(255,255,255,.14)}
+:root[data-theme="light"] #gaSiteHeader.scrolled,:root[data-theme="light"] .ua-header.scrolled,:root[data-theme="light"] body.scrolled .ua-header,:root[data-theme="light"] html.scrolled .ua-header{background:rgba(255,255,255,.97);box-shadow:0 18px 40px rgba(16,22,15,.14);border-bottom-color:#d3ded7}
+#gaSiteHeader.scrolled .ua-primary,.ua-header.scrolled .ua-primary,body.scrolled .ua-header .ua-primary,html.scrolled .ua-header .ua-primary{min-height:62px}
+#gaSiteHeader.scrolled .ua-brand,.ua-header.scrolled .ua-brand,body.scrolled .ua-header .ua-brand,html.scrolled .ua-header .ua-brand{height:58px}
+#gaSiteHeader.scrolled .ua-brand img,.ua-header.scrolled .ua-brand img,body.scrolled .ua-header .ua-brand img,html.scrolled .ua-header .ua-brand img{width:58px;height:58px}
+/* Legacy shell header variant, if ever rendered. */
+.ga-site-header.scrolled{box-shadow:0 14px 34px rgba(8,20,14,.16)}
+
+/* Nav micro-interactions: lift + underline sweep, expo-out. */
+.ua-link,.ua-root>a{transition:color .18s var(--ga-expo),transform .22s var(--ga-expo)}
+.ua-link:hover,.ua-link:focus-visible,.ua-group:hover>.ua-root>a,.ua-group:focus-within>.ua-root>a{transform:translateY(-1px)}
+.ua-link:after,.ua-root>a:after{transition:transform .3s var(--ga-expo)}
+.ua-dropdown{transition:opacity .24s var(--ga-expo),transform .24s var(--ga-expo),visibility .24s}
+.ua-drop-toggle{transition:transform .25s var(--ga-expo),color .18s}
+.ua-group.is-open>.ua-root .ua-drop-toggle{transform:rotate(180deg)}
+
+/* CTA button: gradient sheen sweep + lift + press. */
+.ua-action{transition:transform .2s var(--ga-expo),box-shadow .25s var(--ga-expo),border-color .2s,background-color .2s,filter .2s}
+.ua-action:not(.ua-finder):hover,.ua-action:not(.ua-finder):focus-visible{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.28)}
+.ua-action.ua-finder{background-image:linear-gradient(105deg,transparent 0 38%,rgba(255,255,255,.38) 48%,transparent 58%),linear-gradient(135deg,#1a9e93 0%,#4ade80 52%,#b7f995 100%);background-size:250% 100%,auto;background-position:120% 0,0 0;transition:transform .2s var(--ga-expo),box-shadow .25s var(--ga-expo),background-position .65s var(--ga-expo),filter .2s}
+.ua-action.ua-finder:hover,.ua-action.ua-finder:focus-visible{transform:translateY(-2px);background-position:-35% 0,0 0;box-shadow:0 12px 26px rgba(26,158,147,.42);filter:brightness(1.04)}
+.ua-action.ua-finder:active{transform:translateY(0) scale(.97)}
+
+/* Search: focus glow. */
+.ua-search{transition:border-color .2s,box-shadow .25s var(--ga-expo),transform .2s var(--ga-expo)}
+.ua-search:focus-within{box-shadow:0 0 0 3px color-mix(in srgb,var(--ga-accent-2) 28%,transparent);transform:translateY(-1px)}
+
+/* Theme toggle: smooth swing + press. */
+.ua-theme{transition:transform .34s var(--ga-expo),border-color .2s,background-color .2s,box-shadow .25s var(--ga-expo),color .2s}
+.ua-theme:hover,.ua-theme:focus-visible{transform:rotate(28deg) scale(1.07);box-shadow:0 8px 20px rgba(0,169,157,.34)}
+.ua-theme:active{transform:rotate(28deg) scale(.9)}
+
+/* Mobile drawer: gradient crown edge + staggered link entrances. */
+@media(max-width:900px){
+  .ua-nav-wrap{border-top:3px solid transparent;border-image:linear-gradient(90deg,var(--ga-accent-2),var(--ga-accent)) 1}
+  [dir="rtl"] .ua-nav-wrap{transform:translateX(105%)}
+  [dir="rtl"] .ua-nav-wrap.is-open{transform:none}
+  .ua-nav-wrap .ua-nav>*{transition:opacity .32s var(--ga-expo),transform .32s var(--ga-expo)}
+  .ua-nav-wrap:not(.is-open) .ua-nav>*{opacity:0;transform:translateX(-16px)}
+  [dir="rtl"] .ua-nav-wrap:not(.is-open) .ua-nav>*{transform:translateX(16px)}
+  .ua-nav-wrap.is-open .ua-nav>*{opacity:1;transform:none}
+  .ua-nav-wrap.is-open .ua-nav>*:nth-child(2){transition-delay:45ms}
+  .ua-nav-wrap.is-open .ua-nav>*:nth-child(3){transition-delay:90ms}
+  .ua-nav-wrap.is-open .ua-nav>*:nth-child(4){transition-delay:135ms}
+  .ua-nav-wrap.is-open .ua-nav>*:nth-child(5){transition-delay:180ms}
+  .ua-nav-wrap.is-open .ua-nav>*:nth-child(6){transition-delay:225ms}
+  .ua-nav-wrap.is-open .ua-nav>*:nth-child(7){transition-delay:270ms}
+  .ua-nav-wrap.is-open .ua-nav>*:nth-child(n+8){transition-delay:315ms}
+  .ua-menu{transition:transform .25s var(--ga-expo),background-color .2s,border-color .2s}
+  .ua-menu:active{transform:scale(.88)}
+}
+/* Scrolled shrink stays compact on phones. */
+@media(max-width:620px){
+  #gaSiteHeader.scrolled .ua-primary,.ua-header.scrolled .ua-primary,body.scrolled .ua-header .ua-primary{min-height:58px}
+  #gaSiteHeader.scrolled .ua-brand,.ua-header.scrolled .ua-brand,body.scrolled .ua-header .ua-brand{height:50px}
+  #gaSiteHeader.scrolled .ua-brand img,.ua-header.scrolled .ua-brand img,body.scrolled .ua-header .ua-brand img{width:50px;height:50px}
+}
+
+/* ==========================================================================
+   3. FOOTER — premium dark band, 4-column balance, brand-true socials
+   Homepage uses footer.ga-footer (new markup in index.html; the .social
+   container keeps its structure so the social-links builder can append
+   X / Pinterest / TikTok / Threads — styled here via href* selectors).
+   Article/listing pages keep their own markup (footer:not(.ga-footer))
+   and get the same band through their classes.
+   ========================================================================== */
+footer.ga-footer{position:relative;margin-top:80px;padding:68px 0 30px;overflow:hidden;background:#0b0d0c;color:#cfd9d2;font-family:var(--ga-body)}
+footer.ga-footer:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--ga-gradient)}
+footer.ga-footer:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(44rem 20rem at 10% -4rem,color-mix(in srgb,var(--ga-accent-2) 16%,transparent),transparent 62%),radial-gradient(38rem 18rem at 92% -2rem,color-mix(in srgb,var(--ga-accent) 9%,transparent),transparent 60%)}
+.ga-footer-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:44px 36px}
+.ga-footer-logo{display:inline-block;border-radius:14px}
+.ga-footer-logo img{display:block;width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(0,169,157,.3));transition:transform .3s var(--ga-expo)}
+.ga-footer-logo:hover img,.ga-footer-logo:focus-visible img{transform:translateY(-3px) scale(1.03)}
+.ga-footer-brand p{max-width:34ch;margin:18px 0 22px;color:#9fb0a6;font-size:.92rem;line-height:1.6}
+.ga-footer-col h2{margin:0 0 12px;color:#fff;font-family:var(--ga-body);font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.ga-footer-col h2:after{content:"";display:block;width:30px;height:3px;margin-top:10px;border-radius:3px;background:var(--ga-gradient)}
+.ga-footer-col ul{margin:0;padding:0;list-style:none;display:grid;gap:2px}
+.ga-footer-col a{display:inline-flex;align-items:center;min-height:40px;color:#aebcb2;text-decoration:none;font-size:.9rem;font-weight:500;transition:color .18s,transform .22s var(--ga-expo)}
+.ga-footer-col a:hover,.ga-footer-col a:focus-visible{color:#fff;transform:translateX(4px)}
+[dir="rtl"] .ga-footer-col a:hover,[dir="rtl"] .ga-footer-col a:focus-visible{transform:translateX(-4px)}
+.ga-footer-bottom{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.ga-footer-bottom .legal{margin:0;max-width:72ch;color:#8b978f;font-size:.78rem;line-height:1.55}
+.ga-copyright{margin:0;color:#77857c;font-size:.78rem;white-space:nowrap}
+
+/* Socials: grayscale brand marks that ignite in true brand colors on hover.
+   href* selectors style current AND future links (X, Pinterest, TikTok,
+   Threads) with zero markup changes. */
+footer .social{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0}
+footer .social a{display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(255,255,255,.16);border-radius:50%;background:rgba(255,255,255,.045);transition:transform .22s var(--ga-expo),background-color .22s,border-color .22s,box-shadow .25s var(--ga-expo)}
+footer .social svg{width:22px;height:22px;filter:grayscale(1);opacity:.78;transition:filter .22s,opacity .22s,transform .22s var(--ga-expo)}
+footer .social a:hover,footer .social a:focus-visible{transform:translateY(-3px)}
+footer .social a:hover svg,footer .social a:focus-visible svg{filter:none;opacity:1;transform:scale(1.06)}
+footer .social a[href*="facebook.com"]:hover,footer .social a[href*="facebook.com"]:focus-visible{background:#1877F2;border-color:#1877F2;box-shadow:0 10px 24px rgba(24,119,242,.42)}
+footer .social a[href*="instagram.com"]:hover,footer .social a[href*="instagram.com"]:focus-visible{background:linear-gradient(135deg,#405DE6 0%,#833AB4 34%,#C13584 48%,#E1306C 60%,#FD1D1D 72%,#F56040 83%,#FCAF45 100%);border-color:#E1306C;box-shadow:0 10px 24px rgba(225,48,108,.42)}
+footer .social a[href*="youtube.com"]:hover,footer .social a[href*="youtube.com"]:focus-visible,footer .social a[href*="youtu.be"]:hover,footer .social a[href*="youtu.be"]:focus-visible{background:#FF0000;border-color:#FF0000;box-shadow:0 10px 24px rgba(255,0,0,.42)}
+footer .social a[href*="x.com"]:hover,footer .social a[href*="x.com"]:focus-visible{background:#fff;border-color:#fff;box-shadow:0 10px 24px rgba(255,255,255,.3)}
+footer .social a[href*="pinterest."]:hover,footer .social a[href*="pinterest."]:focus-visible{background:#E60023;border-color:#E60023;box-shadow:0 10px 24px rgba(230,0,35,.42)}
+footer .social a[href*="tiktok.com"]:hover,footer .social a[href*="tiktok.com"]:focus-visible{background:#010101;border-color:#25F4EE;box-shadow:0 10px 24px rgba(37,244,238,.32),0 10px 24px rgba(254,44,85,.24)}
+footer .social a[href*="threads"]:hover,footer .social a[href*="threads"]:focus-visible{background:#fff;border-color:#fff;box-shadow:0 10px 24px rgba(255,255,255,.3)}
+
+/* Article + listing pages: same band through their own footer classes. */
+footer:not(.ga-footer){position:relative;margin-top:64px;padding:56px 0 26px;overflow:hidden;background:#0b0d0c;color:#cfd9d2}
+footer:not(.ga-footer):before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--ga-gradient)}
+footer:not(.ga-footer) .shell.foot{position:relative;z-index:1;display:grid;grid-template-columns:minmax(230px,.85fr) minmax(0,1.5fr);gap:16px 40px;align-items:start}
+footer:not(.ga-footer) .footer-brand img{display:block;width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(0,169,157,.3))}
+footer:not(.ga-footer) .footer-brand p{max-width:40ch;margin:14px 0 0;color:#9fb0a6;font-size:.88rem;line-height:1.6}
+footer:not(.ga-footer) .foot-links{display:flex;flex-wrap:wrap;gap:4px 20px;align-items:center}
+footer:not(.ga-footer) .foot-links>a{padding:9px 0;color:#aebcb2;text-decoration:none;font-size:.86rem;font-weight:600;transition:color .18s}
+footer:not(.ga-footer) .foot-links>a:hover,footer:not(.ga-footer) .foot-links>a:focus-visible{color:#fff}
+footer:not(.ga-footer) .footer-email{color:#dfe7e1}
+footer:not(.ga-footer) .foot-socials{display:inline-flex;gap:10px;margin-inline-start:auto;padding:4px 0}
+footer:not(.ga-footer) .foot-social{display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.16);border-radius:50%;background:rgba(255,255,255,.045);transition:transform .22s var(--ga-expo),background-color .22s,border-color .22s,box-shadow .25s var(--ga-expo)}
+footer:not(.ga-footer) .foot-social svg{width:21px;height:21px}
+footer:not(.ga-footer) .foot-social:hover,footer:not(.ga-footer) .foot-social:focus-visible{transform:translateY(-3px)}
+footer:not(.ga-footer) .foot-social[href*="facebook.com"]:hover,footer:not(.ga-footer) .foot-social[href*="facebook.com"]:focus-visible{background:#1877F2;border-color:#1877F2;box-shadow:0 10px 24px rgba(24,119,242,.42)}
+footer:not(.ga-footer) .foot-social[href*="instagram.com"]:hover,footer:not(.ga-footer) .foot-social[href*="instagram.com"]:focus-visible{background:linear-gradient(135deg,#405DE6 0%,#833AB4 34%,#C13584 48%,#E1306C 60%,#FD1D1D 72%,#F56040 83%,#FCAF45 100%);border-color:#E1306C;box-shadow:0 10px 24px rgba(225,48,108,.42)}
+footer:not(.ga-footer) .foot-social[href*="youtube.com"]:hover,footer:not(.ga-footer) .foot-social[href*="youtube.com"]:focus-visible{background:#FF0000;border-color:#FF0000;box-shadow:0 10px 24px rgba(255,0,0,.42)}
+footer:not(.ga-footer) .foot-social[href*="x.com"]:hover,footer:not(.ga-footer) .foot-social[href*="x.com"]:focus-visible{background:#fff;border-color:#fff}
+footer:not(.ga-footer) .foot-social[href*="pinterest."]:hover,footer:not(.ga-footer) .foot-social[href*="pinterest."]:focus-visible{background:#E60023;border-color:#E60023}
+footer:not(.ga-footer) .foot-social[href*="tiktok.com"]:hover,footer:not(.ga-footer) .foot-social[href*="tiktok.com"]:focus-visible{background:#010101;border-color:#25F4EE}
+footer:not(.ga-footer) .foot-social[href*="threads"]:hover,footer:not(.ga-footer) .foot-social[href*="threads"]:focus-visible{background:#fff;border-color:#fff}
+
+@media(max-width:1023px){
+  .ga-footer-grid{grid-template-columns:1fr 1fr;gap:36px}
+  .ga-footer-brand{grid-column:1/-1}
+  .ga-footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}
+  .ga-copyright{white-space:normal}
+}
+@media(max-width:639px){
+  footer.ga-footer{margin-top:56px;padding:52px 0 26px}
+  .ga-footer-grid{grid-template-columns:1fr;gap:30px}
+  footer:not(.ga-footer) .shell.foot{grid-template-columns:1fr;gap:24px}
+  footer:not(.ga-footer) .foot-socials{margin-inline-start:0}
+}
+
+/* ==========================================================================
+   4. ARTICLE READING EXPERIENCE — consistent, premium, never overflowing
+   ========================================================================== */
+.article-body,.gu-article-body{overflow-wrap:break-word}
+.article-body h2,.gu-article-body h2{margin-top:2.1em}
+/* Product sections: roomy, layered, one rhythm. */
+.product,.gu-product{padding:clamp(20px,3vw,32px)}
+/* Comparison tables: tabular numbers, tinted header, row hover. */
+.ga-comparison .comparison-table{font-variant-numeric:tabular-nums}
+.ga-comparison .comparison-table td{padding:14px 16px;vertical-align:top}
+.ga-comparison .comparison-table tbody tr{transition:background-color .18s var(--ga-expo)}
+.ga-comparison .comparison-table tbody tr:hover td{background:var(--ga-accent-tint)}
+.spec-table td{padding:12px 14px;vertical-align:top}
+/* Verdict callouts: gradient edge bar, tinted panel, ink text. */
+.final-verdict{position:relative;overflow:hidden;border:1px solid var(--ga-line);border-radius:20px;background:var(--ga-surface);box-shadow:var(--ga-shadow);padding:clamp(22px,3vw,34px)}
+.final-verdict:before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:5px;background:var(--ga-gradient)}
+.final-verdict h2{margin-top:0}
+/* Stat / score cards: quiet until hovered. */
+.score-card,.deal-card{transition:transform .3s var(--ga-expo),box-shadow .3s var(--ga-expo),border-color .3s var(--ga-expo)}
+.score-card:hover{transform:translateY(-3px);box-shadow:var(--ga-shadow-hover)}
+/* Pros/cons accordions: breathing room, clear summary. */
+.product-pros-cons{padding:6px 4px}
+.product-pros-cons>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:700}
+/* TOC: hover slide + active hook for the JS highlighter. */
+.sidebar a,.gu-toc a{border-radius:8px;transition:color .18s,transform .22s var(--ga-expo),background-color .18s}
+.sidebar a:hover,.gu-toc a:hover{transform:translateX(4px)}
+[dir="rtl"] .sidebar a:hover,[dir="rtl"] .gu-toc a:hover{transform:translateX(-4px)}
+.sidebar a.is-active,.gu-toc a.is-active{color:var(--ga-accent-2);font-weight:700;background:var(--ga-accent-tint)}
+/* FAQ accordions: lift when open. */
+.faq-list details{transition:box-shadow .3s var(--ga-expo),border-color .3s var(--ga-expo)}
+.faq-list details[open]{box-shadow:var(--ga-shadow)}
+/* Narrow-phone safety: nothing may push the page wider than the viewport. */
+@media(max-width:480px){
+  .article-body h2,.gu-article-body h2{overflow-wrap:anywhere}
+  .product,.gu-product{padding:20px 16px}
+  .deal-price{overflow-wrap:anywhere}
+}
+
+/* ==========================================================================
+   5. REDUCED MOTION — everything new collapses to static
+   ========================================================================== */
+@media(prefers-reduced-motion:reduce){
+  .ga-premium-reveal{opacity:1;transform:none;transition:none}
+  .ua-header,.ua-primary,.ua-brand,.ua-brand img,.ua-link,.ua-root>a,.ua-action,.ua-search,.ua-theme,.ua-menu,.ua-dropdown,.ua-drop-toggle{transition:none}
+  .ua-nav-wrap .ua-nav>*{opacity:1;transform:none;transition:none}
+  .hero:before{animation:none}
+  .hero-intro h1 .hero-line{animation:none}
+  footer .social a,footer .foot-social,.ga-footer-col a,.ga-footer-logo img{transition:none}
+  footer .social a:hover,footer .social a:focus-visible,footer .foot-social:hover,.ga-footer-col a:hover{transform:none}
+}
+
+/* ---------- Social badge icons: TikTok + Threads carry authentic brand badges ----------
+   Their SVGs already paint true brand colors (TikTok: black + cyan/pink note;
+   Threads: black + white), so hover must NOT flood a solid background behind
+   them — keep the lift and add a brand glow instead. */
+.ga-socials a.ga-social-tiktok:hover,.ga-socials a.ga-social-tiktok:focus-visible{background:transparent!important;border-color:rgba(254,44,85,.55)!important;color:#fff!important;box-shadow:0 8px 22px rgba(254,44,85,.35),0 8px 22px rgba(37,244,238,.18)!important}
+.ga-socials a.ga-social-threads:hover,.ga-socials a.ga-social-threads:focus-visible{background:transparent!important;border-color:rgba(255,255,255,.4)!important;color:#fff!important;box-shadow:0 8px 22px rgba(255,255,255,.16)!important}
+.ga-top-socials .ga-social-tiktok:hover,.ga-top-socials .ga-social-tiktok:focus-visible{background:transparent!important;box-shadow:0 6px 18px rgba(254,44,85,.35),0 6px 18px rgba(37,244,238,.18)!important}
+.ga-top-socials .ga-social-threads:hover,.ga-top-socials .ga-social-threads:focus-visible{background:transparent!important;box-shadow:0 6px 18px rgba(255,255,255,.16)!important}
+
+/* ---------- TikTok + Threads: monochrome default, true brand badge on hover ----------
+   Matches the other socials' behavior (gray idle -> brand color on hover). */
+.ga-socials a.ga-social-tiktok .ic-color,.ga-socials a.ga-social-threads .ic-color,
+.ga-top-socials a.ga-social-tiktok .ic-color,.ga-top-socials a.ga-social-threads .ic-color{display:none}
+.ga-socials a.ga-social-tiktok:hover .ic-mono,.ga-socials a.ga-social-tiktok:focus-visible .ic-mono,
+.ga-socials a.ga-social-threads:hover .ic-mono,.ga-socials a.ga-social-threads:focus-visible .ic-mono,
+.ga-top-socials a.ga-social-tiktok:hover .ic-mono,.ga-top-socials a.ga-social-tiktok:focus-visible .ic-mono,
+.ga-top-socials a.ga-social-threads:hover .ic-mono,.ga-top-socials a.ga-social-threads:focus-visible .ic-mono{display:none}
+.ga-socials a.ga-social-tiktok:hover .ic-color,.ga-socials a.ga-social-tiktok:focus-visible .ic-color,
+.ga-socials a.ga-social-threads:hover .ic-color,.ga-socials a.ga-social-threads:focus-visible .ic-color,
+.ga-top-socials a.ga-social-tiktok:hover .ic-color,.ga-top-socials a.ga-social-tiktok:focus-visible .ic-color,
+.ga-top-socials a.ga-social-threads:hover .ic-color,.ga-top-socials a.ga-social-threads:focus-visible .ic-color{display:block}

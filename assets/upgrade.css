@@ -1,0 +1,373 @@
+/* September 2026 editorial experience upgrade */
+:root{
+  --gu-bg:#f5f7f6;--gu-surface:#fff;--gu-ink:#0d1712;--gu-text:#34443b;--gu-muted:#66736b;
+  --gu-line:#dbe3de;--gu-accent:#168a67;--gu-accent-strong:#0f6d52;--gu-accent-soft:#e8f5ee;
+  --gu-deep:#0b1610;--gu-shadow:0 22px 55px rgba(11,22,16,.18);
+  color-scheme:light dark;
+}
+:root[data-theme="dark"]{
+  --gu-bg:#09100c;--gu-surface:#111b15;--gu-ink:#f3f8f5;--gu-text:#d6e0d9;--gu-muted:#9daaa1;
+  --gu-line:#29372e;--gu-accent:#5ee5a2;--gu-accent-strong:#87efb6;--gu-accent-soft:#122d20;
+  --gu-deep:#050a07;--gu-shadow:0 24px 64px rgba(0,0,0,.48);
+}
+.ga-enhanced body{opacity:0;transform:translateY(5px);transition:opacity .24s ease-out,transform .24s ease-out,background-color .32s ease,color .32s ease}
+.ga-enhanced body.ga-page-ready{opacity:1;transform:none}
+.ga-enhanced body.ga-page-leaving{opacity:0;transform:translateY(8px);pointer-events:none}
+.ga-premium-reveal{opacity:0;transform:translateY(28px);transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1);transition-delay:var(--gu-stagger,0ms)}
+.ga-premium-reveal.ga-visible{opacity:1;transform:none}
+
+/* Branded accents stay recognizable before and during hover. */
+.ga-socials .ga-social-facebook{color:#1877F2!important;border-color:#1877F2!important;background:color-mix(in srgb,#1877F2 10%,transparent)!important}
+.ga-socials .ga-social-instagram{color:#E1306C!important;border-color:#E1306C!important;background:color-mix(in srgb,#E1306C 10%,transparent)!important}
+.ga-socials .ga-social-youtube{color:#FF0000!important;border-color:#FF0000!important;background:color-mix(in srgb,#FF0000 10%,transparent)!important}.ga-socials .ga-social-x{color:#000!important;border-color:#000!important;background:color-mix(in srgb,#000 10%,transparent)!important}.ga-socials .ga-social-pinterest{color:#E60023!important;border-color:#E60023!important;background:color-mix(in srgb,#E60023 10%,transparent)!important}.ga-socials .ga-social-tiktok{color:#FE2C55!important;border-color:#FE2C55!important;background:color-mix(in srgb,#FE2C55 10%,transparent)!important}.ga-socials .ga-social-threads{color:#000!important;border-color:#000!important;background:color-mix(in srgb,#000 10%,transparent)!important}
+.ga-socials .ga-social-facebook:hover,.ga-socials .ga-social-facebook:focus-visible{color:#fff!important;background:#1877F2!important;transform:translateY(-3px);box-shadow:0 10px 26px rgba(24,119,242,.42)!important}
+.ga-socials .ga-social-instagram:hover,.ga-socials .ga-social-instagram:focus-visible{color:#fff!important;background:#E1306C!important;transform:translateY(-3px);box-shadow:0 10px 26px rgba(225,48,108,.42)!important}
+.ga-socials .ga-social-youtube:hover,.ga-socials .ga-social-youtube:focus-visible{color:#fff!important;background:#FF0000!important;transform:translateY(-3px);box-shadow:0 10px 26px rgba(255,0,0,.42)!important}.ga-socials .ga-social-x:hover,.ga-socials .ga-social-x:focus-visible{color:#fff!important;background:#000!important;transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.42)!important}.ga-socials .ga-social-pinterest:hover,.ga-socials .ga-social-pinterest:focus-visible{color:#fff!important;background:#E60023!important;transform:translateY(-3px);box-shadow:0 10px 26px rgba(230,0,35,.42)!important}.ga-socials .ga-social-tiktok:hover,.ga-socials .ga-social-tiktok:focus-visible{color:#fff!important;background:#FE2C55!important;transform:translateY(-3px);box-shadow:0 10px 26px rgba(254,44,85,.42)!important}.ga-socials .ga-social-threads:hover,.ga-socials .ga-social-threads:focus-visible{color:#fff!important;background:#000!important;transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.42)!important}
+.ga-socials a:active{transform:translateY(1px) scale(.97)}
+
+/* True fractional star fill, driven by each star's --fill value. */
+.stars .star,.ga-stars .star{color:transparent!important;background:linear-gradient(90deg,#f0b429 var(--fill,0%),color-mix(in srgb,var(--gu-muted) 30%,transparent) var(--fill,0%));-webkit-background-clip:text;background-clip:text}
+
+/* New evergreen article template */
+.gu-article{background:var(--gu-bg);color:var(--gu-text);font:500 18px/1.72 "Source Sans 3",ui-sans-serif,system-ui,sans-serif}.gu-shell{width:min(1120px,calc(100% - 40px));margin:auto}.gu-article-header{padding:64px 0 30px}.gu-breadcrumb{margin:0 0 22px;color:var(--gu-muted);font-size:13px}.gu-breadcrumb a{color:var(--gu-accent-strong);font-weight:700;text-decoration:none}.gu-label{display:inline-flex;padding:6px 9px;border-radius:7px;background:var(--gu-accent-soft);color:var(--gu-accent-strong);font:750 12px/1 "IBM Plex Sans",sans-serif;text-transform:uppercase;letter-spacing:.06em}.gu-article h1{max-width:940px;margin:16px 0 16px;color:var(--gu-ink);font:800 clamp(2.55rem,6vw,5.4rem)/.98 "IBM Plex Sans",sans-serif;letter-spacing:-.055em}.gu-dek{max-width:800px;margin:0;color:var(--gu-muted);font-size:clamp(1.1rem,2vw,1.32rem);line-height:1.55}.gu-byline{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-top:25px;color:var(--gu-muted);font-size:14px}.gu-byline a{display:flex;align-items:center;gap:9px;color:var(--gu-ink);font-weight:750;text-decoration:none}.gu-byline img{width:38px;height:38px;border-radius:50%;background:var(--gu-deep)}.gu-byline a:hover,.gu-byline a:focus-visible{color:var(--gu-accent);outline-offset:4px}.gu-hero{position:relative;margin-bottom:34px;overflow:hidden;border-radius:24px;background:var(--gu-deep)}.gu-hero img{display:block;width:100%;height:min(58vw,610px);object-fit:cover}.gu-hero:after{content:'';position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,rgba(3,11,7,.48));pointer-events:none}.gu-article-layout{display:grid;grid-template-columns:210px minmax(0,760px);gap:44px;align-items:start;padding-bottom:70px}.gu-toc{position:sticky;top:90px;padding-top:8px}.gu-toc strong{display:block;margin-bottom:10px;color:var(--gu-ink);font:750 14px "IBM Plex Sans",sans-serif}.gu-toc ol{margin:0;padding:0;list-style:none}.gu-toc a{display:block;padding:7px 0;color:var(--gu-muted);font-size:13px;line-height:1.3;text-decoration:none}.gu-toc a:hover,.gu-toc a:focus-visible{color:var(--gu-accent);outline-offset:3px}.gu-article-body{min-width:0}.gu-article-body>p:first-of-type{font-size:1.2rem;color:var(--gu-ink)}#article-narration:empty{display:none}.gu-evidence{margin:24px 0 30px;padding:15px 17px;border:1px solid var(--gu-line);border-radius:12px;background:var(--gu-surface);color:var(--gu-muted);font-size:14px}.gu-evidence strong{color:var(--gu-ink)}.gu-product{padding:38px 0;border-top:1px solid var(--gu-line);scroll-margin-top:100px}.gu-product:first-of-type{border-top:3px solid var(--gu-ink)}.gu-product-head{display:grid;grid-template-columns:56px minmax(0,1fr);gap:13px;align-items:start}.gu-num{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:var(--gu-deep);color:#fff;font:800 18px "IBM Plex Sans",sans-serif}.gu-product h2{margin:0;color:var(--gu-ink);font:780 clamp(1.55rem,3vw,2.1rem)/1.15 "IBM Plex Sans",sans-serif;letter-spacing:-.025em}.gu-product p{margin:16px 0}.gu-fact{margin:18px 0 0;padding:17px 18px;border-radius:12px;background:var(--gu-accent-soft)}.gu-fact strong{display:block;margin-bottom:5px;color:var(--gu-accent-strong);font:750 13px "IBM Plex Sans",sans-serif}.gu-ending{margin-top:12px;padding:30px;border-radius:18px;background:var(--gu-deep);color:#dce8df}.gu-ending h2{margin:0 0 12px;color:#fff;font:780 1.7rem "IBM Plex Sans",sans-serif}.gu-ending p{margin:0}.gu-disclosure{margin-top:32px;color:var(--gu-muted);font-size:14px}.gu-article-header+.gu-disclosure{margin:0 0 28px}
+.gu-article :is(a,button,input):focus-visible{outline:3px solid var(--gu-accent);outline-offset:3px}
+
+/* New cards inserted into listing pages. */
+.ga-upgrade-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--gu-line);border-radius:16px;background:var(--gu-surface);color:var(--gu-text);text-decoration:none;min-width:0}.ga-upgrade-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}.ga-upgrade-card-copy{display:flex;flex:1;flex-direction:column;padding:19px}.ga-upgrade-card small{color:var(--gu-accent);font-weight:750;text-transform:uppercase;letter-spacing:.06em}.ga-upgrade-card h2,.ga-upgrade-card h3{margin:8px 0 9px;color:var(--gu-ink);font:750 1.16rem/1.25 "IBM Plex Sans",sans-serif}.ga-upgrade-card p{margin:0 0 12px;color:var(--gu-muted);font-size:14px;line-height:1.5}.ga-upgrade-card time{margin-top:auto;color:var(--gu-muted);font-size:12px}.ga-upgrade-card:hover,.ga-upgrade-card:focus-visible{transform:translateY(-3px);border-color:var(--gu-accent);box-shadow:0 12px 28px rgba(9,26,16,.12);outline:0}.ga-upgrade-card:active{transform:translateY(0)}
+
+@media(max-width:760px){.gu-shell{width:min(100% - 30px,680px)}.gu-article-header{padding:40px 0 22px}.gu-article h1{font-size:clamp(2.25rem,12vw,3.55rem)}.gu-hero{border-radius:16px}.gu-hero img{height:58vw;min-height:230px}.gu-article-layout{grid-template-columns:1fr;gap:22px}.gu-toc{position:static;padding:15px;border:1px solid var(--gu-line);border-radius:12px;background:var(--gu-surface)}.gu-toc ol{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.gu-product{padding:31px 0}.gu-ending{padding:24px}}
+@media(max-width:420px){.gu-toc ol{grid-template-columns:1fr}.gu-product-head{grid-template-columns:46px minmax(0,1fr)}.gu-num{width:40px;height:40px}.gu-article{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.ga-enhanced body,.ga-premium-reveal,.ga-premium-reveal.ga-visible,.ga-upgrade-card{animation:none!important;transition:none!important;transform:none!important}.ga-premium-reveal{opacity:1!important}}
+
+/* Custom article narration */
+.ga-narration{position:relative;margin:26px 0 34px;padding:18px;border:1px solid var(--gu-line);border-radius:18px;background:var(--gu-surface);color:var(--gu-text);box-shadow:0 13px 34px rgba(7,25,14,.08)}
+.ga-narration-top{display:flex;align-items:center;gap:12px;margin-bottom:15px}.ga-narration-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:var(--gu-accent-soft);color:var(--gu-accent-strong)}.ga-narration-icon svg{width:22px;height:22px}.ga-narration-copy strong{display:block;color:var(--gu-ink);font:750 16px/1.2 "IBM Plex Sans",sans-serif}.ga-narration-copy span{display:block;margin-top:3px;color:var(--gu-muted);font-size:12px}.ga-narration-main{display:grid;grid-template-columns:auto auto auto minmax(140px,1fr);gap:9px;align-items:center}.ga-audio-btn{display:grid;place-items:center;width:42px;height:42px;padding:0;border:1px solid var(--gu-line);border-radius:50%;background:var(--gu-bg);color:var(--gu-ink);font:750 13px "IBM Plex Sans",sans-serif;cursor:pointer;transition:transform .16s ease,border-color .16s ease,background .16s ease,color .16s ease,box-shadow .16s ease}.ga-audio-btn svg{width:18px;height:18px}.ga-audio-btn--play{width:52px;height:52px;border-color:var(--gu-accent);background:var(--gu-accent);color:#fff;box-shadow:0 8px 20px color-mix(in srgb,var(--gu-accent) 30%,transparent)}.ga-audio-btn:hover,.ga-audio-btn:focus-visible{border-color:var(--gu-accent);background:var(--gu-accent-soft);color:var(--gu-accent-strong);outline:3px solid color-mix(in srgb,var(--gu-accent) 20%,transparent);outline-offset:2px}.ga-audio-btn--play:hover,.ga-audio-btn--play:focus-visible{background:var(--gu-accent-strong);color:#fff;transform:translateY(-2px);box-shadow:0 11px 25px color-mix(in srgb,var(--gu-accent) 40%,transparent)}.ga-audio-btn:active{transform:scale(.92)}.ga-audio-track{display:grid;grid-template-columns:minmax(100px,1fr) auto;gap:10px;align-items:center}.ga-audio-range-wrap{position:relative;display:flex;align-items:center;height:30px}.ga-audio-buffer{position:absolute;left:0;right:0;height:5px;border-radius:999px;background:linear-gradient(90deg,color-mix(in srgb,var(--gu-accent) 25%,transparent) var(--buffered,0%),var(--gu-line) var(--buffered,0%));pointer-events:none}.ga-audio-range{position:relative;z-index:1;width:100%;height:30px;margin:0;appearance:none;background:transparent;cursor:pointer}.ga-audio-range::-webkit-slider-runnable-track{height:5px;border-radius:999px;background:linear-gradient(90deg,var(--gu-accent) var(--played,0%),transparent var(--played,0%))}.ga-audio-range::-moz-range-track{height:5px;border-radius:999px;background:linear-gradient(90deg,var(--gu-accent) var(--played,0%),transparent var(--played,0%))}.ga-audio-range::-webkit-slider-thumb{width:16px;height:16px;margin-top:-5.5px;appearance:none;border:3px solid var(--gu-surface);border-radius:50%;background:var(--gu-accent);box-shadow:0 1px 5px rgba(0,0,0,.22)}.ga-audio-range::-moz-range-thumb{width:11px;height:11px;border:3px solid var(--gu-surface);border-radius:50%;background:var(--gu-accent);box-shadow:0 1px 5px rgba(0,0,0,.22)}.ga-audio-time{min-width:86px;color:var(--gu-muted);font:650 12px/1 "IBM Plex Sans",sans-serif;text-align:right;font-variant-numeric:tabular-nums}.ga-narration-tools{display:flex;align-items:center;gap:14px;margin-top:13px;padding-top:13px;border-top:1px solid var(--gu-line)}.ga-speed{display:flex;align-items:center;gap:7px;color:var(--gu-muted);font-size:12px}.ga-speed select{min-height:34px;padding:0 28px 0 10px;border:1px solid var(--gu-line);border-radius:9px;background:var(--gu-bg);color:var(--gu-ink);font:700 13px "IBM Plex Sans",sans-serif;cursor:pointer}.ga-volume-control{display:flex;align-items:center;gap:8px;margin-left:auto;color:var(--gu-muted);font-size:12px}.ga-volume-control svg{width:17px;height:17px}.ga-volume-control input{width:92px;accent-color:var(--gu-accent);cursor:pointer}.ga-narration :is(button,input,select):focus-visible{outline:3px solid color-mix(in srgb,var(--gu-accent) 30%,transparent);outline-offset:3px}
+@media(max-width:680px){.ga-narration{padding:15px}.ga-narration-main{grid-template-columns:auto auto auto minmax(0,1fr)}.ga-audio-btn{width:38px;height:38px}.ga-audio-btn--play{width:48px;height:48px}.ga-audio-track{grid-column:1/-1;grid-template-columns:minmax(0,1fr) auto}.ga-narration-tools{flex-wrap:wrap}.ga-volume-control{margin-left:0;flex:1;justify-content:flex-end}.ga-volume-control input{width:min(120px,28vw)}}
+@media(max-width:390px){.ga-narration-main{gap:7px}.ga-audio-btn{font-size:11px}.ga-volume-control{width:100%;justify-content:space-between}.ga-volume-control input{width:70%}}
+.ga-narration--standalone{width:min(1180px,calc(100% - 40px));margin:24px auto!important}
+@media(max-width:620px){.ga-narration--standalone{width:calc(100% - 24px)}}
+
+.gu-verdict{margin:26px 0 34px;padding:22px 24px;border-radius:16px;background:var(--gu-deep);color:#dce8df}.gu-verdict>strong{display:block;margin-bottom:7px;color:#79edae;font:750 13px "IBM Plex Sans",sans-serif;text-transform:uppercase;letter-spacing:.06em}.gu-verdict p{margin:0}.gu-proscons{display:grid;grid-template-columns:1fr 1fr;margin-top:20px;overflow:hidden;border:1px solid var(--gu-line);border-radius:14px;background:var(--gu-surface)}.gu-proscons>div{padding:17px 18px}.gu-proscons>div+div{border-left:1px solid var(--gu-line)}.gu-proscons strong{color:var(--gu-ink);font:750 13px "IBM Plex Sans",sans-serif}.gu-proscons p{margin:6px 0 0;color:var(--gu-muted);font-size:15px;line-height:1.5}
+body :is(button,.btn,.secondary-btn,.section-action,.signal-link,.category a,.newsletter a,.ga-tool,.ga-nav-toggle,.ga-sub-toggle){transition:color .18s ease,background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease,filter .18s ease}
+body :is(button,.btn,.secondary-btn,.section-action,.signal-link,.category a,.newsletter a,.ga-tool,.ga-nav-toggle,.ga-sub-toggle):not(.ga-toc-toggle):hover{filter:brightness(1.08)!important;transform:translateY(-3px)!important;box-shadow:0 12px 26px rgba(0,0,0,.22)!important}
+body :is(button,.btn,.secondary-btn,.section-action,.signal-link,.category a,.newsletter a,.ga-tool,.ga-nav-toggle,.ga-sub-toggle):not(.ga-toc-toggle):active{transform:translateY(1px) scale(.98)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--gu-bg:#09100c;--gu-surface:#111b15;--gu-ink:#f3f8f5;--gu-text:#d6e0d9;--gu-muted:#9daaa1;--gu-line:#29372e;--gu-accent:#5ee5a2;--gu-accent-strong:#87efb6;--gu-accent-soft:#122d20;--gu-deep:#050a07;--gu-shadow:0 24px 64px rgba(0,0,0,.48)}}
+@media(max-width:560px){.gu-proscons{grid-template-columns:1fr}.gu-proscons>div+div{border-left:0;border-top:1px solid var(--gu-line)}}
+
+
+/* September 21, 2026 — authoritative premium identity layer */
+:root{
+  --ga-teal:#00b8a9;--ga-lime:#b9f227;--ga-mint:#4bdc83;
+  --ga-brand-gradient:linear-gradient(115deg,var(--ga-teal) 0%,var(--ga-mint) 52%,var(--ga-lime) 100%);
+  --ga-brand-soft:linear-gradient(115deg,color-mix(in srgb,var(--ga-teal) 10%,var(--gu-surface)),color-mix(in srgb,var(--ga-lime) 10%,var(--gu-surface)));
+  --ga-card-shadow:0 18px 48px rgba(8,37,25,.1);
+}
+:root[data-theme="dark"]{--ga-brand-soft:linear-gradient(115deg,rgba(0,184,169,.14),rgba(185,242,39,.08));--ga-card-shadow:0 22px 60px rgba(0,0,0,.42),0 0 54px rgba(0,184,169,.08)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--ga-brand-soft:linear-gradient(115deg,rgba(0,184,169,.14),rgba(185,242,39,.08));--ga-card-shadow:0 22px 60px rgba(0,0,0,.42),0 0 54px rgba(0,184,169,.08)}}
+
+/* The brand gradient works throughout the publication, not only on CTAs. */
+:is(.section-head,.picks-head,.video-head,.related-guides,.faq,.gu-ending)>h2:after,
+:is(.article-body,.gu-article-body,.content)>h2:after{content:"";display:block;width:72px;height:3px;margin-top:10px;border-radius:4px;background:var(--gu-accent)}
+/* DS v2 — chips and labels: flat, restrained. (Campaign-state keeps its own
+   flat treatment from trust-layer.css; the caution variant is excluded.) */
+:is(.tag,.gu-label,.eyebrow,.kicker,.meta-label){border:1px solid var(--gu-line)!important;background:var(--gu-accent-soft)!important;color:var(--gu-accent-strong)!important;display:inline-flex!important;width:fit-content;max-width:100%}
+:is(.ga-campaign-state):not(.ga-campaign-state--caution){border:1px solid color-mix(in srgb,var(--gu-accent) 38%,var(--gu-line))!important;background:var(--gu-accent-soft)!important;color:var(--gu-accent-strong)!important}
+:is(.breadcrumb,.gu-breadcrumb) a,.gu-toc a:hover,.gu-toc a:focus-visible,.article-body a:not(.buy-button):not(.btn),.gu-article-body a:not(.buy-button):not(.btn){text-decoration-color:var(--ga-teal);text-decoration-thickness:2px;text-underline-offset:3px}
+:is(.card,.article-tile,.ga-upgrade-card,.product,.gu-product,.score-summary,.picks-box,.verdict-box,.product-verdict-box,.deal-box){border-color:transparent!important;background:linear-gradient(var(--gu-surface),var(--gu-surface)) padding-box,linear-gradient(125deg,color-mix(in srgb,var(--ga-teal) 45%,var(--gu-line)),color-mix(in srgb,var(--ga-lime) 34%,var(--gu-line))) border-box!important;box-shadow:var(--ga-card-shadow)}
+:root[data-theme="dark"] :is(.card,.article-tile,.ga-upgrade-card,.product,.gu-product,.score-summary,.picks-box,.verdict-box,.product-verdict-box,.deal-box){box-shadow:var(--ga-card-shadow),inset 0 1px rgba(255,255,255,.035)}
+
+/* DS v2 (2026-09-28) — button system: flat neutral by default. The teal-to-lime
+   gradient is reserved for primary CTAs only (buy/deal/affiliate actions,
+   the allow-consent action, the audio play control). */
+body :is(button,.btn,.secondary-btn,.section-action,.signal-link):not(.audio-play,.ga-toc-toggle){border:1px solid var(--gu-line)!important;background:var(--gu-surface)!important;color:var(--gu-ink)!important;font-weight:750!important;box-shadow:none!important}
+body :is(.buy-button,.deal-button,.affiliate-button,.ga-amazon-search),body .newsletter a,body .ga-cookie-actions button[data-ga-consent="allow"]{border:1px solid transparent!important;background:var(--ga-brand-gradient) padding-box,var(--ga-brand-gradient) border-box!important;color:#07140e!important;font-weight:850!important;box-shadow:0 8px 22px rgba(0,184,169,.16)!important}
+.ga-audio-btn--play{border:1px solid transparent!important;background:var(--ga-brand-gradient) padding-box,var(--ga-brand-gradient) border-box!important;color:#07140e!important;box-shadow:0 8px 20px rgba(0,184,169,.2)!important}
+body .ga-audio-btn:not(.ga-audio-btn--play){border:1px solid var(--gu-line)!important;background:var(--gu-surface)!important;color:var(--gu-ink)!important;box-shadow:none!important}
+body :is(button,.btn,.secondary-btn,.section-action,.signal-link):not(.audio-play,.ga-toc-toggle):hover{border-color:var(--ga-teal)!important;filter:none!important;box-shadow:0 12px 26px rgba(0,0,0,.14)!important}
+body :is(.buy-button,.deal-button,.affiliate-button,.ga-amazon-search):hover{filter:saturate(1.1) brightness(1.03)!important;box-shadow:0 14px 30px rgba(0,184,169,.24)!important}
+/* DS v2 — rank badges: quiet flat ink chips (the old gradient badges are retired). */
+.gu-num,.number,.pick-index{background:var(--gu-deep)!important;color:#fff!important;border:0!important;box-shadow:none!important}
+
+/* DS v2 — article score badge: quiet and premium. A flat neutral disc with a
+   tabular-numeric score and a muted "/10" suffix. This central rule overrides
+   the per-page inline `.score-badge` styles (they carry no !important). */
+.score-badge{
+  width:84px!important;height:84px!important;border-radius:50%!important;
+  display:grid!important;align-content:center!important;justify-items:center!important;gap:3px!important;
+  background:var(--gu-surface,#ffffff)!important;
+  border:1.5px solid var(--gu-line,#dbe3de)!important;
+  color:var(--gu-ink,#0d1712)!important;
+  font:800 1.9rem/1 "IBM Plex Sans",ui-sans-serif,system-ui,sans-serif!important;
+  font-variant-numeric:tabular-nums;
+  box-shadow:0 6px 18px rgba(8,37,25,.08)!important;
+  text-shadow:none!important;
+}
+.score-badge:after{content:"/10";font:700 .68rem/1 "IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;color:var(--gu-muted,#66736b);letter-spacing:.05em}
+.score-summary{background:var(--gu-surface,#ffffff)!important;border:1px solid var(--gu-line,#dbe3de)!important;box-shadow:none!important}
+@media(max-width:600px){.score-badge{width:66px!important;height:66px!important;font-size:1.5rem!important}}
+
+/* Cleaner, faster article opening: strong H1, shorter photography, then picks. */
+.gu-article-header,.article-header{padding-top:clamp(38px,6vw,68px)!important;padding-bottom:24px!important}
+.gu-article h1,.article-header h1{max-width:920px!important;font-size:clamp(2.45rem,5.1vw,4.6rem)!important;line-height:.98!important;letter-spacing:-.045em!important;text-wrap:balance}
+.gu-hero,.hero-img{max-width:1040px!important;margin-inline:auto!important;border-radius:18px!important;box-shadow:var(--ga-card-shadow)!important}
+.gu-hero img{height:clamp(300px,39vw,455px)!important}.hero-img{display:block!important;width:min(1040px,100%)!important;max-height:455px!important;object-fit:contain!important}
+.gu-hero:after{height:26%!important}.gu-product:first-of-type{border-top:0!important}
+.gu-product{position:relative;margin-top:4px;padding:34px 0!important;border-top:0!important;background:transparent!important;box-shadow:none!important}
+.gu-product+.gu-product:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--ga-brand-gradient);opacity:.78}
+.gu-num,.number{font-variant-numeric:tabular-nums}
+.product{overflow:hidden!important;margin-block:28px!important;border:1px solid transparent!important;border-radius:18px!important}
+.product-media img{display:block;width:100%;height:auto;max-height:430px;object-fit:contain;background:var(--gu-bg)}
+.product-copy{padding:clamp(20px,3vw,34px)!important}.review-facts,.specs,.spec-grid{border-color:color-mix(in srgb,var(--ga-teal) 26%,var(--gu-line))!important}
+.product-video{margin-top:24px!important;padding-top:20px!important;border-top:1px solid var(--gu-line)!important}
+
+/* Compact narration bar: all essential controls, a fraction of the previous height. */
+.ga-narration{display:grid!important;grid-template-columns:auto minmax(300px,1fr) auto;align-items:center;gap:12px;margin:16px 0 24px!important;padding:9px 11px!important;border:1px solid var(--gu-line)!important;border-radius:14px!important;background:var(--gu-surface)!important;box-shadow:0 10px 28px rgba(8,37,25,.07)!important}
+.ga-narration-top{min-width:132px;margin:0!important;gap:8px!important}.ga-narration-icon{width:32px!important;height:32px!important;border-radius:9px!important;background:var(--gu-accent-soft)!important}.ga-narration-icon svg{width:18px!important;height:18px!important}.ga-narration-copy strong{font-size:13px!important}.ga-narration-copy>span{display:none!important}
+.ga-narration-main{grid-template-columns:34px 40px 34px minmax(120px,1fr)!important;gap:6px!important}.ga-audio-btn{width:34px!important;height:34px!important;font-size:10px!important}.ga-audio-btn--play{width:40px!important;height:40px!important}.ga-audio-track{gap:7px!important}.ga-audio-time{min-width:78px!important;font-size:10px!important}
+.ga-narration-tools{margin:0!important;padding:0!important;border:0!important;gap:8px!important}.ga-speed{font-size:10px!important}.ga-speed select{min-height:32px!important}.ga-volume-control{display:flex!important}
+
+/* Motion is visible when supported and never leaves content stranded. */
+.ga-premium-reveal{will-change:opacity,transform}.ga-premium-reveal.ga-visible{will-change:auto}
+@media(max-width:760px){
+ .gu-article h1,.article-header h1{font-size:clamp(2.25rem,10.8vw,3.5rem)!important}
+ .gu-hero img{height:56vw!important;min-height:210px!important;max-height:340px!important}.hero-img{max-height:340px!important;border-radius:14px!important}
+ .ga-narration{grid-template-columns:1fr!important;gap:7px!important}.ga-narration-top{min-width:0}.ga-narration-main{grid-template-columns:32px 38px 32px minmax(0,1fr)!important}.ga-narration-tools{position:absolute;right:11px;top:9px}.ga-narration-copy>span{display:none!important}
+ .product{border-radius:14px!important}.product-media img{max-height:330px}
+}
+@media(max-width:430px){.ga-narration-main{grid-template-columns:30px 36px 30px minmax(0,1fr)!important}.ga-audio-track{grid-template-columns:minmax(0,1fr)!important}.ga-audio-time{display:none!important}.ga-speed{font-size:0!important}.ga-speed select{font-size:11px!important}.gu-hero img{min-height:190px!important}}
+.ga-narration--speech .ga-narration-main{grid-template-columns:40px minmax(0,1fr)!important}.ga-speech-status{color:var(--gu-muted);font:650 12px/1.4 "IBM Plex Sans",sans-serif}.ga-narration--speech .ga-narration-copy>span{display:block!important}@media(max-width:680px){.ga-narration--speech .ga-narration-main{grid-template-columns:38px minmax(0,1fr)!important}}
+@media(prefers-reduced-motion:reduce){.ga-premium-reveal{opacity:1!important;transform:none!important;will-change:auto}}
+
+
+/* September 22 definitive editorial pass — restrained publication surfaces. */
+:root{
+  --ga-brand-gradient:linear-gradient(112deg,#00a99a 0%,#45cf78 56%,#b4ea3b 100%);
+  --ga-rule:color-mix(in srgb,var(--gu-line) 92%,var(--ga-teal));
+}
+/* Brand color is an accent, not a wall: editorial surfaces stay neutral. */
+:is(.card,.article-tile,.ga-upgrade-card,.product,.gu-product,.score-summary,.picks-box,.verdict-box,.product-verdict-box,.deal-box){
+  border-color:var(--gu-line)!important;
+  background:var(--gu-surface)!important;
+  box-shadow:none!important;
+}
+:is(.card,.article-tile,.ga-upgrade-card,.product,.picks-box,.deal-box):hover,
+:is(.card,.article-tile,.ga-upgrade-card):focus-visible{border-color:color-mix(in srgb,var(--ga-teal) 55%,var(--gu-line))!important;box-shadow:var(--ga-card-shadow)!important}
+.gu-product{border-radius:0!important}.gu-product+.gu-product:before{height:1px;background:var(--gu-line);opacity:1}
+.ga-tool,.ga-menu-button,.ga-region-close,.ga-country-button,.ga-region-toggle,.ga-sub-toggle{
+  border-color:var(--gas-line)!important;background:var(--gas-paper)!important;box-shadow:none!important
+}
+.ga-tool:hover,.ga-menu-button:hover,.ga-region-close:hover,.ga-country-button:hover,.ga-region-toggle:hover,.ga-sub-toggle:hover{border-color:var(--ga-teal)!important;background:var(--gas-paper)!important;box-shadow:none!important}
+.ga-region-panel,.ga-menu-panel{border-color:var(--gas-line);background:var(--gas-paper);box-shadow:0 24px 70px rgba(5,24,14,.18)}
+.ga-region-group{border-color:var(--gas-line);background:var(--gas-paper)}
+.ga-site-header{box-shadow:none!important}.ga-site-header:after{height:1px}
+/* Desktop mega menus work on hover and keyboard focus; mobile keeps tap accordions. */
+@media(min-width:901px){
+ .ga-menu-group:hover>.ga-menu-panel,.ga-menu-group:focus-within>.ga-menu-panel{display:grid}
+ .ga-menu-panel{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 18px;padding:22px}
+}
+/* Mobile tables reflow into labeled cards instead of creating a sideways scroller. */
+@media(max-width:640px){
+ .ga-table-wrap.ga-table-scroll{overflow:visible}
+ .ga-table-wrap.ga-table-scroll table,.ga-table-wrap.ga-table-scroll tbody,.ga-table-wrap.ga-table-scroll tr,.ga-table-wrap.ga-table-scroll td{display:block;width:100%!important;min-width:0!important}
+ .ga-table-wrap.ga-table-scroll thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ .ga-table-wrap.ga-table-scroll tr{margin:0 0 12px;padding:10px;border:1px solid var(--gu-line);border-radius:12px;background:var(--gu-surface)}
+ .ga-table-wrap.ga-table-scroll td{display:grid!important;grid-template-columns:minmax(94px,36%) minmax(0,1fr);gap:10px;padding:9px!important;border:0!important;border-bottom:1px solid var(--gu-line)!important;text-align:left!important;overflow-wrap:anywhere}
+ .ga-table-wrap.ga-table-scroll td:last-child{border-bottom:0!important}.ga-table-wrap.ga-table-scroll td:before{content:attr(data-label);color:var(--gu-muted);font-weight:800}
+}
+@media(max-width:390px){.ga-region-panel{max-width:calc(100vw - 12px)}.ga-country-button{min-width:0}.ga-country-name{overflow-wrap:anywhere}}
+
+/* Two concise editorial standards after removing the unwanted testing promo. */
+.proofgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media(max-width:720px){.proofgrid{grid-template-columns:1fr!important}.proofgrid a{border-left:1px solid var(--line)!important;border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}.proofgrid a:last-child{border-bottom:0!important}}
+
+/* Compact the mobile lead so the first story reaches the first screen. */
+@media(max-width:720px){
+  .hero{padding-top:24px!important}
+  .hero-intro{gap:14px!important;margin-bottom:18px!important}
+  .hero-intro h1{max-width:11ch;font-size:clamp(2.55rem,12vw,3.3rem)!important;line-height:.93!important;letter-spacing:-.055em;text-wrap:balance}
+  .hero-intro h1 br{display:none}
+  .hero-summary p{font-size:.98rem!important;line-height:1.5}
+  .lead-actions{gap:9px;margin-top:16px}
+}
+@media(max-width:480px){.hero-intro h1{font-size:11.6vw!important}}
+
+/* Intentional light-theme matte while card photography is loading. */
+:root[data-theme="light"] .card-media{background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.34) 0,rgba(255,255,255,0) 48%),linear-gradient(135deg,#e9efec 0%,#dbe8e0 100%)!important}
+
+
+/* Evergreen guide migration: a concise picks-first comparison template. */
+.gu-guide-picks{margin:28px 0 26px!important}
+.gu-guide-picks .pick-row{color:inherit;text-decoration:none}
+.gu-guide-picks .pick-row:hover,.gu-guide-picks .pick-row:focus-visible{background:var(--gu-accent-soft);outline:0}
+.gu-pick-price{min-width:108px;color:var(--gu-ink);font:750 .82rem/1.25 "IBM Plex Sans",sans-serif;text-align:right}
+.gu-pick-price .ga-conversion{display:block;margin-top:3px;color:var(--gu-accent-strong);font-size:.72rem}
+.gu-comparison{margin:30px 0 34px}.gu-comparison h2{margin:0 0 13px;color:var(--gu-ink);font:780 1.55rem/1.2 "IBM Plex Sans",sans-serif}
+.gu-comparison .comparison-table{width:100%;border-collapse:collapse;border:1px solid var(--gu-line);background:var(--gu-surface)}
+.gu-comparison th,.gu-comparison td{padding:13px 14px;border-bottom:1px solid var(--gu-line);text-align:left;vertical-align:top}
+.gu-comparison th{background:var(--gu-bg);color:var(--gu-ink);font:750 .75rem/1.3 "IBM Plex Sans",sans-serif}
+.gu-comparison td{font-size:.84rem;line-height:1.45}.gu-comparison tbody tr:last-child td{border-bottom:0}.gu-comparison a{color:var(--gu-ink)!important;font-weight:750}
+.gu-product-media{position:relative;margin:0 0 22px;overflow:hidden;border:1px solid var(--gu-line);border-radius:16px;background:#fff}
+.gu-product-media img{display:block;width:100%;height:clamp(260px,38vw,420px);object-fit:contain;padding:12px;background:#fff}
+.gu-product-media .gu-num{position:absolute;z-index:2;left:14px;top:14px}
+.gu-product-copy{min-width:0}.gu-product-kicker{margin:0 0 6px!important;color:var(--gu-accent-strong);font:800 .72rem/1 "IBM Plex Sans",sans-serif;text-transform:uppercase;letter-spacing:.07em}
+.gu-product-verdict{margin:7px 0 13px!important;color:var(--gu-accent-strong);font-weight:750}
+.gu-product-rating{display:flex;align-items:center;gap:9px;margin:0 0 16px;padding:9px 11px;border:1px solid var(--gu-line);border-radius:10px;background:var(--gu-bg)}
+.gu-empty-stars{color:#a8b2ab;font-size:1.05rem;letter-spacing:.04em}.gu-product-rating strong{color:var(--gu-ink);font:750 .82rem "IBM Plex Sans",sans-serif}.gu-product-rating small{margin-left:auto;color:var(--gu-muted);font-size:.72rem}
+.gu-product-specs{display:grid;gap:0;margin:19px 0;border:1px solid var(--gu-line);border-radius:12px;background:var(--gu-surface);overflow:hidden}
+.gu-product-specs>div{display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;padding:12px 14px}.gu-product-specs>div+div{border-top:1px solid var(--gu-line)}
+.gu-product-specs dt{color:var(--gu-muted);font:750 .72rem "IBM Plex Sans",sans-serif;text-transform:uppercase;letter-spacing:.045em}.gu-product-specs dd{margin:0;color:var(--gu-ink);font-size:.88rem;line-height:1.45}.gu-product-specs .ga-conversion{display:block;color:var(--gu-accent-strong);font-weight:700}
+.gu-one-line{margin:18px 0 14px!important;padding:13px 15px;border-left:3px solid var(--gu-accent);background:var(--gu-accent-soft);font-size:.91rem}.gu-one-line strong{color:var(--gu-ink)}
+.gu-check-price{width:100%;min-height:48px;border:1px solid var(--gu-line)!important;border-radius:10px;background:var(--gu-bg)!important;color:var(--gu-muted)!important;box-shadow:none!important;cursor:not-allowed;font:750 .84rem "IBM Plex Sans",sans-serif}
+.gu-check-price:hover{filter:none!important;transform:none!important;box-shadow:none!important}
+@media(max-width:640px){.gu-pick-price{grid-column:2;text-align:left}.pick-row{grid-template-columns:40px minmax(0,1fr) auto!important}.gu-product-media img{height:70vw;min-height:230px;max-height:340px}.gu-product-rating{align-items:flex-start;flex-wrap:wrap}.gu-product-rating small{width:100%;margin:0}.gu-product-specs>div{grid-template-columns:1fr;gap:4px}.gu-comparison .ga-table-wrap{margin-inline:0}.gu-comparison .ga-table-scroll{overflow:visible}}
+
+
+/* Optional-cookie choice: visible in page flow without covering navigation or content. */
+.ga-cookie-notice{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:18px 28px;
+  padding:17px max(20px,calc((100% - 1160px)/2));
+  border-bottom:1px solid var(--gu-line);
+  background:var(--gu-surface);
+  color:var(--gu-text);
+  box-shadow:0 10px 28px rgba(8,37,25,.07);
+  font:500 15px/1.45 "Source Sans 3",ui-sans-serif,system-ui,sans-serif;
+}
+.ga-cookie-notice:before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:3px;
+  background:var(--gu-accent);
+}
+.ga-cookie-copy{min-width:0}
+.ga-cookie-copy h2{margin:0 0 3px;color:var(--gu-ink);font:800 1rem/1.25 "IBM Plex Sans",ui-sans-serif,sans-serif}
+.ga-cookie-copy p{max-width:780px;margin:0;color:var(--gu-muted)}
+.ga-cookie-copy a{color:var(--gu-accent-strong);font-weight:750;text-decoration-color:var(--ga-teal);text-decoration-thickness:2px;text-underline-offset:3px}
+.ga-cookie-copy a:hover{color:var(--gu-accent)}
+.ga-cookie-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px}
+body .ga-cookie-actions button{
+  min-height:44px;
+  padding:0 15px;
+  border:1px solid var(--gu-line)!important;
+  border-radius:10px;
+  background:var(--gu-surface)!important;
+  color:var(--gu-ink)!important;
+  box-shadow:none!important;
+  white-space:nowrap;
+  cursor:pointer;
+  font:800 .82rem/1.2 "IBM Plex Sans",ui-sans-serif,sans-serif;
+}
+body .ga-cookie-actions button[data-ga-consent="allow"]{
+  border-color:transparent!important;
+  background:var(--ga-brand-gradient)!important;
+  color:#07140e!important;
+  box-shadow:0 8px 20px rgba(0,184,169,.16)!important;
+}
+body .ga-cookie-actions button:hover{transform:translateY(-1px)!important;border-color:var(--ga-teal)!important;filter:none!important}
+body .ga-cookie-actions button[data-ga-consent="allow"]:hover{filter:saturate(1.08) brightness(1.03)!important;box-shadow:0 11px 24px rgba(0,184,169,.22)!important}
+body .ga-cookie-actions button:focus-visible,.ga-cookie-copy a:focus-visible{outline:3px solid color-mix(in srgb,var(--ga-teal) 38%,transparent);outline-offset:3px}
+body .ga-cookie-actions button:active{transform:translateY(1px)!important}
+@media(max-width:760px){
+  .ga-cookie-notice{grid-template-columns:1fr;gap:12px;padding:16px max(15px,calc((100% - 680px)/2))}
+  .ga-cookie-actions{justify-content:flex-start}
+}
+@media(max-width:480px){
+  .ga-cookie-notice{font-size:14px}
+  .ga-cookie-actions{display:grid;grid-template-columns:1fr}
+  body .ga-cookie-actions button{width:100%;white-space:normal}
+}
+@media(prefers-reduced-motion:reduce){body .ga-cookie-actions button{transition:none!important}}
+
+
+/* Mobile cookie choice: compact enough to preserve the first viewport while keeping both decisions clear. */
+@media(max-width:720px){
+  .ga-cookie-notice{grid-template-columns:1fr;gap:8px;padding:10px 12px;font-size:.75rem;line-height:1.32}
+  .ga-cookie-copy h2{margin-bottom:2px;font-size:.88rem;line-height:1.18}
+  .ga-cookie-copy p{max-width:none;line-height:1.32}
+  .ga-cookie-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;justify-content:stretch}
+  body .ga-cookie-actions button{width:100%;height:48px;min-height:48px;padding:0 8px;font-size:.72rem;line-height:1.15;white-space:normal}
+}
+
+/* Final visual QA: separate adjacent utility links without changing their order or destinations. */
+nav a[href*="search/index.html"] + a[href*="#finder"]{
+  margin-inline-start:14px;
+  padding-inline-start:14px;
+  border-inline-start:1px solid var(--gu-line,var(--gas-line,#d7ded9));
+}
+
+/* The dark homepage masthead reads as one crisp, high-contrast statement. */
+:root[data-theme="dark"] .hero-intro h1{
+  background:none!important;
+  background-image:none!important;
+  color:#f5f7f5!important;
+  -webkit-text-fill-color:#f5f7f5;
+  animation:none!important;
+}
+
+/* Extra compaction for a 390px phone while retaining two clear 44px decisions. */
+@media(max-width:480px){
+  .ga-cookie-notice{gap:6px;padding:7px 10px;font-size:.7rem;line-height:1.22}
+  .ga-cookie-copy h2{margin-bottom:1px;font-size:.81rem;line-height:1.14}
+  .ga-cookie-copy p{font-size:.69rem;line-height:1.24}
+  .ga-cookie-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  body .ga-cookie-actions button{height:44px;min-height:44px;padding:0 6px;font-size:.68rem;line-height:1.1}
+}
+
+nav.site-nav > a{display:inline-flex;align-items:center;max-width:calc(100% - 36px);min-height:44px;margin:0 0 12px 18px;color:var(--ink,var(--gu-ink));font-weight:650;text-decoration:none;white-space:normal}
+
+
+/* ==========================================================================
+   DS v2 — restraint overhaul (2026-09-28).
+   The teal-to-lime brand gradient is reserved for: primary CTA buttons, the
+   audio play control, and hairline accents (2–3px rules, progress hairlines).
+   Everything else is flat. This layer sits last in the shared cascade.
+   ========================================================================== */
+
+/* No rainbow text anywhere: kill gradient-clipped text set by page styles. */
+/* FIX 2026-09-28: hero h1 must use the theme-aware ink color — the previous
+   hardcoded #f5f7f5 (near-white) rendered invisible on light-theme backgrounds
+   for every non-dark edition. */
+.hero-intro h1{background:none!important;background-image:none!important;-webkit-text-fill-color:currentColor!important;color:var(--gu-ink,#0d1712)!important;animation:none!important;text-shadow:none!important}
+.section-eyebrow,.kicker,.label,.signal-index,.section-head a,.category a,.score-card a,.deal-card a,.team-strip a{background:none!important;background-image:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;-webkit-text-fill-color:currentColor!important;color:var(--gu-accent-strong,#0f6d52)!important}
+/* Feature tags: flat, restrained chips instead of gradient pills. */
+.feature-tag{background:var(--gu-deep,#0b1610)!important;color:#fff!important;box-shadow:none!important}
+
+/* Small accent text uses the stronger (accessible) accent in light theme. */
+.ga-upgrade-card small,.gu-product-kicker,.gu-label{color:var(--gu-accent-strong)!important}
+:root[data-theme="dark"] .ga-upgrade-card small,:root[data-theme="dark"] .gu-product-kicker,:root[data-theme="dark"] .gu-label{color:var(--gu-accent)!important}
+
+/* Per-product research score (JS-rendered): keep it quiet and tabular. */
+.ga-product-score{font-variant-numeric:tabular-nums}
+.ga-product-score-stars{letter-spacing:.06em}
+
+/* Edition picker flag images are injected by edition.js — never restyle them
+   beyond their own rules; surrounding picker chrome adapts per theme in
+   edition.css. */
+
+
+/* ==========================================================================
+   2026-10-11 motion engine — visible entrances, hover feedback, smooth theme
+   state. Transform and opacity only (phone performance); every rule below is
+   hierarchy, feedback, or state — nothing decorative.
+   ========================================================================== */
+
+/* Theme state: surfaces cross-fade between light/dark instead of flashing. */
+.ga-site-header,.ga-site-footer{transition:background-color .32s ease,color .32s ease,border-color .32s ease}
+
+/* Hover feedback: the card lift already defined above now moves instead of
+   jumping; nav/footer/article links fade color instead of snapping. */
+.ga-upgrade-card{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.ga-site-footer a,.ga-primary-nav a,.gu-article-body a:not(.buy-button):not(.btn),.article-body a:not(.buy-button):not(.btn){transition:color .3s ease,opacity .3s ease}
+
+/* Homepage [data-reveal]: real entrance cascade — opacity 0->1 plus a 28px
+   rise on the expo-out curve, staggered via --reveal-delay (set inline by
+   the homepage script). This overrides ga-redesign-2026-10-11.css, including
+   its <=860px opacity:1 shortcut, so phones get the same motion. */
+/* Reduced motion: reveals resolve instantly; interactive transitions off.
+   (Legacy html.motion-ready system retired 2026-10-11; reveals are JS-owned.) */
+@media(prefers-reduced-motion:reduce){.ga-premium-reveal{opacity:1!important;transform:none!important;transition:none!important}.ga-site-header,.ga-site-footer,.ga-upgrade-card,.ga-site-footer a,.ga-primary-nav a,.gu-article-body a,.article-body a{transition:none!important}}

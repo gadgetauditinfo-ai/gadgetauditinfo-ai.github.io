@@ -1,0 +1,341 @@
+/* ==========================================================================
+   GADGET AUDIT — 2026-10-05 VISUAL REDESIGN ("Editorial Premium")
+   Loaded last on the homepage. Refines the neon/gray template into a premium
+   tech-publication aesthetic while keeping the green brand identity.
+   Light + dark themes fully styled. No content or functionality removed.
+   ========================================================================== */
+
+/* ---------- 1. Richer canvas ---------- */
+body{
+  background:
+    radial-gradient(1500px 620px at 50% -10%, rgba(26,158,147,.075), transparent 62%),
+    radial-gradient(900px 500px at 92% 4%, rgba(185,242,39,.05), transparent 60%),
+    var(--bg);
+}
+:root[data-theme="dark"] body{
+  background:
+    radial-gradient(1500px 620px at 50% -10%, rgba(26,158,147,.10), transparent 62%),
+    radial-gradient(900px 500px at 92% 4%, rgba(185,242,39,.05), transparent 60%),
+    var(--bg);
+}
+
+/* ---------- 2. Section rhythm: tighter, varied ---------- */
+.section{padding:46px 0}
+.section-head{border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:24px}
+.section-head h2{font-family:'Space Grotesk','IBM Plex Sans',sans-serif;letter-spacing:-.04em}
+.section-eyebrow{
+  background:none!important;-webkit-text-fill-color:currentColor!important;
+  color:#0b6b3d!important;font-size:.72rem;letter-spacing:.1em;
+}
+:root[data-theme="dark"] .section-eyebrow{color:#7dedaa!important}
+
+/* ---------- 3. Labels & badges: solid pills with real contrast ---------- */
+.card .label,
+.side-card .badge,
+.latest-grid .badge:not(.warn),
+.meta .badge:not(.warn){
+  background:#0b6b3d!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+  border-radius:999px;padding:5px 11px;font-size:.64rem;letter-spacing:.07em;
+}
+:root[data-theme="dark"] .card .label,
+:root[data-theme="dark"] .side-card .badge,
+:root[data-theme="dark"] .latest-grid .badge:not(.warn),
+:root[data-theme="dark"] .meta .badge:not(.warn){
+  background:rgba(74,222,128,.16)!important;color:#8ff0b3!important;-webkit-text-fill-color:#8ff0b3!important;
+  border:1px solid rgba(74,222,128,.35);
+}
+.kicker,.signal-index,.finder-kicker{
+  background:none!important;-webkit-text-fill-color:currentColor!important;color:#0b6b3d!important;
+}
+:root[data-theme="dark"] .kicker,
+:root[data-theme="dark"] .signal-index,
+:root[data-theme="dark"] .finder-kicker{color:#7dedaa!important}
+/* Gradient text stays only on large display type + buttons, never on small UI text */
+.section-head a,.category a,.score-card a,.deal-card a{
+  background:none!important;-webkit-text-fill-color:currentColor!important;color:#0b6b3d!important;
+}
+.team-strip a{color:#73e6a0!important}
+:root[data-theme="dark"] .section-head a,
+:root[data-theme="dark"] .category a,
+:root[data-theme="dark"] .score-card a,
+:root[data-theme="dark"] .deal-card a,
+:root[data-theme="dark"] .team-strip a{color:#7dedaa!important}
+
+/* ---------- 4. Cards: richer surfaces, real depth ---------- */
+.latest-grid .card{
+  background:linear-gradient(180deg,#ffffff 0%,#f7faf8 100%)!important;
+  border:1px solid #dde7e1!important;border-radius:18px!important;overflow:hidden;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 2px 8px rgba(13,25,18,.05)!important;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .2s!important;
+}
+.latest-grid .card:hover,.latest-grid .card:focus-visible{
+  transform:translateY(-6px)!important;border-color:#12a15e!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 26px 52px -14px rgba(13,25,18,.20)!important;
+}
+:root[data-theme="dark"] .latest-grid .card{
+  background:linear-gradient(180deg,#151b17 0%,#101511 100%)!important;
+  border-color:rgba(255,255,255,.09)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 2px 8px rgba(0,0,0,.35)!important;
+}
+:root[data-theme="dark"] .latest-grid .card:hover,
+:root[data-theme="dark"] .latest-grid .card:focus-visible{
+  border-color:rgba(74,222,128,.55)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 26px 52px -14px rgba(0,0,0,.6)!important;
+}
+.latest-grid .card h3{
+  font-family:'Space Grotesk','IBM Plex Sans',sans-serif;letter-spacing:-.02em;font-size:1.2rem;
+}
+/* Unified image treatment: consistent frame + bottom scrim */
+.latest-grid .card-media{position:relative;background:linear-gradient(135deg,#e8efeb 0%,#d9e6dd 100%)!important}
+.latest-grid .card-media:after{
+  content:'';position:absolute;inset:auto 0 0;height:42%;
+  background:linear-gradient(transparent,rgba(4,12,7,.22));pointer-events:none;
+}
+/* Image credit: quiet, not a strip */
+.latest-grid .image-credit{
+  background:transparent!important;border-top:0!important;
+  font-size:.62rem!important;opacity:.55;padding:7px 20px 0!important;
+}
+/* Card meta row */
+.latest-grid .meta{color:var(--muted);font-size:.72rem}
+
+/* ---------- 5. Hero: showpiece ---------- */
+.hero{
+  background:
+    radial-gradient(1000px 520px at 88% -6%, rgba(26,158,147,.14), transparent 60%),
+    radial-gradient(760px 460px at 4% 12%, rgba(185,242,39,.08), transparent 60%),
+    var(--bg);
+  position:relative;overflow:hidden;
+}
+.hero:before{
+  content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle,rgba(26,158,147,.16) 1px,transparent 1.4px);
+  background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 78%);
+  mask-image:linear-gradient(180deg,#000 0%,transparent 78%);
+}
+:root[data-theme="dark"] .hero:before{opacity:.35}
+.hero-intro{position:relative}
+.hero-intro .kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(26,158,147,.4)!important;border-radius:999px!important;
+  padding:8px 14px!important;background:rgba(26,158,147,.08)!important;
+  color:#0b6b3d!important;-webkit-text-fill-color:#0b6b3d!important;
+}
+:root[data-theme="dark"] .hero-intro .kicker{
+  color:#8ff0b3!important;-webkit-text-fill-color:#8ff0b3!important;
+  background:rgba(74,222,128,.08)!important;
+}
+.hero-intro .kicker:before{display:none!important}
+/* Stat chips: real chips, not a hairline strip */
+.hero-facts{
+  display:flex!important;gap:10px;background:transparent!important;border:0!important;max-width:600px;
+}
+.hero-facts span{
+  flex:1;min-height:0!important;padding:12px 14px!important;
+  background:var(--paper)!important;border:1px solid var(--line)!important;border-radius:14px;
+  box-shadow:0 2px 10px rgba(13,25,18,.06)!important;
+  font-size:.68rem!important;line-height:1.35!important;
+}
+.hero-facts b{font-size:1.15rem!important;font-family:'Space Grotesk','IBM Plex Sans',sans-serif;letter-spacing:-.02em}
+/* Featured carousel cards: cinematic frame */
+.feature-card{
+  border:1px solid rgba(255,255,255,.14)!important;border-radius:22px!important;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.5)!important;
+}
+.feature-card:after{
+  background:linear-gradient(0deg,rgba(3,6,4,.97) 0%,rgba(3,6,4,.55) 42%,transparent 75%)!important;
+}
+.feature-tag{
+  background:#eafff3!important;color:#0b6b3d!important;-webkit-text-fill-color:#0b6b3d!important;
+  font-size:.66rem;padding:6px 12px;
+}
+
+/* ---------- 6. Video desk cards ---------- */
+.signal-card{
+  border:1px solid var(--line)!important;border-radius:18px!important;overflow:hidden;
+  background:var(--paper)!important;
+  box-shadow:0 2px 8px rgba(13,25,18,.05)!important;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .2s!important;
+}
+.signal-card:hover{
+  transform:translateY(-5px)!important;border-color:#12a15e!important;
+  box-shadow:0 22px 46px -14px rgba(13,25,18,.18)!important;
+}
+:root[data-theme="dark"] .signal-card{
+  border-color:rgba(255,255,255,.09)!important;background:#111512!important;
+  box-shadow:0 2px 8px rgba(0,0,0,.35)!important;
+}
+.signal-card .signal-copy{background:transparent!important}
+.signal-card h3{font-family:'Space Grotesk','IBM Plex Sans',sans-serif;letter-spacing:-.02em}
+
+/* ---------- 7. Decision desk (finder): refined dark console ---------- */
+.finder{
+  background:
+    radial-gradient(900px 480px at 12% 0%, rgba(26,158,147,.12), transparent 60%),
+    #0b0b0b!important;
+}
+.finder-console{border-radius:18px!important;overflow:hidden}
+.finder .quiz-form>button,.finder .ask>button{border-radius:10px!important}
+.finder-mast h2{font-family:'Space Grotesk','IBM Plex Sans',sans-serif}
+
+/* ---------- 8. Score / deal cards ---------- */
+.score-card,.deal-card{
+  background:linear-gradient(180deg,#ffffff,#f7faf8)!important;
+  border:1px solid #dde7e1!important;border-radius:18px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 2px 8px rgba(13,25,18,.05)!important;
+}
+:root[data-theme="dark"] .score-card,
+:root[data-theme="dark"] .deal-card{
+  background:linear-gradient(180deg,#151b17,#101511)!important;
+  border-color:rgba(255,255,255,.09)!important;
+}
+.deal-card{border-top:4px solid #12a15e!important}
+.weight{border-radius:10px}
+
+/* ---------- 9. Categories: accent top bar ---------- */
+.category{position:relative;overflow:hidden;border-radius:16px!important}
+.category:after{
+  content:'';position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(115deg,#00b8a9,#45d67d 52%,#b9f227);
+}
+.category h3{font-family:'Space Grotesk','IBM Plex Sans',sans-serif;letter-spacing:-.02em}
+
+/* ---------- 10. Trust grid + team strip + newsletter ---------- */
+.trust-grid article{border-radius:4px}
+.trust-grid b{font-family:'Space Grotesk','IBM Plex Sans',sans-serif}
+.team-strip{border:1px solid rgba(255,255,255,.1)}
+.team-strip h2{font-family:'Space Grotesk','IBM Plex Sans',sans-serif;letter-spacing:-.02em}
+.newsletter-box{box-shadow:0 2px 10px rgba(13,25,18,.06)!important}
+
+/* ---------- 11. Header polish ---------- */
+.ua-brand img{
+  filter:drop-shadow(0 4px 14px rgba(26,158,147,.25));
+  transition:transform .25s ease;
+}
+.ua-brand:hover img{transform:translateY(-2px) scale(1.03)}
+.disclosure{font-size:.8rem}
+
+/* ---------- 12. Currency: never break an amount ---------- */
+.ga-converted-price{white-space:nowrap!important}
+.deal-price{white-space:nowrap}
+
+/* ---------- 13. Proof bar: compact stat strip ---------- */
+.proofbar{border-bottom:1px solid var(--line)}
+.proofgrid a{transition:background-color .2s}
+.proofgrid b{font-family:'Space Grotesk','IBM Plex Sans',sans-serif;letter-spacing:-.01em}
+
+/* ---------- 14. Responsive refinements ---------- */
+@media(max-width:720px){
+  .section{padding:36px 0}
+  .hero-facts{flex-direction:column;gap:8px}
+  .hero-facts span{display:flex;align-items:center;gap:10px;padding:10px 12px!important}
+  .latest-grid .card{border-radius:16px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .latest-grid .card,.signal-card{transition:none!important}
+}
+
+/* ==========================================================================
+   PHASE 2 — 2026-10-05 "Motion & Polish" layer (Higgsfield technique study)
+   Techniques reverse-engineered, never branding: expo-out easing, asymmetric
+   enter/exit pairs, staggered choreography, transform/opacity-only motion,
+   role-based type discipline, single-accent lock, radius lock, 44px targets.
+   ========================================================================== */
+
+/* ---------- Motion tokens ---------- */
+:root{
+  --ease-expo:cubic-bezier(.16,1,.3,1);
+  --ease-enter:var(--ease-expo);
+  --ease-exit:cubic-bezier(.5,0,.75,0);
+  --dur-micro:.18s; --dur-ui:.3s; --dur-reveal:.6s;
+  --radius-card:18px; --radius-btn:999px; --radius-input:8px;
+}
+
+/* ---------- Hero load choreography (plays once, on first paint) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .hero .kicker{animation:ga-hero-in .6s var(--ease-enter) .02s both}
+  .hero #heroTitle .hero-line{display:inline-block;animation:ga-hero-in .7s var(--ease-enter) both}
+  .hero #heroTitle .hero-line:nth-child(1){animation-delay:.08s}
+  .hero #heroTitle .hero-line:nth-child(2){animation-delay:.14s}
+  .hero .hero-summary p{animation:ga-hero-in .6s var(--ease-enter) .2s both}
+  .hero .lead-actions{animation:ga-hero-in .6s var(--ease-enter) .26s both}
+  .hero .feature-stage{animation:ga-hero-in .7s var(--ease-enter) .32s both}
+  .hero .hero-foot{animation:ga-hero-in .6s var(--ease-enter) .4s both}
+}
+@keyframes ga-hero-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+
+/* ---------- Buttons: asymmetric feedback, tactile press, visible focus ---------- */
+.btn,.feature-cta,.signal-link,.chip{
+  transition:transform var(--dur-micro) var(--ease-enter),
+             box-shadow var(--dur-ui) var(--ease-enter),
+             background-color var(--dur-micro) var(--ease-enter),
+             color var(--dur-micro) var(--ease-enter),
+             border-color var(--dur-micro) var(--ease-enter);
+}
+.btn:hover,.feature-cta:hover,.signal-link:hover{transform:translateY(-2px)}
+.btn:active,.feature-cta:active,.signal-link:active,.chip:active{transform:scale(.98)}
+.btn:focus-visible,.feature-cta:focus-visible,.signal-link:focus-visible,
+.chip:focus-visible,a:focus-visible,button:focus-visible{
+  outline:2px solid #1a9e93;outline-offset:3px;border-radius:var(--radius-input);
+}
+:root[data-theme="dark"] .btn:focus-visible,
+:root[data-theme="dark"] a:focus-visible,
+:root[data-theme="dark"] button:focus-visible{outline-color:#b9f227}
+
+/* ---------- Cards: hover lift uses expo-out, exit is quicker ---------- */
+.card,.signal-card,.feature-card,.deal-card,.latest-grid>*{
+  transition:transform var(--dur-ui) var(--ease-enter),
+             box-shadow var(--dur-ui) var(--ease-enter),
+             border-color var(--dur-micro) var(--ease-enter);
+}
+.card:hover,.signal-card:hover,.deal-card:hover{transform:translateY(-6px)}
+
+/* ---------- Type discipline: tabular numerals, hero scale cap ---------- */
+.ga-converted-price,.score-card .score,.rating,.hero-facts b,
+.price,.deal-price{font-variant-numeric:tabular-nums}
+@media (max-width:767px){
+  .hero #heroTitle{font-size:clamp(2rem,9vw,2.75rem);line-height:1.08}
+}
+
+/* ---------- Radius lock: 18px cards / pill buttons / 8px inputs ---------- */
+.card,.signal-card,.deal-card,.score-card{border-radius:var(--radius-card)}
+.btn,.chip,.label,.badge{border-radius:var(--radius-btn)}
+input,select,textarea{border-radius:var(--radius-input)}
+
+/* ---------- Skeleton shimmer for lazy media (never a lone spinner) ---------- */
+img[loading="lazy"]{background:linear-gradient(100deg,rgba(128,128,128,.08) 40%,rgba(128,128,128,.16) 50%,rgba(128,128,128,.08) 60%);background-size:200% 100%}
+@media (prefers-reduced-motion:no-preference){
+  img[loading="lazy"]:not([data-loaded]){animation:ga-shimmer 1.6s linear infinite}
+}
+@keyframes ga-shimmer{to{background-position:-200% 0}}
+
+/* ---------- Touch targets: 44px minimum on coarse pointers ---------- */
+@media (pointer:coarse){
+  .btn{min-height:44px;display:inline-flex;align-items:center}
+  .carousel-nav{min-width:44px;min-height:44px}
+  .chip{min-height:36px}
+}
+
+/* ---------- RTL: Arabic editions mirror the layout ---------- */
+[dir="rtl"] .hero-intro,[dir="rtl"] .signal-head{direction:rtl}
+[dir="rtl"] .feature-track{direction:ltr}
+[dir="rtl"] .feature-card{direction:rtl}
+[dir="rtl"] .lead-actions .btn{margin-inline-end:8px}
+
+/* ---------- Reduced motion: everything collapses to static ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-delay:0s!important;transition-duration:.001s!important}
+}
+
+/* ---------- Translated editions: balance long headlines ---------- */
+.hero #heroTitle{text-wrap:balance}
+html[lang^="es"] .hero #heroTitle,html[lang^="de"] .hero #heroTitle,
+html[lang^="fr"] .hero #heroTitle,html[lang^="it"] .hero #heroTitle,
+html[lang^="pt"] .hero #heroTitle,html[lang^="ja"] .hero #heroTitle,
+html[lang^="zh"] .hero #heroTitle,html[lang^="ko"] .hero #heroTitle,
+html[lang^="ar"] .hero #heroTitle,html[lang^="hi"] .hero #heroTitle,
+html[lang^="id"] .hero #heroTitle{
+  font-size:clamp(2.5rem,5.2vw,4.25rem);line-height:1.06;letter-spacing:-.03em;
+}

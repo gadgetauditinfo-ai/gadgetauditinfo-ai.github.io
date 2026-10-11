@@ -1,0 +1,386 @@
+Home
+/
+Audio
+AUDIO
+The 6 wired IEMs under $50 actually worth buying
+Your phone killed the headphone jack. These six wired earbuds are the reason to go back — hobbyist-grade sound that embarrasses $150 wireless pairs, for the price of a pizza. Every price below was verified at a live listing.
+Gadget Audit editorial team
+·
+Published October 9, 2026
+·
+18 min read
+The six picks
+Top pick · budget reference · crowd-pleaser · starter · vocals · maximalist
+1
+Dunu Titan X — Top pick
+The market slayer that earned Tom's Guide's Editor's Choice
+2
+Truthear Gate — Budget reference
+Harman-tuned accuracy for twenty-two dollars
+3
+7Hz x Crinacle Zero:2 — Crowd-pleaser
+The warm, fun all-rounder co-tuned with Crinacle
+4
+Moondrop Chu II — Starter pick
+The one everyone recommends to first-timers
+5
+Tangzu Wan'er S.G — Vocals pick
+Smooth, fatigue-free mids for nineteen bucks
+6
+KZ ZS10 Pro — Maximalist pick
+Five drivers for the price ceiling of this guide
+Six budget wired IEMs. Editorial montage made from official and retailer product photography.
+In this review
+Quick picks
+Compare the six
+Methodology
+Dunu Titan X
+Truthear Gate
+7Hz Zero:2
+Moondrop Chu II
+Tangzu Wan'er S.G
+KZ ZS10 Pro
+Why wired?
+How to pick
+Successors
+Tin HiFi T2
+FAQ
+Affiliate disclosure:
+We may earn a commission from qualifying purchases.
+Here's how it works.
+Somewhere along the way, 'wireless' became a tax. You pay $150 for earbuds whose batteries die in two years, whose Bluetooth codec compresses the music before it reaches your ears, and whose firmware updates arrive whether you want them or not. The audiophile world never played along. It kept buying wired in-ear monitors — tiny, replaceable-cable earphones tuned by people who treat frequency response curves like scripture — and the funny part is that the entry price never left the price of lunch.
+That's what this guide is: six wired IEMs, every one of them under $50, that sound like they have no business being this cheap. These are the models the hobbyist community actually buys and recommends — not the Amazon-page-filler 'HiFi stereo bass earphones' with 40,000 suspicious five-star reviews. Every price and spec below was verified at a live retailer listing on October 9, 2026. Where I couldn't verify something, I say so. You'll need a $10 USB-C dongle if your phone has no jack — add it to the budget and the whole pitch still costs less than one AirPod.
+Research-based review. We did not physically test these products.
+The six, at a glance
+Product
+Driver setup
+Detachable cable
+Impedance
+Verified price
+Dunu Titan X
+10mm dual-magnet DD
+0.78mm 2-pin (3.5mm / Type-C DSP)
+16Ω*
+$32.99 (HiFiGo)
+Truthear Gate
+10mm N52 dynamic driver
+0.78mm 2-pin
+28Ω
+$22.99 (Shenzhen Audio)
+7Hz x Crinacle Zero:2
+10mm DD, dual cavity
+0.78mm 2-pin (3.5mm / Type-C)
+32Ω
+$24.99 (Linsoul)
+Moondrop Chu II
+10mm Al-Mg alloy dome DD
+0.78mm 2-pin
+18Ω
+$22.99 (Linsoul)
+Tangzu Wan'er S.G
+10mm PET dynamic driver
+0.78mm 2-pin
+20Ω
+$19–21 (Linsoul)
+KZ ZS10 Pro
+4BA + 1DD hybrid
+2-pin
+24Ω
+$50.99 (Linsoul)
+*16Ω/123dB/40kHz figures appear on retailer spec pages, not in Dunu's official copy.
+1
+Dunu Titan X product image ·
+official source
+TOP PICK
+Dunu Titan X — “the market slayer”
+Top pick · $32.99 at HiFiGo (list $34.99)
+Dunu calls the Titan X the 'Market Slayer,' which is exactly the kind of name you give a product when you know the incumbents can't touch the price. This is a $33 earphone — thirty-three dollars — that walked into Tom's Guide's testing and walked out with an Editor's Choice badge (their review, published early June 2026, priced it at $39). The pitch is a 10mm dual-magnetic, dual-chamber dynamic driver in a chrome-finished metal-alloy shell, with a detachable 0.78mm 2-pin cable that isn't an afterthought: high-purity OCC silver-plated copper, with a Type-C version that adds a built-in HiFi DSP chip and inline mic. Nine pairs of tips in the box — Dunu's 'Candy' and 'Balance' types — which tells you who this is made for: people who will actually roll tips to get the seal right.
+What it does / key features
+The tuning is unapologetically fun: a V-shape with powerful bass, clean mids, and crisp treble, plus what reviewers describe as a holographic, wide 3D soundstage. That last bit is why gamers keep showing up in the Titan X conversation — directional cues and footsteps are exactly what a wide stage does well. For music, it's the kind of signature that makes a first listen fun instead of analytical, which is arguably the correct choice at $33: nobody's first IEM should require a lecture on frequency response to enjoy.
+Two honest caveats. First, the Type-C DSP version runs about $46–48, a steep premium over the $33 base — worth it only if you live on a phone with no 3.5mm output and refuse to carry a dongle. Second, the Titan X is a 2026 release with a thinner review record than the veterans below; the praise so far is consistent, but it hasn't had years of community scrutiny. And a spec honesty note: the 16Ω / 123dB / 40kHz figures floating around come from retailer spec pages, not Dunu's own copy — take them as plausible, not gospel.
+Who it's for
+Fun-first listeners and gamers who want a big stage and bigger bass.
+Availability
+In stock at HiFiGo — $32.99 sale (list $34.99); 3.5mm and Type-C DSP versions.
+Verified specifications
+Driver
+10mm dynamic, dual-magnetic + dual-chamber, high-rigidity dome / flexible-suspension diaphragm.
+Shell
+High-density metal alloy, chrome-plated finish.
+Cable
+Detachable 0.78mm 2-pin, high-purity OCC silver-plated copper (3.5mm).
+Type-C version
+Built-in HiFi DSP chipset + in-line microphone.
+Tips
+9 pairs silicone ('Candy' + 'Balance').
+Award
+Tom's Guide Editor's Choice (review published early June 2026, priced at $39).
+Price
+$32.99 sale (list $34.99), HiFiGo, verified October 9, 2026.
+Pros and cons
+Pros
+Tom's Guide Editor's Choice at $33–39 — mainstream validation almost unheard of in this tier
+Holographic, wide soundstage that's genuinely useful for gaming
+Metal shell + detachable 2-pin cable where rivals use plastic and fixed cables
+Nine tip pairs included — a real fit kit, not two sizes and a prayer
+Cons
+Type-C DSP version costs ~$46–48, a ~45% premium over the base
+2026 release with a thinner long-term review record than veteran picks
+16Ω/123dB/40kHz figures are retailer-page claims, not official Dunu copy
+Verdict
+The safest thirty-three dollars in budget audio. The Titan X is the one pick in this guide with a mainstream Editor's Choice badge to its name, and it sounds like it costs twice as much. Buy the 3.5mm version with a cheap dongle unless you're allergic to adapters.
+Purchase link coming soon
+2
+Truthear Gate product image ·
+official source
+BEST VALUE
+Truthear Gate — “the reference for cheap”
+Best value · $22.99 at Shenzhen Audio
+If the Titan X is the fun pick, the Gate is the honest one. Truthear tuned this $23 single dynamic driver to follow the Harman in-ear target — the research-backed curve that predicts what most people prefer — and the measurement crowd noticed. Forum discussion at Audio Science Review calls it 'Harmanish' with the 'infamous Harman IE shout' in the presence region, and it's been measured as basically distortionless up to high volume. That's a $23 earphone with a cleaner measured background than flagships costing ten times more.
+What it does / key features
+What makes the Gate special isn't a gimmick — it's discipline. A 10mm driver with an N52 magnet in a double-cavity magnetic circuit, a carbon LCP dome with an ultra-thin PU composite diaphragm, and a detachable 0.78mm 2-pin oxygen-free copper cable in mic and no-mic versions. Seven pairs of tips. Nothing about that reads 'twenty-three dollars,' and that's the point: this is the IEM you buy when you want to hear what your music actually sounds like, then EQ it yourself — reviewers consistently call it easy to EQ, which is what happens when distortion is this low.
+Fair warnings: the Harman presence-region 'shout' can feel too forward if you're treble-sensitive — the same tuning that makes vocals pop can make them shout. The shell is plain plastic and forum users don't mince words about it. Stock tips isolate below average, and the small shell doesn't suit larger ears, so budget for tip-rolling or accept a compromise on seal.
+Who it's for
+Analytical listeners, EQ tinkerers, and anyone who wants to hear the Harman target for the price of lunch.
+Availability
+Shenzhen Audio at $22.99 (mic and no-mic); street prices drift $19–23.
+Verified specifications
+Driver
+10mm dynamic, N52 magnet double-cavity, carbon LCP dome + ultra-thin PU diaphragm.
+Impedance
+28Ω ±15% @1kHz.
+Sensitivity
+122dB/Vrms @1kHz.
+THD
+≤1% @1kHz (94dB).
+Frequency response
+10–45kHz (IEC61094 free field); effective 20Hz–20kHz (IEC60318-4, −3dB).
+Cable
+Detachable 0.78mm 2-pin OFC.
+Tips
+7 pairs silicone.
+Price
+$22.99, Shenzhen Audio, verified October 9, 2026.
+Pros and cons
+Pros
+Harman-tuned — the most research-backed $23 tuning in existence
+Measured near-zero distortion, even at high volume
+Easy to EQ — low distortion means the tuning is yours to shape
+Detachable cable + mic option at the lowest price in this guide
+Cons
+Harman presence-region shout can feel too forward
+Plasticky build and plain looks
+Below-average isolation with stock tips
+Small shell may not fit larger ears
+Verdict
+The cheapest way to hear what good tuning actually is. If you've never heard a Harman-tuned IEM, the Gate is the $23 education — just know it leans forward, and tip-roll if the stock seal disappoints.
+Purchase link coming soon
+3
+7Hz x Crinacle Zero:2 product image ·
+official source
+ALL-ROUNDER
+7Hz x Crinacle Zero:2 — “the crowd-pleaser”
+All-rounder · $24.99 at Linsoul
+The original 7Hz Zero was already the budget IEM the internet recommends on autopilot, and the Zero:2 is what happens when you take that formula and ask the most influential IEM reviewer alive what he'd change. Co-tuned with Crinacle (of In-Ear Fidelity), the Zero:2 adds roughly +3dB of low-end gain over the original and tames the presence-region peak — a light V-shape, warmer and more fun, that reviewers consistently call the better all-rounder. Silver, orange, blue, or pink; 3.5mm no-mic, 3.5mm mic, or Type-C mic.
+What it does / key features
+This is the pick for people who don't want to think about tuning. The Zero:2's whole job is to be the IEM you hand to a friend and watch them go quiet for a minute. The 10mm driver gets a new dual-cavity design and a PU+metal composite diaphragm, and the cable — a known weak point on the original Zero, whose thin sheath drew complaints — is upgraded to high-purity silver-plated oxygen-free copper. It's still a budget cable, but it's an honest one.
+Don't mistake 'more bass' for basshead territory: it's bigger and warmer, not punchy or boomy. The accessories package is still minimal (no carry pouch), the shell is plastic, and a few users note the soundstage sits slightly 'behind' rather than centered. None of that matters much at $24.99 — this is the fun-without-thinking pick.
+Who it's for
+Anyone who wants one IEM that does everything well without a tuning lecture.
+Availability
+Linsoul at $24.99; four colors, 3.5mm and Type-C options.
+Verified specifications
+Driver
+10mm dynamic, dual-cavity, PU+metal composite diaphragm.
+Impedance
+32Ω.
+Sensitivity
+108dB/V @1kHz.
+THD
+<1% @1kHz.
+Frequency response
+10Hz–20kHz.
+Cable
+Detachable 0.78mm 2-pin, silver-plated OFC.
+Price
+$24.99, Linsoul, verified October 9, 2026.
+Pros and cons
+Pros
+Co-tuned with Crinacle — the most trusted ears in budget IEMs
+Warmer, more fun tuning than the original Zero
+Upgraded cable addresses the original's weakest part
+Color and termination options at $25
+Cons
+Not a basshead IEM despite the extra low end
+Plastic shell, minimal accessories (no pouch)
+Cable is improved but still budget-grade
+Verdict
+The easiest recommendation in this guide. If you buy one wired IEM and never think about this hobby again, make it the Zero:2 — it does the most things right for the fewest dollars.
+Purchase link coming soon
+4
+Moondrop Chu II product image ·
+official source
+STARTER PICK
+Moondrop Chu II — “the starter everyone recommends”
+Starter pick · $22.99 at Linsoul
+Ask any IEM community what a beginner should buy and the Chu II shows up like a reflex. The original Chu was the first budget IEM with an aluminum-magnesium alloy composite diaphragm; the Chu II keeps that trick, adds clearly stronger, fuller bass, and swaps in a detachable 0.78mm 2-pin cable — the single most practical upgrade, because cables die and drivers don't. Reviewers call it 'one of the greatest sub-$20 earphones' and a 'must-buy for budding audiophiles,' and they're not being generous: at $22.99 it's the most recommended first IEM on the internet for a reason.
+What it does / key features
+Moondrop's tuning is the approachable kind of fun — slightly warm, never harsh, the sort of signature that works on everything from podcasts to pop to orchestral. The zinc-alloy cast shell feels a class above the plastic competition, and the replaceable brass acoustic-nozzle filters are a genuinely thoughtful touch (filters clog with earwax; being able to swap them extends the IEM's life). The specs are friendly too: 18Ω impedance and 119dB sensitivity mean your phone drives it effortlessly, and distortion stays under 0.5%.
+Honest caveats: isolation is unimpressive, Moondrop's famous Spring tips are not included, and some reviewers describe the Chu II as more of a sidegrade than an upgrade over the original Chu — a different tuning identity, not a straight improvement. And a flag for the careful: the Chu III exists now at $24.99. We verified the Chu II at a live Linsoul listing today; check both before you buy, because successors have a way of quietly replacing stock.
+Who it's for
+First-time IEM buyers and gift-givers — the safest recommendation to make to someone else.
+Availability
+Linsoul at $22.99; DSP/USB-C version also exists; the Chu III ($24.99) is the new successor.
+Verified specifications
+Driver
+10mm dynamic, Al-Mg alloy composite dome + ultra-thin CCAW voice coil.
+Shell
+Zinc-alloy cast.
+Cable
+Detachable 0.78mm 2-pin, 3.5mm plug.
+Nozzle filters
+Replaceable brass.
+Frequency response
+15Hz–38kHz (effective 20Hz–20kHz, IEC60318-4 −3dB).
+Impedance
+18Ω ±15% @1kHz.
+Sensitivity
+119dB/Vrms @1kHz.
+THD
+≤0.5% @1kHz (94dB).
+Price
+$22.99, Linsoul, verified October 9, 2026.
+Pros and cons
+Pros
+The community's default first-IEM recommendation — proven over years
+Detachable cable + replaceable nozzle filters = built to last
+Easy to drive from any phone
+Approachable tuning that works on everything
+Cons
+Unimpressive isolation
+No Spring tips included
+More sidegrade than upgrade vs the original Chu
+The Chu III successor exists — verify stock before buying
+Verdict
+Buy this for anyone who asks 'what earbuds should I get' and you'll look like you know things. It's the least risky $23 in audio — just confirm you're getting the II and not tripping over the III.
+Purchase link coming soon
+5
+Tangzu Wan'er S.G product image ·
+official source
+VOCALS PICK
+Tangzu Wan'er S.G — “the vocals specialist”
+Vocals pick · $19–21 at Linsoul
+Nineteen dollars. That's the cheapest pick in this guide, and it's the one with the most specific superpower: voices. One reviewer spent a month daily-driving the Wan'er S.G and called its warm, smooth, vocal-forward presentation its 'greatest strength' — natural vocal timbre that's rare at any price under $50, forward upper mids, near-zero sibilance, and a fatigue-free listen that goes for hours. Linsoul's copy mentions five rounds of driver adjustments to land the tuning, and you can hear the deliberation: this doesn't sound cheap, it sounds considered.
+What it does / key features
+The hardware is straightforward — a 10mm PET-diaphragm dynamic driver with an N52 magnet in a dual-cavity chamber, a lightweight resin shell, a detachable 0.78mm 2-pin braided 5N OFC cable, and seven pairs of eartips (three balanced-bore, four vocal wide-bore — Tangzu knows why you're buying it). 20Ω and 107dB means any phone drives it fine.
+The trade-offs are the tuning's own shadow: treble is deliberately rolled off up top, so cymbals lose shimmer and micro-detail is limited; bass is controlled rather than skull-rattling; and competitive gamers should look elsewhere — soundstage depth and imaging precision are limited. The stock cable is the weakest part of the package: it tangles easily and the ear hooks run stiff. And yes, there's a Wan'er S.G II with a better silver-plated cable and tighter tuning — worth checking if the price gap is small.
+Who it's for
+Vocal, acoustic, and podcast listeners who want hours of fatigue-free listening.
+Availability
+Linsoul: $19.00 no-mic / $20–21 with mic; successor S.G II exists.
+Verified specifications
+Driver
+10mm single dynamic, PET diaphragm, N52 magnet, dual-cavity.
+Impedance
+20Ω.
+Sensitivity
+107dB @1kHz.
+THD
+<0.5%.
+Frequency response
+20Hz–20kHz.
+Cable
+Detachable 0.78mm 2-pin, 5N OFC braided.
+Tips
+7 pairs.
+Price
+$19–21, Linsoul, verified October 9, 2026.
+Pros and cons
+Pros
+The best vocals under $25 — natural timbre, near-zero sibilance
+Fatigue-free for hours
+Seven tip pairs including vocal wide-bore
+Cheapest pick in the guide
+Cons
+Rolled-off treble — limited air and micro-detail
+Not for bassheads or competitive gaming
+Stock cable tangles; stiff ear hooks
+Successor S.G II exists
+Verdict
+If your playlist is voices — singers, podcasts, audiobooks — this is nineteen dollars extraordinarily well spent. Just know what you're trading: air and rumble for mids that never bite.
+Purchase link coming soon
+6
+KZ ZS10 Pro product image ·
+official source
+DRIVER-COUNT PICK
+KZ ZS10 Pro — “the maximalist”
+Driver-count pick · $50.99 at Linsoul
+Five drivers. Fifty dollars. The ZS10 Pro is the IEM for people who count drivers the way car people count cylinders — two 30095 balanced armatures for highs, two 50060s for mids, and a second-generation 10mm double-magnetic dynamic driver for bass, all sorted by a PCB frequency-dividing board. The result is the classic big V-shape: deep, well-extended sub-bass, surprisingly smooth and detailed treble for the money, and a wide, immersive soundstage that reviewers call genuinely fun. The claimed 7Hz–40kHz range even wears a Hi-Res badge.
+What it does / key features
+There's a reason KZ practically invented the budget-hybrid category: at $50.99 this is the most hardware per dollar in the guide, and the stainless-steel faceplate over a resin cavity looks more expensive than it is. It's the pick when you want the visceral, everything-turned-up listen — electronic, hip-hop, cinematic scores.
+But five drivers in a $51 shell come with the compromises you'd expect. Mids are recessed — vocals can sound small, and busy tracks get messy and grainy in the middle. Treble turns grainy on cymbal-heavy material. The stock cable is thin, tangles, and has documented QC issues including glue leakage on the filters (which kills bass and boosts treble) and channel imbalance — inspect yours on arrival. The shell is large, so small ears beware. And the honest alternative: the ZS10 Pro X (~$33) smooths the treble further and costs less — if you don't need the original's specific tuning, check the X first.
+Who it's for
+V-shape lovers and spec-sheet maximalists who want the most drivers per dollar.
+Availability
+Linsoul at $50.99 (mic optional); the ZS10 Pro X (~$33) is the treble-tamed alternative.
+Verified specifications
+Drivers
+4BA+1DD: 2×30095 (highs) + 2×50060 (mids) + 10mm 2nd-gen double-magnetic DD (bass).
+Crossover
+PCB frequency-dividing board.
+Impedance
+24Ω.
+Sensitivity
+111dB.
+Frequency response
+7Hz–40kHz.
+Cable
+Detachable gold-plated 2-pin.
+Faceplate
+304 stainless steel + resin cavity.
+Price
+$50.99, Linsoul, verified October 9, 2026.
+Pros and cons
+Pros
+Five drivers for $51 — unmatched hardware-per-dollar
+Deep sub-bass and a wide, immersive stage
+Stainless faceplate looks premium
+The classic fun V-shape done loudly
+Cons
+Recessed mids — vocals sound small, busy tracks get messy
+Grainy treble on cymbal-heavy tracks
+Stock cable has documented QC issues (glue leakage, channel imbalance)
+Large shell — uncomfortable for small ears
+Verdict
+Maximum spectacle per dollar. Buy the ZS10 Pro if you want the biggest sound in this guide and don't mind trading midrange honesty for it — otherwise the $33 Pro X deserves a look first.
+Purchase link coming soon
+Why wired, in 2026?
+Because the math is insulting. A $10 USB-C dongle DAC plus a $25 IEM gets you detail and tuning discipline that $150 wireless buds can't touch — no battery to degrade, no latency for video, no codec lottery between your phone and your ears. Wireless wins on convenience, and that's a real win. But if you mostly listen at a desk, on a commute, or in bed, the wire is doing nothing except carrying a better signal. And when the cable wears out — which it will, eventually — you unplug it and plug in a new one for eight bucks instead of replacing the whole earbud.
+How to pick your first IEM (the 30-second version)
+Seal beats specs. A $19 IEM with the right tip size sounds better than a $50 one leaking bass past a bad seal — spend ten minutes tip-rolling before you judge anything. Pick by tuning, not driver count: fun V-shape (Titan X, Zero:2), reference accuracy (Gate), vocals (Wan'er S.G), maximum spectacle (ZS10 Pro), or the safe default (Chu II). Mic or no mic is a real choice — the mic versions cost a few dollars more and are worth it if you take calls. And don't buy an amplifier: everything here is 16–32Ω and sensitive enough for any phone.
+A note on the successors
+Three picks in this guide have newer siblings: the Moondrop Chu III ($24.99), the Tangzu Wan'er S.G II, and the KZ ZS10 Pro X (~$33). We verified the versions listed here at live retailer listings on October 9, 2026 — they're the ones you can actually buy today at the prices quoted. Successors in this hobby have a habit of quietly replacing stock, so check both before you check out. If the newer one is in stock at a small premium, it's usually the better buy; if it isn't, the versions above are proven.
+The one that didn't make it: the Tin HiFi T2
+The original Tin HiFi T2 is the 2018 benchmark that started the budget-IEM wave — dual dynamic drivers, a stainless-steel shell, neutral-bright tuning with real clarity. It deserves a place in this guide on reputation alone. It doesn't get one, because we couldn't verify a current listing for the original anywhere — only later variants surfaced (T2 Plus $59, T2 Evo $49, T2 DLC ~$69). This site doesn't recommend what it can't verify you can buy. If the T2 Evo at $49 is in stock when you read this, it's the currently-buyable heir — but that's a different review.
+Research receipt
+Prices verified at live retailer listings (HiFiGo, Linsoul, Shenzhen Audio) on October 9, 2026. Specs from official/retailer copy only — the Titan X's 16Ω/123dB/40kHz figures are retailer-page claims, flagged as such. Tuning impressions come from published reviews and community measurements, not hands-on testing. Buy buttons are disabled placeholders until affiliate links are approved.
+How we reviewed these picks
+Research-based review — no hands-on testing is claimed. Picks come from community consensus (the models the IEM hobby actually buys) plus mainstream coverage (Tom's Guide's Editor's Choice for the Titan X, corroborated and dated to its June 2026 review). Every price above was verified at a live retailer listing on October 9, 2026; specs are quoted only from official or retailer copy, with unverifiable figures flagged in the text. Amazon was not used as a price source — its listings are unreachable to our checks. The Tin HiFi T2 was excluded because no current listing for the original could be verified.
+Frequently asked questions
+Do I need a phone with a headphone jack?
+No. A $10 USB-C (or Lightning) dongle DAC drives everything in this guide — all six are 16–32Ω and sensitive enough that no amplifier is needed. Add the dongle to the budget and the pitch still holds.
+Are wired IEMs okay for the gym?
+Mostly no. Almost nothing here is rated for sweat, and sweat kills cables. These are desk, commute, and couch picks — get a cheap beater pair for workouts.
+Is burn-in real?
+The measurable changes are tiny. Tip seal and fit change the sound far more than any burn-in ritual — spend the hour tip-rolling instead of playing pink noise.
+Why isn't the Tin HiFi T2 in this guide?
+We couldn't verify a current listing for the original T2 — only later variants (T2 Plus, T2 Evo, T2 DLC) surfaced. We don't recommend what we can't verify you can buy.
+Will these work with my laptop or controller?
+Yes. The 3.5mm versions plug into anything with a headphone jack, and the Type-C versions cover phones without one.
+Related guides
+AUDIO
+6 open-ear earbuds worth buying in 2026 (and one to watch)
+AUDIO
+Best wireless earbuds under $100
+AUDIO
+Audio upgrades
