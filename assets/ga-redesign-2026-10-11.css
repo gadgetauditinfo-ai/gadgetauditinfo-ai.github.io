@@ -167,11 +167,11 @@ blockquote,.pull-quote{border-left:4px solid var(--ga-accent-2)!important;color:
 /* Mobile trust stack: keep the disclosure and ticker in one compact line while the
    consent choice floats clear of the hero instead of consuming page-flow height. */
 @media(max-width:860px){
-  .disclosure{height:32px!important;padding:0!important;overflow:hidden!important}
-  .disclosure .shell{display:flex!important;min-height:32px!important;align-items:center!important;gap:5px!important;font-size:10px!important;line-height:1!important;text-align:left!important;white-space:nowrap!important}
+  .disclosure{height:auto!important;min-height:32px!important;padding:0!important;overflow:visible!important}
+  .disclosure .shell{display:flex!important;min-height:32px!important;align-items:center!important;flex-wrap:wrap!important;gap:3px!important;font-size:9px!important;line-height:1.2!important;text-align:left!important;white-space:normal!important}
   .disclosure .shell>b{display:inline!important;flex:0 0 auto!important;margin:0!important;padding:0!important;border-radius:0!important;background:transparent!important;color:var(--ga-ink)!important}
-  .disclosure .shell>span{display:block!important;min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
-  .disclosure .shell>a{display:inline!important;flex:0 0 auto!important;margin:0!important;white-space:nowrap!important}
+  .disclosure .shell>span{display:block!important;min-width:0!important;flex:1 1 0!important;overflow:visible!important;text-overflow:clip!important;white-space:normal!important}
+  .disclosure .shell>a{display:block!important;flex:0 0 100%!important;margin:0!important;text-align:center!important;white-space:nowrap!important}
 
   .story-ticker{height:44px!important;overflow:hidden!important}
   .story-ticker-inner{position:relative!important;display:grid!important;height:44px!important;min-height:44px!important;grid-template-columns:104px minmax(0,1fr)!important;gap:8px!important;align-items:center!important;overflow:hidden!important;white-space:nowrap!important}
@@ -847,3 +847,12 @@ footer:not(.ga-footer) .foot-social[href*="threads"]:hover,footer:not(.ga-footer
 .ga-socials a.ga-social-threads:hover .ic-color,.ga-socials a.ga-social-threads:focus-visible .ic-color,
 .ga-top-socials a.ga-social-tiktok:hover .ic-color,.ga-top-socials a.ga-social-tiktok:focus-visible .ic-color,
 .ga-top-socials a.ga-social-threads:hover .ic-color,.ga-top-socials a.ga-social-threads:focus-visible .ic-color{display:block}
+
+/* ---------- X: monochrome default, true brand badge on hover (same as TikTok/Threads) ---------- */
+.ga-socials a.ga-social-x .ic-color,.ga-top-socials a.ga-social-x .ic-color{display:none}
+.ga-socials a.ga-social-x:hover .ic-mono,.ga-socials a.ga-social-x:focus-visible .ic-mono,
+.ga-top-socials a.ga-social-x:hover .ic-mono,.ga-top-socials a.ga-social-x:focus-visible .ic-mono{display:none}
+.ga-socials a.ga-social-x:hover .ic-color,.ga-socials a.ga-social-x:focus-visible .ic-color,
+.ga-top-socials a.ga-social-x:hover .ic-color,.ga-top-socials a.ga-social-x:focus-visible .ic-color{display:block}
+.ga-socials a.ga-social-x:hover,.ga-socials a.ga-social-x:focus-visible{background:transparent!important;border-color:rgba(255,255,255,.4)!important;box-shadow:0 8px 22px rgba(255,255,255,.16)!important}
+.ga-top-socials a.ga-social-x:hover,.ga-top-socials a.ga-social-x:focus-visible{background:transparent!important;box-shadow:0 6px 18px rgba(255,255,255,.16)!important}
