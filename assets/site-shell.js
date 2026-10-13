@@ -11,6 +11,10 @@ const upgradeHref=new URL('upgrade.css',assetRoot).href;
 if(![...document.querySelectorAll('link[rel~="stylesheet"]')].some(node=>{try{return new URL(node.href,document.baseURI).href===upgradeHref}catch{return false}})){const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href=upgradeHref;document.head.append(stylesheet)}
 const redesignHref=new URL('ga-redesign-2026-10-11.css',assetRoot).href;
 if(![...document.querySelectorAll('link[rel~="stylesheet"]')].some(node=>{try{return new URL(node.href,document.baseURI).href===redesignHref}catch{return false}})){const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href=redesignHref;document.head.append(stylesheet)}
+/* 2026-10-13 trust-layer rewire: trust-layer.js (newsletter + course CTA injection) stopped loading after the 2026-10-11 overhaul. Re-wire here so every shell-loaded page gets it back. */
+const trustCssHref=new URL('trust-layer.css',assetRoot).href;
+if(![...document.querySelectorAll('link[rel~="stylesheet"]')].some(node=>{try{return new URL(node.href,document.baseURI).href===trustCssHref}catch{return false}})){const trustStylesheet=document.createElement('link');trustStylesheet.rel='stylesheet';trustStylesheet.href=trustCssHref;document.head.append(trustStylesheet)}
+if(![...document.scripts].some(node=>{try{return new URL(node.src,document.baseURI).pathname.endsWith('/assets/trust-layer.js')}catch{return false}})){const trustScript=document.createElement('script');trustScript.src=new URL('trust-layer.js',assetRoot).href;trustScript.defer=true;document.head.appendChild(trustScript)}
 const escapeHtml=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const regions=[
  {name:'Europe',countries:[
