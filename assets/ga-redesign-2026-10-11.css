@@ -12,7 +12,12 @@
   --ga-shadow:0 1px 2px rgba(16,22,15,.06),0 8px 24px rgba(16,22,15,.08);
   --ga-shadow-hover:0 2px 4px rgba(16,22,15,.08),0 20px 48px rgba(16,22,15,.14);
   --ga-gradient:linear-gradient(118deg,var(--ga-accent-2),#46d979 54%,var(--ga-accent));
-  --ga-ease:cubic-bezier(.2,.7,.2,1);
+  /* House motion: one expressive entrance curve, one tighter interaction curve. */
+  --ga-ease-house:cubic-bezier(.16,1,.3,1);
+  --ga-ease-enter:cubic-bezier(0.22,1,0.36,1);
+  --ga-ease-snap:cubic-bezier(0.34,1.3,0.64,1);
+  --ga-ease:var(--ga-ease-house);
+  --ga-expo:var(--ga-ease-house);
   --gas-bg:var(--ga-bg);--gas-paper:var(--ga-surface);--gas-ink:var(--ga-ink);--gas-muted:var(--ga-muted);--gas-line:var(--ga-line);--gas-green:var(--ga-accent-2);
   --bg:var(--ga-bg);--paper:var(--ga-surface);--raised:var(--ga-surface-2);--ink:var(--ga-ink);--text:var(--ga-ink-2);--muted:var(--ga-muted);--line:var(--ga-line);--green:var(--ga-accent-2);--green2:#087f75;--soft:var(--ga-accent-tint);--shadow:var(--ga-shadow);
 }
@@ -179,7 +184,7 @@ blockquote,.pull-quote{border-left:4px solid var(--ga-accent-2)!important;color:
   .story-ticker-window,.story-ticker-track{display:block!important;min-width:0!important;width:100%!important;height:44px!important;overflow:hidden!important}
   .story-ticker-set:first-child{position:relative!important;display:block!important;width:100%!important;height:44px!important}
   .story-ticker-set:first-child i,.story-ticker-set[aria-hidden="true"]{display:none!important}
-  .story-ticker-set:first-child a{position:static!important;display:flex!important;min-width:0!important;min-height:44px!important;align-items:center!important;overflow:hidden!important;padding:0!important;color:var(--ga-ink-2)!important;font-size:11px!important;line-height:1!important;text-overflow:ellipsis!important;white-space:nowrap!important;opacity:1!important;transform:none!important;animation:ga-mobile-story-in .28s ease both!important}
+  .story-ticker-set:first-child a{position:static!important;display:flex!important;min-width:0!important;min-height:44px!important;align-items:center!important;overflow:hidden!important;padding:0!important;color:var(--ga-ink-2)!important;font-size:11px!important;line-height:1!important;text-overflow:ellipsis!important;white-space:nowrap!important;opacity:1!important;transform:none!important;animation:ga-mobile-story-in .28s var(--ga-ease-house) both!important}
   .story-ticker-set:first-child a[hidden]{display:none!important}
 
   .ga-cookie-notice{position:fixed!important;z-index:120!important;right:10px!important;bottom:max(10px,env(safe-area-inset-bottom))!important;left:10px!important;width:auto!important;max-width:560px!important;margin-inline:auto!important;grid-template-columns:1fr!important;gap:6px!important;padding:9px 10px!important;border:1px solid var(--ga-line)!important;border-radius:12px!important;background:var(--ga-surface)!important;box-shadow:0 14px 36px rgba(0,0,0,.2)!important;font-size:11px!important;line-height:1.25!important}
@@ -188,6 +193,7 @@ blockquote,.pull-quote{border-left:4px solid var(--ga-accent-2)!important;color:
   .ga-cookie-copy p{display:block!important;max-width:none!important;margin:0!important;overflow:visible!important;font-size:10px!important;line-height:1.25!important}
   .ga-cookie-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important;justify-content:stretch!important}
   body .ga-cookie-actions button{width:100%!important;height:44px!important;min-height:44px!important;padding:0 7px!important;font-size:10px!important;line-height:1.1!important;white-space:normal!important}
+  body:has(.ga-cookie-notice) .ga-back-to-top{bottom:190px!important}
 }
 @keyframes ga-mobile-story-in{from{opacity:0}to{opacity:1}}
 @media(max-width:860px){.feature-stage{padding-bottom:0!important}.feature-viewport{overflow:visible!important;scroll-snap-type:none!important}.feature-track{display:grid!important;width:100%!important;gap:16px!important;padding:2px 0 0!important}.feature-card,.feature-card.is-active{width:100%!important;max-width:none!important;flex-basis:auto!important;scroll-snap-align:none!important}.carousel-nav{display:none!important}}
@@ -258,7 +264,7 @@ blockquote,.pull-quote{border-left:4px solid var(--ga-accent-2)!important;color:
 .product-buy,.ga-amazon-search,.buy-button,.deal-box a,.audio-play{
   background-image:linear-gradient(105deg,transparent 0 38%,rgba(255,255,255,.32) 48%,transparent 58%),var(--ga-gradient)!important;
   background-size:250% 100%,180% 180%!important;background-position:120% 0,0 0!important;
-  transition:transform .2s var(--ga-ease),box-shadow .2s var(--ga-ease),background-position .65s var(--ga-ease),filter .2s var(--ga-ease)!important}
+  transition:transform .24s var(--ga-ease-snap),box-shadow .24s var(--ga-ease-snap),background-position .64s var(--ga-ease-enter),filter .24s var(--ga-ease-snap)!important}
 .btn:not(.alt):hover,.finder .quiz-form>button:hover,.ask>button:hover,.newsletter-box a:hover,
 .product-buy:hover,.ga-amazon-search:hover,.buy-button:hover,.deal-box a:hover,.audio-play:hover,
 .btn:not(.alt):focus-visible,.finder .quiz-form>button:focus-visible,.ask>button:focus-visible,.newsletter-box a:focus-visible,
@@ -272,7 +278,7 @@ blockquote,.pull-quote{border-left:4px solid var(--ga-accent-2)!important;color:
 .ga-premium-reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ga-ease),transform .7s var(--ga-ease);transition-delay:var(--gu-stagger,0ms)}
 .ga-premium-reveal.ga-visible{opacity:1;transform:none}
 /* Page transition: soft fade on internal navigation (JS adds .ga-page-leaving). */
-body{transition:opacity .24s ease}
+body{transition:opacity .24s var(--ga-ease-house)}
 body.ga-page-leaving{opacity:0!important}
 
 /* ---------- 6. Section dividers + card/panel gradient accents ---------- */
@@ -407,9 +413,9 @@ footer.ga-site-footer:before{content:'';position:absolute;top:0;left:0;right:0;h
 
 /* ---------- 1. Tokens: motion curves + palette unification ---------- */
 :root{
-  --ga-ease-emph:cubic-bezier(.22,.9,.28,1);   /* entrances & reveals: quick start, soft landing */
-  --ga-ease-smooth:cubic-bezier(.65,0,.35,1);  /* symmetric: theme fades, sheen sweeps */
-  --ga-ease-press:cubic-bezier(.34,.9,.3,1);   /* micro-interactions: chips, buttons, icons */
+  --ga-ease-emph:var(--ga-ease-house);
+  --ga-ease-smooth:var(--ga-ease-house);
+  --ga-ease-press:var(--ga-ease-snap);
   /* One gradient identity — re-anchor legacy brand tokens to the master set. */
   --ga-teal:var(--ga-accent-2);
   --ga-lime:var(--ga-accent);
@@ -453,7 +459,7 @@ footer.ga-site-footer:before{content:'';position:absolute;top:0;left:0;right:0;h
 .ua-brand img{filter:drop-shadow(0 6px 14px rgba(0,169,157,.28))}
 
 /* ---------- 3. Theme transition: light ↔ dark fades instead of snapping ---------- */
-body{transition:opacity .24s ease,background-color .45s var(--ga-ease-smooth),color .45s var(--ga-ease-smooth)}
+body{transition:opacity .24s var(--ga-ease-house),background-color .45s var(--ga-ease-house),color .45s var(--ga-ease-house)}
 .ga-site-header,.ga-site-footer{transition:background-color .45s var(--ga-ease-smooth),border-color .45s var(--ga-ease-smooth),color .45s var(--ga-ease-smooth)}
 
 /* ---------- 4. Typography: smoothing, rhythm, editorial voice ---------- */
@@ -856,3 +862,165 @@ footer:not(.ga-footer) .foot-social[href*="threads"]:hover,footer:not(.ga-footer
 .ga-top-socials a.ga-social-x:hover .ic-color,.ga-top-socials a.ga-social-x:focus-visible .ic-color{display:block}
 .ga-socials a.ga-social-x:hover,.ga-socials a.ga-social-x:focus-visible{background:transparent!important;border-color:rgba(255,255,255,.4)!important;box-shadow:0 8px 22px rgba(255,255,255,.16)!important}
 .ga-top-socials a.ga-social-x:hover,.ga-top-socials a.ga-social-x:focus-visible{background:transparent!important;box-shadow:0 6px 18px rgba(255,255,255,.16)!important}
+
+
+/* 2026-10-12 accessibility: darker teal for light-mode text only. (2026-10-16: .hero-intro .kicker excluded — it keeps its near-black text on the gradient pill, whose own rule already sets color #0c1711.) */
+:root[data-theme="light"] :is(.ga-menu-panel>.ga-menu-label,.story-ticker-inner>strong,.feature-cta b,.section-eyebrow,.label,.signal-index,.finder-kicker,.finder-console-head>div>span,.finder-search-head>span,.section-head a,.badge,.category a,.team-strip a,.freshness,.verdict,.gf-card-tag){color:var(--green2)!important;-webkit-text-fill-color:currentColor!important}
+:root[data-theme="light"] .disclosure b{background:var(--green2)!important;color:#fff!important}
+/* Keep X and Threads marks legible on dark footers without changing the badge silhouette. */
+:root[data-theme="dark"] .ga-site-footer .ga-socials a.ga-social-x,
+:root[data-theme="dark"] .ga-site-footer .ga-socials a.ga-social-threads{background:#f5f8f6!important;border-color:#f5f8f6!important;color:#07110b!important}
+:root[data-theme="dark"] .ga-site-footer .ga-socials a.ga-social-x svg,
+:root[data-theme="dark"] .ga-site-footer .ga-socials a.ga-social-threads svg{fill:#07110b!important}
+:root[data-theme="dark"] .ga-site-footer .ga-socials :is(.ga-social-x,.ga-social-threads) .ic-mono{display:block!important}
+:root[data-theme="dark"] .ga-site-footer .ga-socials :is(.ga-social-x,.ga-social-threads) .ic-color{display:none!important}
+
+
+/* 2026-10-13 weekly polish: one motion grammar across entrances and feedback. */
+.ga-premium-reveal{transform:translateY(22px);transition:opacity .68s var(--ga-ease-house),transform .68s var(--ga-ease-house);transition-delay:var(--gu-stagger,0ms)}
+:where(.btn,.newsletter-box a,.ask>button,.finder .quiz-form>button,.product-buy,.ga-amazon-search,.buy-button,.deal-box a,.audio-play,.ga-tool,.ga-menu-button,.ga-search-link,.ga-finder-link,.carousel-nav,.ga-load-more button){transition-timing-function:var(--ga-ease-snap)!important}
+:where(.btn,.newsletter-box a,.ask>button,.finder .quiz-form>button,.product-buy,.ga-amazon-search,.buy-button,.deal-box a,.audio-play,.ga-tool,.ga-menu-button,.ga-search-link,.ga-finder-link,.carousel-nav,.ga-load-more button):active{transform:translateY(0) scale(.98)!important}
+:where(.card-media,.product-media,.gu-product-media,.ga-upgrade-card){overflow:hidden}
+.product,.gu-product{transition:transform .3s var(--ga-ease-snap),box-shadow .3s var(--ga-ease-snap),border-color .3s var(--ga-ease-snap)!important}
+.product:hover,.product:focus-within,.gu-product:hover,.gu-product:focus-within{transform:translateY(-3px);box-shadow:var(--ga-shadow-hover)!important}
+.product-media img,.gu-product-media img{transition:transform .55s var(--ga-ease-house)!important}
+.product:hover .product-media img,.product:focus-within .product-media img,.gu-product:hover .gu-product-media img,.gu-product:focus-within .gu-product-media img{transform:scale(1.035)}
+.ga-primary-nav>a:after,.ga-nav-toggle:after{transform-origin:right center;transition:transform .28s var(--ga-ease-snap)}
+.ga-primary-nav>a:hover:after,.ga-primary-nav>a:focus-visible:after,.ga-nav-toggle:hover:after,.ga-nav-toggle:focus-visible:after,.ga-menu-group.is-open>.ga-nav-toggle:after,.ga-menu-group.is-hovered>.ga-nav-toggle:after,.ga-primary-nav>a[aria-current="page"]:after{transform-origin:left center}
+html,body,.ga-site-header,.ga-site-footer,.ga-tool,.ga-menu-button,.ga-search-link,.ga-finder-link,.ga-menu-panel,.ga-region-panel,.card,.category,.product,.gu-product,.article-audio,.sidebar,.gu-toc{transition-property:background-color,color,border-color,box-shadow,opacity,transform;transition-duration:.34s;transition-timing-function:var(--ga-ease-house)}
+@media(prefers-reduced-motion:reduce){
+  html,body,.ga-site-header,.ga-site-footer,.ga-tool,.ga-menu-button,.ga-search-link,.ga-finder-link,.ga-menu-panel,.ga-region-panel,.card,.category,.product,.gu-product,.article-audio,.sidebar,.gu-toc{transition:none!important}
+  .product:hover,.product:focus-within,.gu-product:hover,.gu-product:focus-within{transform:none}
+  .product:hover .product-media img,.product:focus-within .product-media img,.gu-product:hover .gu-product-media img,.gu-product:focus-within .gu-product-media img{transform:none}
+}
+/* Contrast-safe treatment: decoration remains gradient, text stays solid. */
+.section-eyebrow,.kicker,.label,.signal-index,.section-head a,.category a,.score-card a,.deal-card a{background:none!important;color:var(--ga-accent-2,#086e65)!important;-webkit-text-fill-color:currentColor!important}
+.hero-intro .kicker{position:relative;z-index:0;padding:10px 18px!important;color:#041f1d!important;-webkit-text-fill-color:#041f1d!important}
+.hero-intro .kicker:after{content:'';position:absolute;z-index:-1;inset:0;border-radius:999px;background:var(--ga-gradient)}
+:root[data-theme="dark"] .section-eyebrow,:root[data-theme="dark"] .kicker,:root[data-theme="dark"] .label,:root[data-theme="dark"] .signal-index,:root[data-theme="dark"] .section-head a,:root[data-theme="dark"] .category a,:root[data-theme="dark"] .score-card a,:root[data-theme="dark"] .deal-card a{color:#55e0c7!important}
+
+/* Contrast-safe hero title: the brand gradient stays in the scene, never in the glyph foreground. */
+.hero-intro h1 .hero-line{background:none!important;color:#082f2b!important;-webkit-text-fill-color:#082f2b!important;animation:none!important}
+:root[data-theme="dark"] .hero-intro h1 .hero-line{background:none!important;color:#effcf8!important;-webkit-text-fill-color:#effcf8!important}
+
+/* 2026-10-13 UI pass: a single real site-wide reading indicator. */
+.scroll-progress,.reading-progress{display:none!important}
+/* The cookie notice's own static teal top bar sat directly under the header
+   and read as part of the same broken line; the notice keeps its border. */
+.ga-cookie-notice:before{content:none!important;display:none!important}
+.ga-site-header:after{
+  content:""!important;
+  position:absolute!important;
+  z-index:3!important;
+  inset:0 0 auto!important;
+  width:100%!important;
+  height:3px!important;
+  background:var(--ga-gradient)!important;
+  transform:scaleX(var(--ga-scroll-progress,0))!important;
+  transform-origin:left center!important;
+  transition:none!important;
+  pointer-events:none!important;
+}
+
+/* Dark media mattes use contain globally; homepage coverage mosaics need the
+   opposite treatment so their composite cells reach every edge of the card. */
+:root[data-theme="dark"] body .feature-card>img{
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:16/9!important;
+  padding:0!important;
+  border-radius:12px 12px 0 0!important;
+  background:var(--ga-surface-2)!important;
+  object-fit:cover!important;
+}
+
+/* Some GPU/font combinations painted a remnant box after gradient-clipped
+   category labels. Dark labels are plain text and expose no decorative glyph. */
+:root[data-theme="dark"] .card .label{
+  background:none!important;
+  background-image:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  -webkit-text-fill-color:#55e0c7!important;
+  color:#55e0c7!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+}
+:root[data-theme="dark"] .card .label:before,
+:root[data-theme="dark"] .card .label:after{content:none!important;display:none!important}
+
+@media(max-width:900px){.ga-site-header:after{height:2px!important}}
+@media(prefers-reduced-motion:reduce){.ga-site-header:after{display:none!important}}
+
+/* ---------- 2026-10-14 motion completion: house easing on the surfaces the
+   2026-10-13 pass missed. Entrances ride --ga-ease-enter at 640ms; hovers and
+   presses ride --ga-ease-snap at 220–260ms. Transform/opacity/filter only —
+   no layout shift. Reduced-motion users keep the global static collapse. */
+.ga-premium-reveal{transition:opacity .64s var(--ga-ease-enter),transform .64s var(--ga-ease-enter)}
+.card{transition:transform .24s var(--ga-ease-snap),box-shadow .24s var(--ga-ease-snap),border-color .24s var(--ga-ease-snap)!important}
+.card-media img,.card img{transition:transform .24s var(--ga-ease-snap),filter .24s var(--ga-ease-snap)!important}
+.feature-card>img,.feature-card.signature>img{transition:transform .24s var(--ga-ease-snap),filter .24s var(--ga-ease-snap)!important}
+.product-media img,.gu-product-media img{transition:transform .24s var(--ga-ease-snap),filter .24s var(--ga-ease-snap)}
+.score-card,.deal-card{transition:transform .24s var(--ga-ease-snap),box-shadow .24s var(--ga-ease-snap),border-color .24s var(--ga-ease-snap)}
+.category{transition:transform .24s var(--ga-ease-snap),box-shadow .24s var(--ga-ease-snap)!important}
+.category:before{transition:opacity .24s var(--ga-ease-snap)}
+.trust-grid article{transition:transform .24s var(--ga-ease-snap),box-shadow .24s var(--ga-ease-snap),border-color .24s var(--ga-ease-snap)}
+.trust-grid article:hover{transform:translateY(-3px);box-shadow:var(--ga-shadow-hover)}
+.signal-card{transition:transform .24s var(--ga-ease-snap),box-shadow .24s var(--ga-ease-snap),border-color .24s var(--ga-ease-snap)}
+footer .social a{transition:transform .24s var(--ga-ease-snap),background-color .24s var(--ga-ease-snap),border-color .24s var(--ga-ease-snap),box-shadow .24s var(--ga-ease-snap)}
+footer .social svg{transition:filter .24s var(--ga-ease-snap),opacity .24s var(--ga-ease-snap),transform .24s var(--ga-ease-snap)}
+.ga-socials a{transition:transform .24s var(--ga-ease-snap),background-color .24s var(--ga-ease-snap),border-color .24s var(--ga-ease-snap),box-shadow .24s var(--ga-ease-snap),color .24s var(--ga-ease-snap)}
+@media(prefers-reduced-motion:reduce){
+  .card,.card-media img,.card img,.feature-card>img,.product-media img,.gu-product-media img,
+  .score-card,.deal-card,.category,.category:before,.trust-grid article,.signal-card,
+  footer .social a,footer .social svg,.ga-socials a,.ga-premium-reveal{transition:none!important}
+  .trust-grid article:hover{transform:none}
+}
+
+/* ---------- 2026-10-14 theme-aware card-media matte ----------
+   Contain-fit single-image card media (Video Desk signal cards, category
+   card rows, product media frames) letterboxes over its frame's
+   background. In light theme that matte is now the site's established
+   light-neutral studio treatment — the same matte the Latest Coverage
+   cards already use — never a dark scrim, so no dark side bars can flank
+   a product on a light card again. Dark theme is untouched: it keeps its
+   existing intentional dark matte. Fit, aspect ratios, images, captions
+   and the 2026-10-13 mosaic cover-fit treatment are unchanged. */
+:root[data-theme="light"] :where(.card-media,.tile-media,.product-media,.gu-product-media,.signal-card .youtube-host){
+  background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.34) 0,rgba(255,255,255,0) 48%),linear-gradient(135deg,#e9efec 0%,#dbe8e0 100%)!important;
+}
+@media(prefers-color-scheme:light){
+  :root:not([data-theme]) :where(.card-media,.tile-media,.product-media,.gu-product-media,.signal-card .youtube-host){
+    background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.34) 0,rgba(255,255,255,0) 48%),linear-gradient(135deg,#e9efec 0%,#dbe8e0 100%)!important;
+  }
+}
+
+/* ---------- 2026-10-14 comparison-matrix desktop breakout ----------
+   At desktop widths (>=1024px) the "Compare the picks" matrix leaves the
+   narrow article column and spans the page's normal content width, so
+   every column renders in full — no forced swipe, no mid-word column
+   truncation. The legacy article column starts after a 190px sidebar +
+   24px gap inside the 1180px shell; the guide column starts after a
+   210px TOC + 44px gap inside the 1120px shell — the negative inline
+   margins below shift the section back to the shell's own left edge, so
+   it overlays the content width exactly at any viewport. Below 1024px
+   nothing here applies: the 2026-10-11 min-column-width + horizontal-
+   swipe treatment (and the swipe cue) stays exactly as staged. */
+@media(min-width:1024px){
+  .article-layout .comparison-section{
+    width:min(1180px,calc(100vw - 48px));
+    max-width:none;
+    margin-inline-start:-214px;
+  }
+  .gu-comparison{
+    width:min(1120px,calc(100vw - 40px));
+    max-width:none;
+    margin-inline-start:-254px;
+  }
+  :is(.article-layout .comparison-section,.gu-comparison) .ga-table-wrap.ga-table-scroll{overflow-x:visible}
+  :is(.article-layout .comparison-section,.gu-comparison) .ga-table-wrap.ga-table-scroll .comparison-table{min-width:0!important}
+}
+
+/* 2026-10-16 decision cards: pin both CTAs to a common baseline (same pattern as the 2026-10-01 Video Desk CTA baseline fix). */
+.score-card,.deal-card{display:flex!important;flex-direction:column!important}
+.score-card>a:last-child,.deal-card>a:last-child{margin-top:auto!important}

@@ -13,7 +13,7 @@
 .ga-search-results{position:absolute;z-index:90;left:0;right:0;top:calc(100% + 6px);display:grid;padding:6px;border:1px solid var(--line,#dce4df);border-radius:10px;background:var(--surface,var(--paper,#fff));box-shadow:0 18px 42px rgba(5,18,11,.2)}
 .ga-search-results[hidden]{display:none}
 .ga-search-results a{display:grid;gap:2px;min-height:50px;padding:9px 11px;border-radius:7px;color:var(--ink,#111a16);text-decoration:none}
-.ga-search-results a:hover,.ga-search-results a:focus-visible{background:var(--accent-soft,var(--soft,#eaf7ef));outline:none}
+.ga-search-results a:hover,.ga-search-results a:focus-visible{background:var(--accent-soft,var(--soft,#eaf7ef))}.ga-search-results a:focus-visible{outline:2px solid var(--ga-accent-2,var(--accent,#128446));outline-offset:2px}
 .ga-search-results small{color:var(--muted,#68736c);font-size:.71rem}
 .ga-search-empty{padding:12px;color:var(--muted,#68736c);font-size:.82rem}
 .ga-video-load{width:100%;min-height:180px;display:grid;place-items:center;align-content:center;gap:8px;padding:22px;border:1px solid var(--line,#dce4df);background:var(--raised,var(--bg,#f5f7f6));color:var(--ink,#111a16);cursor:pointer}.ga-video-load strong{font:700 1rem var(--display,'IBM Plex Sans',sans-serif)}.ga-video-load span{display:inline-flex;min-height:42px;align-items:center;padding:0 15px;background:var(--accent,var(--green,#128446));color:#fff;font-weight:800}.ga-video-load:hover,.ga-video-load:focus-visible{border-color:var(--accent,var(--green,#128446));outline:3px solid color-mix(in srgb,var(--accent,var(--green,#128446)) 22%,transparent);outline-offset:2px}
@@ -28,7 +28,7 @@
 .ga-comparison-note{margin:-4px 0 12px;color:var(--muted,#68736c);font-size:.8rem}
 .ga-sortbar{display:none;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;margin:0 0 12px;padding:10px;border:1px solid var(--line,#dce4df);border-radius:9px;background:var(--surface,var(--paper,#fff));color:var(--ink,#111a16);font-size:.8rem;font-weight:700}.ga-sortbar select,.ga-sortbar button{min-height:42px;border:1px solid var(--line,#dce4df);border-radius:7px;background:var(--bg,var(--raised,#f5f7f6));color:var(--ink,#111a16);font:700 .82rem var(--body,var(--sans,'Source Sans 3',sans-serif))}.ga-sortbar select{min-width:0;padding:0 9px}.ga-sortbar button{padding:0 11px;color:var(--accent,var(--green,#128446));cursor:pointer}
 .ga-sort{display:inline-flex;align-items:center;gap:5px;width:100%;min-height:40px;padding:7px 9px;border:0;background:transparent;color:inherit;text-align:left;font:700 inherit;cursor:pointer}
-.ga-sort:hover,.ga-sort:focus-visible{background:var(--accent-soft,var(--soft,#eaf7ef));color:var(--accent,var(--green,#128446));outline:none}
+.ga-sort:hover,.ga-sort:focus-visible{background:var(--accent-soft,var(--soft,#eaf7ef));color:var(--accent,var(--green,#128446))}.ga-sort:focus-visible{outline:2px solid var(--ga-accent-2,var(--accent,#128446));outline-offset:2px}
 .ga-sort .ga-arrow{margin-left:auto;font-size:.7rem;opacity:.7}
 .ga-tracking{display:grid;gap:3px;margin-top:12px;padding:12px 14px;border:1px dashed var(--line,#dce4df);border-radius:9px;background:var(--raised,var(--bg,#f5f7f6))}
 .ga-tracking strong{color:var(--ink,#111a16);font:700 .84rem/1.2 var(--display,'IBM Plex Sans',sans-serif)}

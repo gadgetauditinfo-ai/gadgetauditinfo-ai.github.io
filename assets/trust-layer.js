@@ -228,8 +228,8 @@
   const disclosure = document.querySelector('body > .ga-revenue-disclosure, body > .disclosure');
   const header = document.querySelector('body > .top, body > .ga-top');
   if (disclosure && header && disclosure.previousElementSibling !== header) header.insertAdjacentElement('afterend', disclosure);
-  document.querySelectorAll('nav').forEach(primary => {
-    const labels = [...primary.querySelectorAll('a')].map(a => a.textContent.trim().toLowerCase());
+  document.querySelectorAll('nav.ga-primary-nav, nav.ua-shell.ua-nav, nav.site-nav').forEach(primary => {
+    const labels = [...primary.querySelectorAll('a,button')].map(el => el.textContent.trim().toLowerCase());
     if (!labels.includes('deals')) primary.insertAdjacentHTML('beforeend', `<a href="${toUrl('assets/deals/index.html')}">Deals</a>`);
     if (!labels.includes('search')) primary.insertAdjacentHTML('beforeend', `<a href="${toUrl('assets/search/index.html')}">Search</a>`);
     if (!labels.includes('gadget finder')) primary.insertAdjacentHTML('beforeend', `<a href="${toUrl('index.html#finder')}">Gadget Finder</a>`);
