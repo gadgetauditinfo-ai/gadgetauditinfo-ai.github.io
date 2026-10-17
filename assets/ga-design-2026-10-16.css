@@ -92,6 +92,30 @@ html .ga-site-header .ga-region-panel{background:var(--ga-raised);border:1px sol
 }
 /* the SVG wordmark lockup is wider than the old shield-only brand: free the space */
 @media(max-width:1500px){html .ga-site-header .ga-scope-note{display:none!important}}
+/* 2026-10-17 QA fix — logo/tagline overlap: the 2026-10-11 sheet still locks
+   .ga-brand to a 48px shield-only box (!important), so the wider SVG lockup
+   overflows that box and paints over the scope-note tagline on desktop and
+   the utility tools on mobile. Release the brand to the lockup's natural
+   size, keep the lockup on one line, and give the tagline its own
+   shrinkable space beside the logo instead of underneath it. Small
+   screens scale the lockup and tool padding down so the row always fits
+   without sideways scroll; below 340px the shield alone carries the brand. */
+html .ga-site-header .ga-brand{width:auto!important;height:auto!important;flex:0 0 auto!important;overflow:visible!important}
+html .ga-site-header .ga-brand .ga-lockup{flex-wrap:nowrap}
+html .ga-site-header .ga-scope-note{flex:0 1 auto;min-width:0;margin-inline-start:16px}
+@media(max-width:900px){
+  html .ga-site-header .ga-brand,html .ga-site-header .ga-brand .ga-lockup{gap:8px}
+  html .ga-site-header .ga-brand .ga-mark{width:30px;height:30px;flex-basis:30px}
+  html .ga-site-header .ga-brand .ga-wordmark,html .ga-site-header .ga-brand-wordmark{font-size:.92rem}
+  html .ga-site-header .ga-tool,html .ga-site-header .ga-search-link,html .ga-site-header .ga-finder-link,html .ga-site-header .ga-menu-button{padding-left:10px;padding-right:10px}
+}
+@media(max-width:400px){
+  html .ga-site-header .ga-brand .ga-wordmark,html .ga-site-header .ga-brand-wordmark{font-size:.86rem}
+  html .ga-site-header .ga-tool,html .ga-site-header .ga-search-link,html .ga-site-header .ga-finder-link,html .ga-site-header .ga-menu-button{padding-left:9px;padding-right:9px}
+}
+@media(max-width:340px){
+  html .ga-site-header .ga-brand .ga-wordmark,html .ga-site-header .ga-brand-wordmark{display:none}
+}
 /* ---------- 4. Hero ---------- */
 .hero{background:
   radial-gradient(900px 480px at 12% -4%,rgba(26,158,147,.20),transparent 62%),
@@ -269,3 +293,32 @@ html[data-theme="dark"] .hero-intro h1 .hero-line:last-child{background:var(--ga
   html{scroll-behavior:auto}
   .story-ticker-track{animation:none}
 }
+
+/* ---------- 12. UI-designer weekly pass 2026-10-17 ----------
+   FIX 1: ticker label collision — give the fixed "Latest / Trending"
+   label an opaque background matching the ticker's own surface and
+   clip the marquee window inside its grid column. */
+.story-ticker-inner>strong{background:#111411;padding-right:18px}
+:root[data-theme="light"] .story-ticker-inner>strong{background:#fff}
+.story-ticker-window{overflow:hidden}
+
+/* FIX 2: runtime footer (footer.ga-site-footer, rebuilt by site-shell.js)
+   brand lockup — mirror the intended 38px shield + wordmark sizing. */
+footer.ga-site-footer .ga-footer-brand .ga-lockup{display:inline-flex;align-items:center;gap:11px;text-decoration:none}
+footer.ga-site-footer .ga-mark{width:38px;height:38px;flex:0 0 38px;filter:drop-shadow(0 6px 16px rgba(74,222,128,.35))}
+footer.ga-site-footer .ga-wordmark{font:800 1.15rem/1 var(--ga-display);letter-spacing:-.02em;color:#f2f7f4;white-space:nowrap}
+footer.ga-site-footer .ga-wordmark em{font-style:normal;background:var(--ga-gradient);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+/* Companion to FIX 2 (builder note, 2026-10-17): the design-layer footer it
+   mirrors stays dark in light theme (section 8: background #0e1512), but the
+   runtime footer is light in light theme (site-shell.css: #f7faf8), where
+   #f2f7f4 measures ~1.0:1 contrast — the word "Gadget" vanishes. Keep the
+   wordmark in the light-theme ink used by the header lockup; dark theme
+   keeps the prescribed #f2f7f4 on its dark footer. */
+:root[data-theme="light"] footer.ga-site-footer .ga-wordmark{color:#0c1411}
+
+/* FIX 3: light theme — restore white text on filled dark-green pills
+   (card kickers and badges) clobbered by the 2026-10-12 a11y override. */
+html:root[data-theme="light"] .card .label,
+html:root[data-theme="light"] .latest-grid .badge:not(.warn),
+html:root[data-theme="light"] .side-card .badge:not(.warn),
+html:root[data-theme="light"] .meta .badge:not(.warn){color:#fff!important;-webkit-text-fill-color:#fff!important}
